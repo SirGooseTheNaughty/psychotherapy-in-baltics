@@ -7,7 +7,57 @@
     <title>CDN for Psychotherapy in Baltics</title>
 </head>
 <body>
-    <h1>Move along, stranger!</h1>
-    <p>That is, if you're not a fellow developer. In that case you might want to check other scripts in this repo.</p>
+    <canvas id="mesh-canvas" width="1200" height="600"></canvas>
+    
+    <div class="msg">
+        <h1>Move along, stranger!</h1>
+        <p>That is, if you're not a fellow developer.
+            In that case you might want to check other scripts in <a href="https://github.com/SirGooseTheNaughty/psychotherapy-in-baltics">this repo</a>.
+        </p>
+    </div>
+
+    <script id="warp_fragment" src="./meshGradient/resources/fragment.glsl" type="x-shader/x-fragment"></script>
+    <script id="point_fragment" src="./meshGradient/resources/point_fragment.glsl" type="x-shader/x-fragment"></script>
+    <script id="point_vertex" src="./meshGradient/resources/point_vertex.glsl" type="x-shader/x-vertex"></script>
+    <script id="smoke_fragment" src="./meshGradient/resources/smoke_fragment.glsl" type="x-shader/x-fragment"></script>
+    <script id="smoke_vertex" src="./meshGradient/resources/smoke_vertex.glsl" type="x-shader/x-vertex"></script>
+    <script id="warp_vertex" src="./meshGradient/resources/vertex.glsl" type="x-shader/x-vertex"></script>
+    
+    <script src="./meshGradient/data.js"></script>
+    <script src="./meshGradient/script.js"></script>
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background-color:black;
+        }
+        #mesh-canvas {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: #93AEDA;
+        }
+        .msg {
+            position: fixed;
+            top: 20%;
+            left: 10%;
+            font-family: sans-serif;
+            color: #EEE;
+        }
+        h1 {
+            font-size: 50px;
+        }
+        p {
+            font-size: 30px;
+        }
+        a {
+            color: inherit
+        }
+    </style>
+
+    <script>
+        init();
+    </script>
 </body>
 </html>
