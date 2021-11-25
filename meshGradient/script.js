@@ -517,14 +517,8 @@ function init() {
   }
   warps.update();
 
-  gradient.moving = [
-    { index: 3, revert: false },
-    { index: 4, revert: true, coeff: 0.4, add: { vert: 0.5, hor: 0.5 } },
-  ];
-  gradient.target = [
-    [-1, 0.5],
-    [0, 0]
-  ];
+  gradient.moving = meshData.moving;
+  gradient.target = meshData.target;
   gradient.drag = gradient.moving.map((mov, i) => {
     return [mov.index, ...gradient.warp.src[mov.index], ...gradient.warp.src[mov.index]]
   });
