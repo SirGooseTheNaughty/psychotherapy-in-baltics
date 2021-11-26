@@ -17,9 +17,15 @@ class GridDrawer {
         this.drawHorizontalLine = this.drawHorizontalLine.bind(this);
         this.drawHorizontalLines = this.drawHorizontalLines.bind(this);
         this.redraw = this.redraw.bind(this);
+        this.unmount = this.unmount.bind(this);
 
         this.resizeCanvas();
         window.addEventListener('resize', this.resizeCanvas);
+    }
+
+    unmount() {
+        window.removeEventListener('resize', this.resizeCanvas);
+        this.canvas.remove();
     }
 
     resizeCanvas() {
