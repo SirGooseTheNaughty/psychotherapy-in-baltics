@@ -82,3 +82,5 @@ class GridDrawer {
         this.drawVerticalLines();
     }
 }
+
+const drawer = new GridDrawer();
