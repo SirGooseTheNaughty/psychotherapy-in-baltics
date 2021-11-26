@@ -19,7 +19,7 @@ class GridDrawer {
         this.redraw = this.redraw.bind(this);
         this.unmount = this.unmount.bind(this);
 
-        this.resizeCanvas();
+        document.addEventListener('DOMContentLoaded', this.resizeCanvas);
         window.addEventListener('resize', this.resizeCanvas);
     }
 
