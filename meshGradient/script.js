@@ -526,3 +526,5 @@ function init() {
   redraw();
   loop();
 }
+
+init();
