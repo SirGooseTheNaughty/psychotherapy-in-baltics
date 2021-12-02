@@ -1,4 +1,68 @@
 const translations = {
+    nav: {
+        logo: {
+            top: {
+                en: 'Psychotherapy',
+                ru: 'Психотерапия',
+            },
+            bottom: {
+                en: 'in Baltic',
+                ru: 'в Балтии',
+            },
+        },
+        location: {
+            en: 'YES',
+            ru: 'АГА',
+        },
+        language: {
+            en: 'EN',
+            ru: 'RU',
+        },
+        menu: {
+            en: 'Menu',
+            ru: 'Меню',
+        },
+        locations: {
+            title: {
+                en: 'Where are you browsing from?',
+                ru: 'Откуда вы?',
+            },
+            lithuania: {
+                en: 'Lithuania',
+                ru: 'Литва',
+            },
+            estonia: {
+                en: 'Estonia',
+                ru: 'Эстония',
+            },
+            latvia: {
+                en: 'Latvia',
+                ru: 'Латвия',
+            },
+        },
+        languages: {
+            title: {
+                en: 'What is your preferred language?',
+                ru: 'Какой язык для вас предпочтительнее?',
+            },
+            ru: {
+                en: 'Russian',
+                ru: 'Русский',
+            },
+            est: {
+                en: 'Estonian',
+                ru: 'Эстонский',
+            },
+            lv: {
+                en: 'Latvian',
+                ru: 'Латышский',
+            },
+            en: {
+                en: 'English',
+                ru: 'Английский',
+            },
+        },
+    },
     entry: {
         psy: {
             en: 'Psychotherapy',
@@ -33,7 +97,7 @@ const translations = {
                 ru: 'Главная',
                 lt: ''
             },
-            insitute: {
+            institute: {
                 en: 'Institute',
                 ru: 'Институт',
                 lt: ''
@@ -50,12 +114,12 @@ const translations = {
             },
             research: {
                 en: 'Research Centre',
-                ru: 'Исследовательский центр',
+                ru: '<span style="position: relative; top: -20px">Исследовательский центр</span>',
                 lt: ''
             },
             news: {
                 en: 'News and Events',
-                ru: 'Новости и мероприятия',
+                ru: '<span style="position: relative; top: -20px">Новости и мероприятия</span>',
                 lt: ''
             },
             contacts: {

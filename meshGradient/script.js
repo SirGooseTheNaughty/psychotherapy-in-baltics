@@ -27,7 +27,6 @@ function Warp(s, M, t, e) {
     (this.dst = e),
     (this.s2 = []),
     (this.w = []);
-  for (let s = 0; s < MAX_POINTS; s++) this.s2.push(0), this.w.push([0, 0]);
 }
 function linsolve(s, M) {
   let t = s.length,
@@ -68,8 +67,6 @@ function linsolve(s, M) {
 }
 function Warps(s = [], M = [], t = 0) {
   (this.npoints = t), (this.src = s), (this.dst = M);
-  for (let s = t; s < MAX_POINTS; s++)
-    this.src.push([0, 0]), this.dst.push([0, 0]);
   this.src.map(s =>
     "number" != typeof s[0] || "number" != typeof s[1] ? [0, 0] : s
   ),
@@ -496,7 +493,6 @@ function adjust() {
   canvas.height = document.documentElement.clientHeight;
 }
 
-window.addEventListener("resize", adjust);
 
 function init() {
   const canvas = document.getElementById(meshData.canvasId);

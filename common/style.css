@@ -1,0 +1,38 @@
+:root {
+    --cellWidth: 193px;
+    --cellHeight: 200px;
+    --white: #fff;
+    --beige: #F0EFEC;
+    --lightGray: ##F2F2F2;
+}
+a {
+    text-decoration: none;
+}
+p {
+    margin: 0;
+}
+
+@media screen and (max-width: 1200) {
+    :root {
+        --cellWidth: 156.8px;
+        --cellHeight: 162.5px;
+    }
+}
+@media screen and (max-width: 980) {
+    :root {
+        --cellWidth: 103px;
+        --cellHeight: 106.7px;
+    }
+}
+@media screen and (max-width: 640) {
+    :root {
+        --cellWidth: 114.7px;
+        --cellHeight: 118.9px;
+    }
+}
+@media screen and (max-width: 480) {
+    :root {
+        --cellWidth: 149.31px;
+        --cellHeight: 154.72px;
+    }
+}
