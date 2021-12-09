@@ -2,8 +2,10 @@
     --cellWidth: 193px;
     --cellHeight: 200px;
     --white: #fff;
+    --dimmedWhite: rgba(255, 255, 255, 0.15);
     --beige: #F0EFEC;
-    --lightGray: ##F2F2F2;
+    --blue: #7F95D1;
+    --lightGray: #F2F2F2;
 }
 a {
     text-decoration: none;
@@ -14,25 +16,25 @@ p {
 
 @media screen and (max-width: 1200) {
     :root {
-        --cellWidth: 156.8px;
-        --cellHeight: 162.5px;
+        --cellWidth: 157px;
+        --cellHeight: 163px;
     }
 }
 @media screen and (max-width: 980) {
     :root {
         --cellWidth: 103px;
-        --cellHeight: 106.7px;
+        --cellHeight: 107px;
     }
 }
 @media screen and (max-width: 640) {
     :root {
-        --cellWidth: 114.7px;
-        --cellHeight: 118.9px;
+        --cellWidth: 115px;
+        --cellHeight: 119px;
     }
 }
 @media screen and (max-width: 480) {
     :root {
-        --cellWidth: 149.31px;
-        --cellHeight: 154.72px;
+        --cellWidth: 150px;
+        --cellHeight: 155px;
     }
 }

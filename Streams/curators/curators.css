@@ -1,0 +1,101 @@
+#curators {
+    width: calc(6 * var(--cellWidth));
+    height: calc(3 * var(--cellHeight));
+    margin: 0 auto;
+    position: relative;
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+}
+
+#curators .content {
+    display: flex;
+    justify-content: start;
+    overflow: hidden;
+}
+#curators .card {
+    min-width: calc(2 * var(--cellWidth));
+    height: calc(3 * var(--cellHeight));
+    border: 1px solid #F0EFEC;
+    box-sizing: border-box;
+    transition: transform .75s ease;
+}
+#curators .card:not(:nth-child(3n)):not(:last-child) {
+    border-right: transparent;
+}
+#curators .person {
+    min-width: calc(2 * var(--cellWidth));
+    height: calc(2 * var(--cellHeight));
+    border-bottom: 1px solid #F0EFEC;
+}
+#curators .card__info {
+    height: var(--cellHeight);
+    padding: 36px 39px;
+    box-sizing: border-box;
+}
+#curators .card__info-name {
+    margin: 0 0 14px 0;
+}
+#curators .card__info-desc {
+    font-size: 16px;
+    height: calc(100% - 20px);
+    overflow: hidden;
+    position: relative;
+    user-select: none;
+}
+#curators .card__info-desc p {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity .75s ease;
+}
+#curators .card__info-desc p:last-child {
+    opacity: 0;
+}
+#curators .card:hover .card__info-desc.changable p:last-child {
+    opacity: 1;
+}
+#curators .card:hover .card__info-desc.changable p:first-child {
+    opacity: 0;
+}
+
+#curators .controls {
+    width: 100%;
+    position: absolute;
+    top: 0;
+}
+#curators .controls__btn {
+    position: absolute;
+    top: var(--cellHeight);
+    cursor: pointer;
+    transition: opacity .25s ease;
+}
+#curators .controls__btn.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+#curators .controls .controls__left {
+    left: 0;
+    transform: translate(-50%, -50%) rotate(180deg);
+}
+#curators .controls .controls__right {
+    right: 0;
+    transform: translate(50%, -50%);
+}
+#curators .controls__tags {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    top: calc(-1 * var(--cellHeight) / 2.5);
+}
+#curators .controls__tag {
+    margin: 0 14px;
+    font-weight: 600;
+    opacity: 60%;
+    cursor: pointer;
+    transition: opacity .25s ease;
+}
+#curators .controls__tag.active {
+    opacity: 100%;
+}

@@ -4,11 +4,16 @@ class Translator {
         this.texts = [];
         this.lang = 'en';
 
+        this.subscribers = [];
+
         this.translateElement = this.translateElement.bind(this);
         this.translateElements = this.translateElements.bind(this);
         this.changeLang = this.changeLang.bind(this);
 
-        document.addEventListener('DOMContentLoaded', this.findAndSortTexts.bind(this));
+        document.addEventListener('DOMContentLoaded', () => {
+            this.findAndSortTexts.call(this);
+            this.translateElements();
+        });
     }
 
     findAndSortTexts() {
@@ -26,8 +31,12 @@ class Translator {
     translateElement(element) {
         try {
             const texts = element.keys.reduce((obj, key) => obj = obj[key], this.translations);
-            const text = texts[this.lang]
-            element.element.innerHTML = text;
+            const text = texts[this.lang];
+            if (typeof text === 'function') {
+                element.element.innerHTML = text();
+            } else {
+                element.element.innerHTML = text;
+            }
         } catch(e) {
             console.error(e, element);
         }
@@ -37,9 +46,12 @@ class Translator {
         this.texts.forEach(this.translateElement);
     }
 
-    changeLang(lang) {
-        this.lang = lang;
+    changeLang(lang = null) {
+        if (lang) {
+            this.lang = lang;
+        }
         this.translateElements();
+        this.subscribers.forEach(s => s.setProperty('lang', lang));
     }
 };
 

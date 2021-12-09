@@ -3,13 +3,7 @@ class GridDrawer {
         this.canvas = document.querySelector('#grid');
         this.ctx = this.canvas.getContext('2d');
         this.breakpoints = [1200, 960, 640, 480];
-        this.steps = [
-            { v: 200, h: 193 },
-            { v: 162.5, h: 156.8 },
-            { v: 106.7, h: 103 },
-            { v: 118.9, h: 114.7 },
-            { v: 154.72, h: 149.31 },
-        ];
+        this.steps = gridSizes;
 
         this.resizeCanvas = this.resizeCanvas.bind(this);
         this.getCurrentSteps = this.getCurrentSteps.bind(this);

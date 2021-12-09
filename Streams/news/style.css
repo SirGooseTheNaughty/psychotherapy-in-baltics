@@ -22,7 +22,7 @@
     line-height: 145%;
     letter-spacing: -0.025em;
 }
-.post:not(:last-child) {
+.post:not(:last-child):not(:nth-child(3n)) {
     border-right: transparent;
 }
 .date {

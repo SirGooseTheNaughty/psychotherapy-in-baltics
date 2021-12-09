@@ -11,8 +11,28 @@ const translations = {
             },
         },
         location: {
-            en: 'YES',
-            ru: 'АГА',
+            en: () => {
+                const location = localStorage.getItem('loc');
+                switch (location) {
+                    case 'lv':
+                        return 'Latvia';
+                    case 'et':
+                        return 'Estonia';
+                    case 'lt':
+                        return 'Lithuania';
+                }
+            },
+            ru: () => {
+                const location = localStorage.getItem('loc');
+                switch (location) {
+                    case 'lv':
+                        return 'Латвия';
+                    case 'et':
+                        return 'Эстония';
+                    case 'lt':
+                        return 'Литва';
+                }
+            },
         },
         language: {
             en: 'EN',
@@ -27,15 +47,15 @@ const translations = {
                 en: 'Where are you browsing from?',
                 ru: 'Откуда вы?',
             },
-            lithuania: {
+            lt: {
                 en: 'Lithuania',
                 ru: 'Литва',
             },
-            estonia: {
+            es: {
                 en: 'Estonia',
                 ru: 'Эстония',
             },
-            latvia: {
+            lv: {
                 en: 'Latvia',
                 ru: 'Латвия',
             },
@@ -49,7 +69,7 @@ const translations = {
                 en: 'Russian',
                 ru: 'Русский',
             },
-            est: {
+            es: {
                 en: 'Estonian',
                 ru: 'Эстонский',
             },
