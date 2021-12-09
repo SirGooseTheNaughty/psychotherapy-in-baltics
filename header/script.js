@@ -26,13 +26,13 @@ class Header {
         this.setLocation = this.setLocation.bind(this);
         this.fetchLocation = this.fetchLocation.bind(this);
 
-        for (let key in Object.keys(this.controls.togglers)) {
+        for (let key of Object.keys(this.controls.togglers)) {
             this.controls.togglers[key].addEventListener('click', () => this.toggleDropdown(key));
         }
-        for (let key in Object.keys(this.controls.languages)) {
+        for (let key of Object.keys(this.controls.languages)) {
             this.controls.languages[key].addEventListener('click', () => this.setLanguage(key));
         }
-        for (let key in Object.keys(this.controls.locations)) {
+        for (let key of Object.keys(this.controls.locations)) {
             this.controls.locations[key].addEventListener('click', () => this.setLocation(key));
         }
 
