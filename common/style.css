@@ -14,25 +14,25 @@ p {
     margin: 0;
 }
 
-@media screen and (max-width: 1200) {
+@media screen and (max-width: 1200px) {
     :root {
         --cellWidth: 157px;
         --cellHeight: 163px;
     }
 }
-@media screen and (max-width: 980) {
+@media screen and (max-width: 980px) {
     :root {
         --cellWidth: 103px;
         --cellHeight: 107px;
     }
 }
-@media screen and (max-width: 640) {
+@media screen and (max-width: 640px) {
     :root {
         --cellWidth: 115px;
         --cellHeight: 119px;
     }
 }
-@media screen and (max-width: 480) {
+@media screen and (max-width: 480px) {
     :root {
         --cellWidth: 150px;
         --cellHeight: 155px;
