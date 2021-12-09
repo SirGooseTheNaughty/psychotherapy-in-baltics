@@ -9,6 +9,7 @@ class Translator {
         this.translateElement = this.translateElement.bind(this);
         this.translateElements = this.translateElements.bind(this);
         this.changeLang = this.changeLang.bind(this);
+        this.getTranslation = this.getTranslation.bind(this);
 
         document.addEventListener('DOMContentLoaded', () => {
             this.findAndSortTexts.call(this);
@@ -52,6 +53,21 @@ class Translator {
         }
         this.translateElements();
         this.subscribers.forEach(s => s.setProperty('lang', lang));
+    }
+
+    getTranslation(keys) {
+        try {
+            const texts = keys.reduce((obj, key) => obj = obj[key], this.translations);
+            const text = texts[this.lang];
+            if (typeof text === 'function') {
+                return text();
+            } else {
+                return text;
+            }
+        } catch(e) {
+            console.error(e, element);
+            return '';
+        }
     }
 };
 

@@ -3,8 +3,8 @@ class Header {
         this.cont = document.querySelector('.balt-nav');
         this.controls = {
             togglers: {
-                language: this.cont.querySelector('.nav-language'),
-                location: this.cont.querySelector('.nav-location'),
+                languages: this.cont.querySelector('.nav-language'),
+                locations: this.cont.querySelector('.nav-location'),
                 menu: this.cont.querySelector('.nav-menu'),
             },
             languages: {
@@ -14,9 +14,9 @@ class Header {
                 en: this.cont.querySelector('.nav-languages__en'),
             },
             locations: {
-                lithuania: this.cont.querySelector('.nav-locations__lt'),
-                estonia: this.cont.querySelector('.nav-locations__es'),
-                latvia: this.cont.querySelector('.nav-locations__lv'),
+                LT: this.cont.querySelector('.nav-locations__lt'),
+                ET: this.cont.querySelector('.nav-locations__es'),
+                LV: this.cont.querySelector('.nav-locations__lv'),
             },
         };
         this.translator = translator;
@@ -26,16 +26,15 @@ class Header {
         this.setLocation = this.setLocation.bind(this);
         this.fetchLocation = this.fetchLocation.bind(this);
 
-        this.controls.togglers.language.addEventListener('click', () => this.toggleDropdown('languages'));
-        this.controls.togglers.location.addEventListener('click', () => this.toggleDropdown('locations'));
-        this.controls.togglers.menu.addEventListener('click', () => this.toggleMenu());
-        this.controls.languages.ru.addEventListener('click', () => this.setLanguage('ru'));
-        this.controls.languages.est.addEventListener('click', () => this.setLanguage('est'));
-        this.controls.languages.lv.addEventListener('click', () => this.setLanguage('lv'));
-        this.controls.languages.en.addEventListener('click', () => this.setLanguage('en'));
-        this.controls.locations.lithuania.addEventListener('click', () => this.setLocation('LT'));
-        this.controls.locations.estonia.addEventListener('click', () => this.setLocation('ET'));
-        this.controls.locations.latvia.addEventListener('click', () => this.setLocation('LV'));
+        for (let key in Object.keys(this.controls.togglers)) {
+            this.controls.togglers[key].addEventListener('click', () => this.toggleDropdown(key));
+        }
+        for (let key in Object.keys(this.controls.languages)) {
+            this.controls.languages[key].addEventListener('click', () => this.setLanguage(key));
+        }
+        for (let key in Object.keys(this.controls.locations)) {
+            this.controls.locations[key].addEventListener('click', () => this.setLocation(key));
+        }
 
         let lang = getLanguageCookie();
         if (!lang) {
@@ -67,7 +66,7 @@ class Header {
         }
     }
 
-    toggleDropdown(dropdown) {
+    toggleDropdown(dropdown = '') {
         this.cont.setAttribute(
             'data-opened',
             this.cont.getAttribute('data-opened') === dropdown ? '' : dropdown
@@ -79,6 +78,7 @@ class Header {
         this.cont.setAttribute('data-language', lang);
         setLanguageCookie(lang);
         this.translator && this.translator.changeLang(lang);
+        this.toggleDropdown();
     }
 
     setLocation(location) {
@@ -86,7 +86,11 @@ class Header {
         console.log('set location ' + loc);
         this.cont.setAttribute('data-location', loc);
         setLocationCookie(loc);
-        this.translator && this.translator.changeLang();
+        // this.translator && this.translator.changeLang();
+        this.controls.togglers.locations.firstElementChild.textContent = this.translator
+            ? (this.translator.getTranslation(['nav', 'location']) || 'Language')
+            : 'Language';
+        this.toggleDropdown();
     }
 }
 

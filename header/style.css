@@ -16,9 +16,10 @@ a {
     background: #91AED8;
     border: 0px solid var(--beige);
     border-bottom-width: 1px;
+    z-index: 9999;
 }
 .nav-container {
-    width: 1160px;
+    width: calc(6 * var(--cellWidth));
     height: 100%;
     margin: 0 auto;
     display: grid;
@@ -50,9 +51,9 @@ a {
 .nav-dropdown {
     position: absolute;
     top: 100%;
-    z-index: 1;
     overflow: hidden;
     pointer-events: none;
+    z-index: 9998;
 }
 .nav-dropdown__container {
     height: 100%;
@@ -176,4 +177,13 @@ a {
 [data-location="lv"] .nav-locations__lv {
     font-weight: 600;
     pointer-events: none;
+}
+
+@media screen and (max-width: 480px) {
+    .nav-container {
+        width: calc(2 * var(--cellWidth));
+    }
+    .nav-dropdown-icon {
+        display: none;
+    }
 }
