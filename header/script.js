@@ -86,6 +86,7 @@ class Header {
     }
 
     toggleDropdown(dropdown = '') {
+        dropdown === 'menu' && this.toggleMenu();
         this.cont.setAttribute(
             'data-opened',
             this.cont.getAttribute('data-opened') === dropdown ? '' : dropdown
