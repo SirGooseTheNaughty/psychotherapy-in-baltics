@@ -26,6 +26,7 @@ class Header {
         this.menu = {
             desktop: document.querySelector('#rec389146024'),
             mobile: document.querySelector('#rec389782989'),
+            links: [],
         };
         this.body = document.querySelector('body');
         this.translator = translator;
@@ -38,6 +39,7 @@ class Header {
 
         this.menu.desktop.classList.add('my-menu');
         this.menu.mobile.classList.add('my-menu');
+        this.menu.links = [...this.menu.desktop.querySelectorAll('a'), ...this.menu.mobile.querySelectorAll('a')];
 
         for (let key of Object.keys(this.controls.togglers)) {
             this.controls.togglers[key].addEventListener('click', () => this.toggleDropdown(key));
@@ -50,6 +52,7 @@ class Header {
         }
         this.controls.mobile.languages.addEventListener('change', (e) => this.setLanguage(e.target.value, false));
         this.controls.mobile.locations.addEventListener('change', (e) => this.setLocation(e.target.value, false));
+        this.menu.links.forEach(link => link.addEventListener('click', () => this.toggleDropdown('menu')));
 
         let lang = getLanguageCookie();
         if (!lang) {
