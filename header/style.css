@@ -257,9 +257,14 @@ a {
     overflow-y: hidden;
     padding-right: 17px;
 }
-#allrecords > [id^=rec] {
+.menu-opened .nav-container {
+    padding-right: 17px;
+}
+#allrecords > [id^=rec],
+#grid {
     transition: opacity .4s ease;
 }
-.menu-opened #allrecords > [id^=rec] {
+.menu-opened #allrecords > [id^=rec],
+.menu-opened #grid {
     opacity: 0;
 }
