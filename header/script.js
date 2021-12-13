@@ -72,12 +72,12 @@ class Header {
     }
 
     toggleMenu() {
-        if (this.cont.getAttribute('data-menu') === 'opened') {
-            this.cont.setAttribute('data-menu', 'closed');
+        if (this.cont.getAttribute('data-opened') === 'menu') {
+            this.cont.setAttribute('data-opened', '');
             this.menu.desktop.classList.remove('opened');
             this.menu.mobile.classList.remove('opened');
         } else {
-            this.cont.setAttribute('data-menu', 'opened');
+            this.cont.setAttribute('data-opened', 'menu');
             this.menu.desktop.classList.add('opened');
             this.menu.mobile.classList.add('opened');
         }
