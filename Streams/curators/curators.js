@@ -89,12 +89,13 @@ const Curators = {
     },
     methods: {
         getItems: async function() {
-            let items = [];
-            await fetch(this.fetchLink)
-                .then(res => res.json())
-                .then(res => items = res)
-                .catch(console.log);
-            return this.preformItems(items);
+            return mockedCurators;
+            // let items = [];
+            // await fetch(this.fetchLink)
+            //     .then(res => res.json())
+            //     .then(res => items = res)
+            //     .catch(console.log);
+            // return this.preformItems(items);
         },
         preformItems: function(items) {
             return items.posts.map(post => {

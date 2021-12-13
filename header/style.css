@@ -13,7 +13,7 @@ a {
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 500;
-    background: #91AED8;
+    backdrop-filter: blur(10px);
     border: 0px solid var(--beige);
     border-bottom-width: 1px;
     z-index: 9999;
@@ -24,7 +24,7 @@ a {
     margin: 0 auto;
     display: grid;
     align-items: center;
-    grid-template-columns: 267px 119px 113px 119px auto;
+    grid-template-columns: 267px 119px 119px 119px auto;
 }
 .nav-content,
 .nav-dropdown {
@@ -101,18 +101,18 @@ a {
 .nav-menu__icon span:nth-child(3) {
     top: 100%;
 }
-[data-menu="opened"] .nav-menu__icon span {
+[data-opened="menu"] .nav-menu__icon span {
     height: 2px
 }
-[data-menu="opened"] .nav-menu__icon span:nth-child(1) {
+[data-opened="menu"] .nav-menu__icon span:nth-child(1) {
     top: 50%;
     transform: rotate(-45deg);
 }
-[data-menu="opened"] .nav-menu__icon span:nth-child(2) {
+[data-opened="menu"] .nav-menu__icon span:nth-child(2) {
     width: 0;
     opacity: 0;
 }
-[data-menu="opened"] .nav-menu__icon span:nth-child(3) {
+[data-opened="menu"] .nav-menu__icon span:nth-child(3) {
     top: 50%;
     width: 100%;
     transform: rotate(45deg);
@@ -179,11 +179,61 @@ a {
     pointer-events: none;
 }
 
-@media screen and (max-width: 480px) {
+.mobile-select__container {
+    display: none;
+}
+
+@media screen and (max-width: 1200px) {
     .nav-container {
-        width: calc(2 * var(--cellWidth));
+        grid-template-columns: calc(2 * var(--cellWidth)) 100px 100px 100px auto;
     }
-    .nav-dropdown-icon {
+}
+@media screen and (max-width: 960px) {
+    .nav-container {
+        grid-template-columns: calc(2 * var(--cellWidth)) var(--cellWidth) var(--cellWidth) var(--cellWidth) auto;
+    }
+    .nav-dropdown__title {
+        max-width: calc(3 * var(--cellWidth) / 2);
+    }
+}
+@media screen and (max-width: 640px) {
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: calc(100% - 24px);
+        min-width: calc(2 * var(--cellWidth));
+        margin: 0 12px;
+        box-sizing: border-box;
+    }
+    .nav-selection,
+    .nav-dropdown {
         display: none;
+    }
+
+    .mobile-select__container {
+        position: fixed;
+        bottom: 3vh;
+        left: 12px;
+        width: calc(100% - 24px);
+        display: flex;
+        justify-content: space-between;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .4s ease;
+    }
+    [data-opened="menu"] .mobile-select__container {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    .mobile-select {
+        width: 50%;
+    }
+    .mobile-select select {
+        background-color: transparent;
+        border: none;
+        color: var(--white);
+        font-size: 18px;
+        font-weight: 500;
     }
 }

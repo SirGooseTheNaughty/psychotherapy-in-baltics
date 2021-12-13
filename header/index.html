@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <nav class="balt-nav" data-opened="locations" data-language="ru" data-location="lithuania" data-menu="closed">
+    <canvas id="grid" width="1200" height="800"></canvas>
+
+    <nav class="balt-nav" data-opened="" data-language="ru" data-location="lithuania">
         <div class="nav-content">
             <div class="nav-container">
                 <div class="nav-logo">
@@ -55,19 +57,33 @@
                 </div>
             </div>
         </div>
+        <div class="mobile-select__container">
+            <div class="mobile-select mobile-select__locations">
+                <select name="locations">
+                    <option class="mobile-locations__lt trl-nav-locations-lt" value="LT">Lithuania</option>
+                    <option class="mobile-locations__es trl-nav-locations-es" value="ET">Estonia</option>
+                    <option class="mobile-locations__lv trl-nav-locations-lv" value="LV">Latvia</option>
+                </select>
+            </div>
+            <div class="mobile-select mobile-select__languages">
+                <select name="locations">
+                    <option class="mobile-languages__ru" value="ru">Русский</option>
+                    <option class="mobile-languages__es" value="et">Eesti</option>
+                    <option class="mobile-languages__lv" value="lv">Latviešu</option>
+                    <option class="mobile-languages__en" value="en">English</option>
+                </select>
+            </div>
+        </div>
     </nav>
-    <div class="clipper">
-        <svg width="1920" height="950" viewBox="0 0 1920 950" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <clipPath id="header-clip">
-                <rect width="1920" height="900" fill="#000000"/>
-            </clipPath>
-        </svg>
-    </div>
+    <div class="container"></div>
 
     <script>
         const translator = null;
     </script>
+    <script src="../common/script.js"></script>
     <script src="./script.js"></script>
+    
+    <script src="../grid/drawer.js"></script>
 
     <style>
         a {
@@ -78,6 +94,15 @@
             margin: 0;
             padding: 0;
             background-color: #93AEDAAA;
+        }
+        #grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .container {
+            width: 100%;
+            height: 300vh;
         }
     </style>
 </body>

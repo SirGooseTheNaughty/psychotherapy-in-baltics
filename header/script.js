@@ -9,7 +9,7 @@ class Header {
             },
             languages: {
                 ru: this.cont.querySelector('.nav-languages__ru'),
-                est: this.cont.querySelector('.nav-languages__es'),
+                et: this.cont.querySelector('.nav-languages__es'),
                 lv: this.cont.querySelector('.nav-languages__lv'),
                 en: this.cont.querySelector('.nav-languages__en'),
             },
@@ -18,6 +18,10 @@ class Header {
                 ET: this.cont.querySelector('.nav-locations__es'),
                 LV: this.cont.querySelector('.nav-locations__lv'),
             },
+            mobile: {
+                languages: this.cont.querySelector('.mobile-select__languages select'),
+                locations: this.cont.querySelector('.mobile-select__locations select'),
+            }
         };
         this.translator = translator;
 
@@ -35,6 +39,8 @@ class Header {
         for (let key of Object.keys(this.controls.locations)) {
             this.controls.locations[key].addEventListener('click', () => this.setLocation(key));
         }
+        this.controls.mobile.languages.addEventListener('change', (e) => this.setLanguage(e.target.value, false));
+        this.controls.mobile.locations.addEventListener('change', (e) => this.setLocation(e.target.value, false));
 
         let lang = getLanguageCookie();
         if (!lang) {
@@ -73,15 +79,15 @@ class Header {
         );
     }
 
-    setLanguage(lang) {
+    setLanguage(lang, isToggler = true) {
         console.log('set lang ' + lang);
         this.cont.setAttribute('data-language', lang);
         setLanguageCookie(lang);
         this.translator && this.translator.changeLang(lang);
-        this.toggleDropdown();
+        isToggler && this.toggleDropdown();
     }
 
-    setLocation(location) {
+    setLocation(location, isToggler = true) {
         const loc = location.toLowerCase();
         console.log('set location ' + loc);
         this.cont.setAttribute('data-location', loc);
@@ -90,7 +96,7 @@ class Header {
         this.controls.togglers.locations.firstElementChild.textContent = this.translator
             ? (this.translator.getTranslation(['nav', 'location']) || 'Language')
             : 'Language';
-        this.toggleDropdown();
+        isToggler && this.toggleDropdown();
     }
 }
 
