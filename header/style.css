@@ -251,6 +251,7 @@ a {
 .my-menu.opened {
     transform: translateX(0);
     opacity: 1;
+    pointer-events: auto;
 }
 .menu-opened {
     overflow-y: hidden;
