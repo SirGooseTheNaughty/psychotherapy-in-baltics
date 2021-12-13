@@ -23,12 +23,19 @@ class Header {
                 locations: this.cont.querySelector('.mobile-select__locations select'),
             }
         };
+        this.menu = {
+            desktop: document.querySelector('#rec389146024'),
+            mobile: document.querySelector('#rec389782989'),
+        };
         this.translator = translator;
 
         this.toggleDropdown = this.toggleDropdown.bind(this);
         this.setLanguage = this.setLanguage.bind(this);
         this.setLocation = this.setLocation.bind(this);
         this.fetchLocation = this.fetchLocation.bind(this);
+
+        this.menu.desktop.classList.add('my-menu');
+        this.menu.mobile.classList.add('my-menu');
 
         for (let key of Object.keys(this.controls.togglers)) {
             this.controls.togglers[key].addEventListener('click', () => this.toggleDropdown(key));
@@ -67,8 +74,12 @@ class Header {
     toggleMenu() {
         if (this.cont.getAttribute('data-menu') === 'opened') {
             this.cont.setAttribute('data-menu', 'closed');
+            this.menu.desktop.classList.remove('opened');
+            this.menu.mobile.classList.remove('opened');
         } else {
             this.cont.setAttribute('data-menu', 'opened');
+            this.menu.desktop.classList.add('opened');
+            this.menu.mobile.classList.add('opened');
         }
     }
 

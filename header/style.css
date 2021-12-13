@@ -237,3 +237,18 @@ a {
         font-weight: 500;
     }
 }
+
+.my-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-10%);
+    transition: .4s ease;
+}
+.my-menu.opened {
+    transform: translateX(0);
+    opacity: 1;
+}
