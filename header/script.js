@@ -27,9 +27,11 @@ class Header {
             desktop: document.querySelector('#rec389146024'),
             mobile: document.querySelector('#rec389782989'),
         };
+        this.body = document.querySelector('body');
         this.translator = translator;
 
         this.toggleDropdown = this.toggleDropdown.bind(this);
+        this.toggleMenu = this.toggleMenu.bind(this);
         this.setLanguage = this.setLanguage.bind(this);
         this.setLocation = this.setLocation.bind(this);
         this.fetchLocation = this.fetchLocation.bind(this);
@@ -73,13 +75,13 @@ class Header {
 
     toggleMenu() {
         if (this.cont.getAttribute('data-opened') === 'menu') {
-            this.cont.setAttribute('data-opened', '');
             this.menu.desktop.classList.remove('opened');
             this.menu.mobile.classList.remove('opened');
+            this.body.classList.remove('menu-opened');
         } else {
-            this.cont.setAttribute('data-opened', 'menu');
             this.menu.desktop.classList.add('opened');
             this.menu.mobile.classList.add('opened');
+            this.body.classList.add('menu-opened');
         }
     }
 

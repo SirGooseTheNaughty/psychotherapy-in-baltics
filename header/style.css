@@ -252,3 +252,13 @@ a {
     transform: translateX(0);
     opacity: 1;
 }
+.menu-opened {
+    overflow-y: hidden;
+    padding-right: 17px;
+}
+#allrecords > [id^=rec] {
+    transition: opacity .4s ease;
+}
+.menu-opened #allrecords > [id^=rec] {
+    opacity: 0;
+}
