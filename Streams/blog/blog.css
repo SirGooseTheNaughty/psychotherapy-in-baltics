@@ -283,6 +283,9 @@
     #blog .controls {
         background-color: transparent;
     }
+    #blog .controls-panel {
+        align-items: flex-start;
+    }
     #blog .selection.filters {
         display: block;
     }
@@ -308,6 +311,9 @@
     }
     #blog .selection__icon path {
         stroke: var(--lightGray);
+    }
+    #blog .search {
+        transform: translateY(-200%);
     }
     #blog .search input {
         font-size: 14px;
@@ -348,9 +354,6 @@
     }
     #blog .card__info-desc__date {
         width: var(--cellWidth);
-    }
-    #blog .controls-panel {
-        align-items: flex-start;
     }
     #blog .search input {
         width: calc(2 * var(--cellWidth));
