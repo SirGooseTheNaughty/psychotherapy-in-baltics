@@ -18,6 +18,12 @@ const searchIcon = `
         <path fill-rule="evenodd" clip-rule="evenodd" d="M16.8291 9.16457C16.8291 13.3976 13.3976 16.8291 9.16457 16.8291C4.93154 16.8291 1.5 13.3976 1.5 9.16457C1.5 4.93154 4.93154 1.5 9.16457 1.5C13.3976 1.5 16.8291 4.93154 16.8291 9.16457ZM15.093 16.1536C13.4948 17.5105 11.4253 18.3291 9.16457 18.3291C4.10312 18.3291 0 14.226 0 9.16457C0 4.10312 4.10312 0 9.16457 0C14.226 0 18.3291 4.10312 18.3291 9.16457C18.3291 11.4253 17.5105 13.4948 16.1536 15.093L22.0318 20.9711L22.5621 21.5015L21.5015 22.5621L20.9712 22.0318L15.093 16.1536Z" fill="#F2F2F2"/>
     </svg>
 `;
+const deleteIcon = `
+    <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="1.35355" y1="0.646447" x2="16.3536" y2="15.6464" stroke="#F0F0F0"/>
+        <line x1="0.646447" y1="15.6464" x2="15.6464" y2="0.646447" stroke="#F0F0F0"/>
+    </svg>
+`;
 
 const Blog = {
     el: '#blog',
@@ -39,7 +45,15 @@ const Blog = {
     },
     template: `
         <div id="blog">
-            <controls :type="type" :types="types" :filter="filter" :filters="filters" :set-property="setProperty" :get-relevant-posts="getRelevantPosts"></controls>
+            <controls
+                :type="type"
+                :types="types"
+                :filter="filter"
+                :filters="filters"
+                :set-property="setProperty"
+                :get-relevant-posts="getRelevantPosts"
+                :current-search="search"
+            ></controls>
             <div class="content">
                 <post v-for="(post, index) in slicedItems" :data="post" key="index"></post>
             </div>
@@ -177,7 +191,7 @@ const Post = {
 };
 
 const Controls = {
-    props: ['type', 'types', 'filter', 'filters', 'set-property', 'get-relevant-posts'],
+    props: ['type', 'types', 'filter', 'filters', 'set-property', 'get-relevant-posts', 'current-search'],
     data() {
         return {
             isSelectionOpened: false,
@@ -230,7 +244,8 @@ const Controls = {
                     v-on:blur="unfocus"
                     v-on:keydown="setSearch"
                 ></input>
-                ${searchIcon}
+                <div v-if="!currentSearch" v-on:click="setSearch" class="search__icon">${searchIcon}</div>
+                <div v-if="currentSearch" v-on:click="clearSearch" class="search__icon">${deleteIcon}</div>
                 <div class="search__results" v-if="isFocused">
                     <div class="search__result not-enough-letters" v-if="search.length < 3">Начните печатать для поиска</div>
                     <div class="search__result not-found" v-if="search.length >= 3 && relevantPosts.length === 0">По данному запросу не найдено публикаций</div>
@@ -276,7 +291,7 @@ const Controls = {
         },
         unfocus: function() { this.unfocusTimeout = setTimeout(() => this.isFocused = false, 50); },
         setSearch: function(e) {
-            if (e.key === 'Enter') {
+            if (e.key === 'Enter' || e.type === 'click') {
                 if (this.search.length >= 3) {
                     this.setProperty('search', this.search);
                 }
@@ -284,6 +299,10 @@ const Controls = {
                 this.setProperty('search', '');
             }
         },
+        clearSearch: function() {
+            this.setProperty('search', '');
+            this.search = '';
+        }
     }
 }
 

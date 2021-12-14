@@ -159,6 +159,9 @@
     color: var(--blue);
     transition: background-color .25s ease;
 }
+#blog .search__icon {
+    cursor: pointer;
+}
 #blog .tabs {
     display: flex;
     width: calc(4 * var(--cellWidth));
