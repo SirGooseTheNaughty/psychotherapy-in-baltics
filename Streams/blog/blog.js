@@ -87,16 +87,16 @@ const Blog = {
     },
     methods: {
         getItems: async function() {
-            this.items = mockedPosts.reverse();
-            this.filters = mockedFilters;
-            // await fetch(this.fetchLink)
-            //     .then(res => res.json())
-            //     .then(res => {
-            //         const { posts, filters } = this.preformItems(res);
-            //         this.items = posts;
-            //         this.filters = filters;
-            //     })
-            //     .catch(console.log);
+            // this.items = mockedPosts.reverse();
+            // this.filters = mockedFilters;
+            await fetch(this.fetchLink)
+                .then(res => res.json())
+                .then(res => {
+                    const { posts, filters } = this.preformItems(res);
+                    this.items = posts;
+                    this.filters = filters;
+                })
+                .catch(console.log);
         },
         preformItems: function(data) {
             let posts = [], filters = [];

@@ -63,12 +63,13 @@
     height: 52px;
     display: grid;
     place-items: center;
-    background-color: var(--beige);
+    background-color: var(--lightGray);
     color: var(--blue);
     font-size: 14px;
     text-transform: uppercase;
     font-weight: 600;
     cursor: pointer;
+    transition: background-color .4s ease;
 }
 
 #blog .controls-panel {
@@ -131,13 +132,10 @@
     box-sizing: border-box;
     height: 62px;
     width: var(--cellWidth);
-    background-color: var(--beige);
+    background-color: var(--lightGray);
     color: var(--blue);
     cursor: pointer;
     transition: background-color .25s ease;
-}
-#blog .selection__option:hover {
-    background-color: var(--white);
 }
 #blog .selection__options {
     position: absolute;
@@ -153,16 +151,13 @@
 #blog .search__results {
     position: absolute;
     width: 100%;
-    background-color: var(--beige);
+    background-color: var(--lightGray);
     font-size: 16px;
 }
 #blog .search__result {
     padding: 6px 8px;
     color: var(--blue);
     transition: background-color .25s ease;
-}
-#blog .search__result:hover {
-    background-color: var(--white);
 }
 #blog .tabs {
     display: flex;
@@ -183,9 +178,6 @@
 #blog .tab.selected {
     border-bottom-color: var(--white);
 }
-#blog .tab:hover {
-    background-color: var(--dimmedWhite);
-}
 #blog .tabs__shift-icon {
     position: absolute;
     top: 50%;
@@ -196,9 +188,6 @@
     border-radius: 50%;
     cursor: pointer;
     transition: background-color .25s ease;
-}
-#blog .tabs__shift-icon:hover {
-    background-color: var(--dimmedWhite);
 }
 #blog .tabs__shift-icon.left {
     left: 5px;
@@ -234,6 +223,24 @@
     text-transform: uppercase;
     font-size: 14px;
     border-top: 2px solid var(--beige)
+}
+
+@media (hover: hover) {
+    #blog .more:hover {
+        background-color: var(--white);
+    }
+    #blog .selection__option:hover {
+        background-color: var(--white);
+    }
+    #blog .search__result:hover {
+        background-color: var(--white);
+    }
+    #blog .tab:hover {
+        background-color: var(--dimmedWhite);
+    }
+    #blog .tabs__shift-icon:hover {
+        background-color: var(--dimmedWhite);
+    }
 }
 
 @media screen and (max-width: 1200px) {

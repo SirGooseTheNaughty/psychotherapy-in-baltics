@@ -19,11 +19,11 @@ const Feed = {
     `,
     watch: {
         lang: async function() {
-            this.items = await this.getItems();
+            await this.getItems();
         },
     },
     async created() {
-        this.items = await this.getItems();
+        await this.getItems();
         translator.subscribers.push(this);
     },
     computed: {
@@ -58,12 +58,13 @@ const Feed = {
     },
     methods: {
         getItems: async function() {
-            let items = [];
+            // this.items = mockedPosts;
             await fetch(this.fetchLink)
                 .then(res => res.json())
-                .then(res => items = res)
+                .then(res => {
+                    this.items = this.preformItems(res);
+                })
                 .catch(console.log);
-            return this.preformItems(items);
         },
         preformItems: function(items) {
             return items.posts.map(post => {

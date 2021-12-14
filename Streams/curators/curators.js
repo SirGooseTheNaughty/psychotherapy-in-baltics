@@ -58,11 +58,11 @@ const Curators = {
             this.shift = 0;
         },
         lang: async function() {
-            this.items = await this.getItems();
+            await this.getItems();
         },
     },
     async created() {
-        this.items = await this.getItems();
+        await this.getItems();
         translator.subscribers.push(this);
     },
     computed: {
@@ -108,13 +108,13 @@ const Curators = {
     },
     methods: {
         getItems: async function() {
-            return mockedCurators;
-            // let items = [];
-            // await fetch(this.fetchLink)
-            //     .then(res => res.json())
-            //     .then(res => items = res)
-            //     .catch(console.log);
-            // return this.preformItems(items);
+            // return mockedCurators;
+            await fetch(this.fetchLink)
+                .then(res => res.json())
+                .then(res => {
+                    this.items = this.preformItems(res);
+                })
+                .catch(console.log);
         },
         preformItems: function(items) {
             return items.posts.map(post => {
