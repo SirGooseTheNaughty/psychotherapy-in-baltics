@@ -107,7 +107,7 @@ const translations = {
             },
             bottom: {
                 en: 'combining psychotherapy of different directions, allowing to develop the topic of psychotherapeutic education, implement joint research projects, share news in the professional world.',
-                ru: 'объединяющая бла-бла хуё-моё',
+                ru: 'объединяющая что-то там какой-то текст',
                 lt: ''
             },
         },

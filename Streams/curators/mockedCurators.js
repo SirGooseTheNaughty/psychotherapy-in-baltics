@@ -32,13 +32,15 @@ const mockedCurators = [
         pic: './assets/5.png',
         desc1: 'Магистр психологии, доктор психотерапевтических наук (аспирантура SFU)',
         desc2: 'Куратор специализации Интегрированный подход в психотерапии»/Совершенствование в профессии.',
-        categories: ['experts', 'ru']
+        categories: ['curators', 'ru'],
+        // categories: ['experts', 'ru']
     },
     {
         name: 'Анастасия Шапель',
         pic: './assets/6.png',
         desc1: 'Магистр психологии, гештальт психотерапевт',
         desc2: 'Куратор специализации «Психотерапия детей и подростков: интегрированный подход».',
-        categories: ['experts', 'ru']
+        categories: ['curators', 'ru'],
+        // categories: ['experts', 'ru']
     },
 ];

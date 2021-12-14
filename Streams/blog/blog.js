@@ -26,8 +26,8 @@ const Blog = {
             items: [],
             limit: 6,
             filters: [],
-            type: 'все категории',
-            filter: 'все',
+            type: 'все форматы',
+            filter: 'все темы',
             search: '',
             category: 'blog',
             lang: translator.lang,
@@ -65,7 +65,7 @@ const Blog = {
             }
             currentItems = currentItems.filter(item => {
                 for (let filter of filters) {
-                    if (filter !== 'все' && filter !== 'все категории' && !item.categories.includes(filter)) {
+                    if (filter !== 'все темы' && filter !== 'все форматы' && !item.categories.includes(filter)) {
                         return false;
                     }
                 }
@@ -83,20 +83,20 @@ const Blog = {
             const rootId = this.ids[this.category].root;
             const langId = this.ids[this.category][this.lang];
             return `https://feeds.tildacdn.com/api/getfeed/?feeduid=${rootId}-${langId}&size=&slice=1&sort%5Bdate%5D=${this.order}`;
-        }
+        },
     },
     methods: {
         getItems: async function() {
-            // this.items = mockedPosts.reverse();
-            // this.filters = mockedFilters;
-            await fetch(this.fetchLink)
-                .then(res => res.json())
-                .then(res => {
-                    const { posts, filters } = this.preformItems(res);
-                    this.items = posts;
-                    this.filters = filters;
-                })
-                .catch(console.log);
+            this.items = mockedPosts.reverse();
+            this.filters = mockedFilters;
+            // await fetch(this.fetchLink)
+            //     .then(res => res.json())
+            //     .then(res => {
+            //         const { posts, filters } = this.preformItems(res);
+            //         this.items = posts;
+            //         this.filters = filters;
+            //     })
+            //     .catch(console.log);
         },
         preformItems: function(data) {
             let posts = [], filters = [];
@@ -153,18 +153,27 @@ const Post = {
     template: `
         <a :href="data.link">
             <div class="card">
-                <div class="card__category">{{ data.category || '' }}</div>
-                <img :src="data.img" alt="post cover" class="card__image">
+                <div :style="bgImage" class="card__image"></div>
                 <div class="card__info">
+                    <div class="card__category">{{ data.category || '' }}</div>
                     <h4 class="card__info-title">{{ data.title }}</h4>
                     <div class="card__info-desc">
                         <p class="card__info-desc__date">{{ data.date }}</p>
                         <p class="card__info-desc__time"><span>${timeConsumationIcon}</span><span>{{ data.time }}</span></p>
                     </div>
                 </div>
+                <div class="card__read-more">читать</div>
             </div>
         </a>
     `,
+    computed: {
+        bgImage: function() {
+            return `background-image: url(${this.data.img})`;
+        },
+        isMobile: function() {
+            return document.documentElement.offsetWidth < 1200;
+        }
+    }
 };
 
 const Controls = {
@@ -172,6 +181,7 @@ const Controls = {
     data() {
         return {
             isSelectionOpened: false,
+            isFiltersOpened: false,
             shift: 0,
             search: '',
             isFocused: false,
@@ -181,7 +191,7 @@ const Controls = {
     template: `
         <div class="controls-panel">
             <div class="controls">
-                <div class="selection" :class="{ opened: isSelectionOpened }">
+                <div class="selection categories" :class="{ opened: isSelectionOpened }">
                     <div class="selection__icon">
                         <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M2 2L6.29289 6.29289C6.68342 6.68342 7.31658 6.68342 7.70711 6.29289L12 2" stroke="#7F95D1" stroke-width="2" stroke-linecap="square"/>
@@ -189,7 +199,7 @@ const Controls = {
                     </div>
                     <div class="selection__result" v-on:click="toggleSelection">{{ type }}</div>
                     <div class="selection__options">
-                        <div class="selection__option" v-if="type !== 'все категории'" v-on:click="setType('все категории')">все категории</div>
+                        <div class="selection__option" v-if="type !== 'все форматы'" v-on:click="setType('все форматы')">все форматы</div>
                         <div class="selection__option" v-for="option in types" v-if="type !== option" v-on:click="setType(option)">{{ option }}</div>
                     </div>
                 </div>
@@ -198,6 +208,18 @@ const Controls = {
                     <div class="tab" v-for="tab in filters" :class="{ selected: filter === tab }" v-on:click="setFilter(tab)" :style="shiftedStyle">{{ tab }}</div>
                     <div v-if="shift !== 0" v-on:click="shiftRight" class="tabs__shift-icon left">${shiftFiltersIcon}</div>
                     <div v-if="shift < maxShift" v-on:click="shiftLeft" class="tabs__shift-icon right">${shiftFiltersIcon}</div>
+                </div>
+                <div class="selection filters" :class="{ opened: isFiltersOpened }">
+                    <div class="selection__icon">
+                        <svg width="14" height="8" viewBox="0 0 14 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2 2L6.29289 6.29289C6.68342 6.68342 7.31658 6.68342 7.70711 6.29289L12 2" stroke="#7F95D1" stroke-width="2" stroke-linecap="square"/>
+                        </svg>
+                    </div>
+                    <div class="selection__result" v-on:click="toggleFilters">{{ filter }}</div>
+                    <div class="selection__options">
+                        <div class="selection__option" v-if="filter !== 'все темы'" v-on:click="setFilter('все темы')">все темы</div>
+                        <div class="selection__option" v-for="option in filters" v-if="filter !== option" v-on:click="setFilter(option)">{{ option }}</div>
+                    </div>
                 </div>
             </div>
             <div class="search">
@@ -226,12 +248,26 @@ const Controls = {
         notFound: function() { return this.search.length >= 3 && this.relevantPosts.length === 0 },
     },
     methods: {
-        toggleSelection: function() { this.isSelectionOpened = !this.isSelectionOpened; },
+        toggleSelection: function() {
+            this.isSelectionOpened = !this.isSelectionOpened;
+            if (this.isSelectionOpened && this.isFiltersOpened) {
+                this.isFiltersOpened = false;
+            }
+        },
+        toggleFilters: function() {
+            this.isFiltersOpened = !this.isFiltersOpened;
+            if (this.isFiltersOpened && this.isSelectionOpened) {
+                this.isSelectionOpened = false;
+            }
+        },
         setType: function(type) {
             this.setProperty('type', type);
             this.toggleSelection();
         },
-        setFilter: function(filter) { this.setProperty('filter', filter); },
+        setFilter: function(filter) {
+            this.setProperty('filter', filter);
+            this.toggleFilters();
+        },
         shiftLeft: function() { this.shift = this.shift < this.maxShift - 1 ? this.shift + 1 : this.maxShift; },
         shiftRight: function() { this.shift = this.shift > 1 ? this.shift - 1 : 0; },
         focus: function() {

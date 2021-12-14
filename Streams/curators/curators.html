@@ -7,10 +7,11 @@
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="../common/style.css">
+    <link rel="stylesheet" href="../../common/style.css">
     <link rel="stylesheet" href="./curators.css">
 </head>
 <body>
+    <canvas id="grid"></canvas>
     <div id="curators"></div>
 
     <style>
@@ -20,11 +21,18 @@
             padding-top: 100px;
             background-color: lightblue;
         }
+        #grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
     </style>
 
     <script>
         const translator = { subscribers: [] };
     </script>
+    <script src="../../common/script.js"></script>
+    <script src="../../grid/drawer.js"></script>
     <script src="../ids.js"></script>
     <script src="./mockedCurators.js"></script>
     <script src="./curators.js"></script>

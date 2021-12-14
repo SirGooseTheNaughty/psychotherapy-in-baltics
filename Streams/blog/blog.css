@@ -31,6 +31,7 @@
 #blog .card__image {
     min-width: 100%;
     height: 200px;
+    background-size: cover;
 }
 #blog .card__info {
     min-height: calc(2* var(--cellHeight) / 3);
@@ -83,6 +84,7 @@
     top: 0;
     right: 0;
     transform: translateY(-100%);
+    z-index: 20;
 }
 #blog .search input {
     width: calc(2 * var(--cellWidth));
@@ -91,7 +93,7 @@
     background-color: transparent;
     border: 1px solid transparent;
     border-bottom-color: var(--white);
-    box-sizing: content-box;
+    box-sizing: border-box;
     color: var(--white);
 }
 #blog .search input:focus {
@@ -206,6 +208,9 @@
     right: 5px;
     transform: translateY(-50%);
 }
+#blog .selection.filters {
+    display: none;
+}
 
 #blog .posts-not-found {
     width: 100%;
@@ -214,4 +219,146 @@
     place-items: center;
     color: var(--white);
     border: 1px solid var(--white);
+}
+
+.card__read-more {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: none;
+    place-items: center;
+    height: 52px;
+    background-color: var(--dimmedWhite);
+    color: var(--white);
+    text-transform: uppercase;
+    font-size: 14px;
+    border-top: 2px solid var(--beige)
+}
+
+@media screen and (max-width: 1200px) {
+    #blog .card {
+        height: calc(3 * var(--cellHeight));
+        padding: 21px 16px;
+    }
+    #blog .card__image {
+        height: 225px;
+    }
+    .card__read-more {
+        display: grid;
+    }
+    #blog .card__info-desc__date {
+        width: var(--cellWidth);
+    }
+    #blog .card__category {
+        position: relative;
+        top: 24px;
+        left: 0;
+    }
+    #blog .card__info-title {
+        margin-top: 35px;
+    }
+    #blog .selection__result {
+        padding-left: 16px;
+    }
+    #blog .selection__icon {
+        right: 16px;
+    }
+    #blog .search input {
+        width: calc(3 * var(--cellWidth));
+    }
+}
+@media screen and (max-width: 980px) {
+    #blog .card {
+        width: calc(3 * var(--cellWidth));
+        height: calc(4 * var(--cellHeight));
+        padding: 21px 14px;
+    }
+    #blog .card__image {
+        height: 169px;
+    }
+    #blog .card__info-desc__date {
+        width: calc(3 * var(--cellWidth) / 2);
+    }
+    #blog .controls {
+        background-color: transparent;
+    }
+    #blog .selection.filters {
+        display: block;
+    }
+    #blog .tabs__all,
+    #blog .tabs {
+        display: none;
+    }
+    #blog .selection {
+        width: calc(3 * var(--cellWidth));
+        background-color: transparent;
+        border: 1px solid var(--lightGray);
+        box-sizing: border-box;
+    }
+    #blog .selection__result {
+        background-color: transparent;
+        color: var(--white);
+        height: 52px;
+    }
+    #blog .selection__result,
+    #blog .selection__options,
+    #blog .selection__option {
+        width: 100%;
+    }
+    #blog .selection__icon path {
+        stroke: var(--lightGray);
+    }
+    #blog .search input {
+        font-size: 14px;
+    }
+}
+@media screen and (max-width: 640px) {
+    #blog {
+        width: calc(4 * var(--cellWidth));
+    }
+    #blog .card {
+        width: calc(4 * var(--cellWidth));
+        padding: 25px;
+    }
+    #blog .card__image {
+        height: 229px;
+    }
+    #blog .card__info-desc__date {
+        width: calc(2 * var(--cellWidth));
+    }
+    #blog .selection {
+        width: calc(2 * var(--cellWidth));
+    }
+    #blog .search input {
+        width: calc(4 * var(--cellWidth));
+    }
+}
+@media screen and (max-width: 480px) {
+    #blog {
+        width: calc(2 * var(--cellWidth));
+    }
+    #blog .card {
+        width: calc(2 * var(--cellWidth));
+        height: calc(3 * var(--cellHeight));
+        padding: 18px;
+    }
+    #blog .card__image {
+        height: 202px;
+    }
+    #blog .card__info-desc__date {
+        width: var(--cellWidth);
+    }
+    #blog .controls-panel {
+        align-items: flex-start;
+    }
+    #blog .search input {
+        width: calc(2 * var(--cellWidth));
+    }
+    #blog .controls {
+        flex-flow: column;
+    }
+    #blog .selection.categories {
+        margin-bottom: 14px;
+    }
 }

@@ -255,10 +255,14 @@ a {
 }
 .menu-opened {
     overflow-y: hidden;
-    padding-right: 17px;
 }
-.menu-opened .nav-container {
-    padding-right: 17px;
+@media screen and (min-width: 980px) {
+    .menu-opened {
+        padding-right: 17px;
+    }
+    .menu-opened .nav-container {
+        padding-right: 17px;
+    }
 }
 #allrecords > [id^=rec],
 #grid {

@@ -20,12 +20,20 @@ const Curators = {
             ids: streamIds,
             baseLink: '',
             shift: 0,
+            transition: 0,
+            touchX: 0,
         }
     },
     template: `
         <div id="curators">
-            <div class="content">
-                <person v-for="(person, index) in currentItems" :data="person" :shift="shift" key="index"></person>
+            <div
+                class="content"
+                v-on:touchmove="shiftMobile"
+                v-on:touchstart="addListener"
+                v-on:touchend="removeListener"
+                v-on:touchcancel="removeListener"
+            >
+                <person v-for="(person, index) in currentItems" :data="person" :shift="shift" :transition="transition" key="index"></person>
             </div>
             <div class="controls">
                 <div class="controls__tags">
@@ -59,7 +67,21 @@ const Curators = {
     },
     computed: {
         maxShift: function() {
-            return Math.floor((this.currentItems.length - 1) / 3);
+            return this.currentItems.length - this.limit;
+        },
+        maxShiftPx: function() {
+            const docWidth = document.documentElement.offsetWidth;
+            let itemWidth, gap;
+            if (docWidth > 480) {
+                const cellWidth = gridSizes[3].h;
+                itemWidth = cellWidth * 3;
+                gap = (docWidth / 2) - (2 * cellWidth);
+            } else {
+                const cellWidth = gridSizes[4].h;
+                itemWidth = cellWidth * 2;
+                gap = (docWidth / 2) - cellWidth;
+            }
+            return (this.currentItems.length - 1) * itemWidth - gap;
         },
         currentItems: function() {
             let currentItems = [...this.items];
@@ -75,9 +97,6 @@ const Curators = {
                     }
                     return true;
                 });
-            }
-            if (this.limit) {
-                currentItems = currentItems.slice(0, this.limit);
             }
             return currentItems;
         },
@@ -126,11 +145,35 @@ const Curators = {
         setProperty: function(key, property) {
             this[key] = property;
         },
+        shiftMobile: function(e) {
+            if (this.isDrag) {
+                e.preventDefault();
+                const diffX = e.targetTouches[0].screenX - this.touchX;
+                let newX = this.transition + diffX;
+                if (newX > 0) {
+                    newX = 0;
+                } else if (Math.abs(newX) > this.maxShiftPx) {
+                    newX = -this.maxShiftPx;
+                }
+                this.touchX = e.targetTouches[0].screenX;
+                this.transition = newX;
+                console.log(this.transition);
+            }
+        },
+        addListener: function(e) {
+            this.isDrag = true;
+            if (e.targetTouches && e.targetTouches[0]) {
+                this.touchX = e.targetTouches[0].screenX;
+            }
+        },
+        removeListener: function() {
+            this.isDrag = false;
+        },
     }
 }
 
 const Curator = {
-    props: ['data', 'shift'],
+    props: ['data', 'shift', 'transition'],
     template: `
         <div class="card" :style="shiftStyle">
             <img :src="data.pic" alt="curator" class="person">
@@ -145,7 +188,9 @@ const Curator = {
     `,
     computed: {
         shiftStyle: function() {
-            return `transform: translateX(${-300 * this.shift}%)`;
+            return this.transition
+                ? `transition: 0s; transform: translateX(${this.transition}px)`
+                : `transform: translateX(${-100 * this.shift}%)`;
         }
     }
 };

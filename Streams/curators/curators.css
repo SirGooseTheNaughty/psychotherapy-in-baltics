@@ -12,21 +12,20 @@
     display: flex;
     justify-content: start;
     overflow: hidden;
+    border-right: 1px solid var(--beige);
 }
 #curators .card {
     min-width: calc(2 * var(--cellWidth));
     height: calc(3 * var(--cellHeight));
-    border: 1px solid #F0EFEC;
+    border: 1px solid var(--beige);
+    border-right: transparent;
     box-sizing: border-box;
     transition: transform .75s ease;
-}
-#curators .card:not(:nth-child(3n)):not(:last-child) {
-    border-right: transparent;
 }
 #curators .person {
     min-width: calc(2 * var(--cellWidth));
     height: calc(2 * var(--cellHeight));
-    border-bottom: 1px solid #F0EFEC;
+    border-bottom: 1px solid var(--beige);
 }
 #curators .card__info {
     height: var(--cellHeight);
@@ -98,4 +97,49 @@
 }
 #curators .controls__tag.active {
     opacity: 100%;
+}
+
+@media screen and (max-width: 980px) {
+    #curators {
+        height: calc(5 * var(--cellHeight));
+    }
+    #curators .card {
+        min-width: calc(3 * var(--cellWidth));
+        height: calc(5 * var(--cellHeight));
+    }
+    #curators .person {
+        min-width: calc(2 * var(--cellWidth));
+        height: calc(3 * var(--cellHeight));
+    }
+    #curators .controls__btn {
+        top: calc(5 * var(--cellHeight) / 2);
+    }
+}
+
+@media screen and (max-width: 640px) {
+    #curators {
+        width: 100%;
+    }
+    #curators .content {
+        width: calc(4 * var(--cellWidth));
+        position: relative;
+        left: calc(50vw - 2 * var(--cellWidth));
+    }
+    .controls__btn {
+        display: none;
+    }
+}
+@media screen and (max-width: 480px) {
+    #curators .content {
+        width: calc(2 * var(--cellWidth));
+        left: calc(50vw - var(--cellWidth));
+    }
+    #curators .card {
+        width: calc(2 * var(--cellHeight));
+        height: calc(3 * var(--cellHeight));
+    }
+    #curators .person {
+        width: calc(2 * var(--cellHeight));
+        height: calc(2 * var(--cellHeight));
+    }
 }

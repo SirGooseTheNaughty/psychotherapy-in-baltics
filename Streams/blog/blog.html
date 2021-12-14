@@ -9,20 +9,31 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="../../common/style.css">
     <link rel="stylesheet" href="./blog.css">
+    <script src="../../common/script.js"></script>
     <script src="../ids.js"></script>
 </head>
 <body>
+    <canvas id="grid"></canvas>
     <div id="blog"></div>
 
     <style>
         body {
             margin: 0;
             padding: 0;
-            padding-top: 100px;
+            padding-top: calc(1 * var(--cellHeight));
             background-color: lightblue;
+        }
+        #grid {
+            position: absolute;
+            top: 0;
+            left: 0;
         }
     </style>
     
+    <script>
+        const translator = {subscribers: []};
+    </script>
+    <script src="../../grid/drawer.js"></script>
     <script src="./mockedPosts.js"></script>
     <script src="./blog.js"></script>
 </body>
