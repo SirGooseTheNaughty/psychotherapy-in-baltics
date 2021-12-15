@@ -63,4 +63,4 @@ class Popup {
     }
 };
 
-const gestaltPopup = new Popup('#gestalt', '.open-popup');
+const gestaltPopup = new Popup('#gestalt', opener);
