@@ -15,6 +15,7 @@ class Popup {
         };
 
         this.changeBlocks = this.changeBlocks.bind(this);
+        this.togglePopup = this.togglePopup.bind(this);
 
         this.modulesTrigger.addEventListener('click', this.toggleModules.bind(this));
         this.blocksTriggers.desktop.forEach((trigger, index) => {
@@ -23,9 +24,14 @@ class Popup {
         this.blocksTriggers.mobile.forEach((trigger, index) => {
             trigger.addEventListener('click', () => this.changeBlocks(index + 1));
         });
-        this.open.addEventListener('click', this.togglePopup.bind(this));
-        this.close.addEventListener('click', this.togglePopup.bind(this));
+        this.open.addEventListener('click', this.togglePopup);
+        this.close.addEventListener('click', this.togglePopup);
         window.addEventListener('resize', this.openOnResize.bind(this));
+        this.popup.addEventListener('click', (e) => {
+            if (e.target.classList.contains('popup')) {
+                this.togglePopup();
+            }
+        });
     }
 
     openOnResize() {
