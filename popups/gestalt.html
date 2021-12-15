@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="../common/style.css">
+    <link rel="stylesheet" href="./popups.css">
+</head>
+<body class="popup-opened">
+    <canvas id="grid"></canvas>
+    <div class="open-popup">OPEN</div>
+
+    <div id="gestalt" class="popup opened" data-modules="" data-block="4">
+        <div class="container">
+            <div class="close">
+                <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="1" y1="17.1312" x2="16.5858" y2="1.54541" stroke="#7F95D1" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="16.5858" y1="17" x2="1" y2="1.41421" stroke="#7F95D1" stroke-width="2" stroke-linecap="round"/>
+                </svg>                    
+            </div>
+            <div class="desc">
+                <div class="short split">
+                    <h2 class="popup__title">Гештальт психотерапия</h2>
+                    <div class="stats">
+                        <div class="stat">
+                            <p>5 лет обучения</p>
+                            <p>1600 часов</p>
+                        </div>
+                        <div class="stat">
+                            <p>6 модулей</p>
+                            <p class="module-trigger">
+                                <span>в соответствии с 5 уровнями обучения</span>
+                                <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.5 5.13397C10.1667 5.51887 10.1667 6.48112 9.5 6.86602L2 11.1962C1.33333 11.5811 0.499999 11.0999 0.499999 10.3301L0.499999 1.66987C0.499999 0.900072 1.33333 0.418947 2 0.803847L9.5 5.13397Z" fill="#FF8552"/>
+                                </svg>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modules modules__desktop desktop">
+                    <div class="modules__cont bars">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                    <div class="modules__cont descriptions">
+                        <div class="desc">
+                            <p>подготовительный</p>
+                            <p>Личная психотерапия</p>
+                        </div>
+                        <div class="desc">
+                            <p>начальный</p>
+                            <p>Теория гештальт психотерапии</p>
+                        </div>
+                        <div class="desc">
+                            <p>средний</p>
+                            <p>Методология гештальт психотерапии</p>
+                        </div>
+                        <div class="desc">
+                            <p>продвинутый</p>
+                            <p>Клинические аспекты гештальт психотерапии; профили гештальт психотерапии</p>
+                        </div>
+                        <div class="desc">
+                            <p>высший</p>
+                            <p>Супервизия</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modules modules__mobile tablet split">
+                    <ol>
+                        <li>
+                            <p>подготовительный</p>
+                            <p>Личная психотерапия</p>
+                        </li>
+                        <li>
+                            <p>начальный</p>
+                            <p>Теория гештальт психотерапии</p>
+                        </li>
+                        <li>
+                            <p>средний</p>
+                            <p>Методология гештальт психотерапии</p>
+                        </li>
+                        <li>
+                            <p>продвинутый</p>
+                            <p>Клинические аспекты гештальт психотерапии; профили гештальт психотерапии</p>
+                        </li>
+                        <li>
+                            <p>высший</p>
+                            <p>Супервизия</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="content split">
+                <div class="triggers desktop tablet">
+                    <div class="trigger">Содержание программы</div>
+                    <div class="trigger">Основные темы семинаров</div>
+                    <div class="trigger">Куратор</div>
+                    <div class="trigger">После программы</div>
+                </div>
+                <div class="blocks">
+                    <div class="block">
+                        <div class="trigger mobile">Содержание программы</div>
+                        <div class="info table">
+                            <div class="caption">
+                                <p>в группе</p>
+                                <p>индивидуально</p>
+                            </div>
+                            <ol>
+                                <li>
+                                    <p>Личная гештальт психотерапии</p>
+                                    <p>150 <span class="trl-common-hour">ч</span><span class="trl-popups-ingroup">в группе</span></p>
+                                    <p>100 <span class="trl-common-hour">ч</span><span class="trl-popups-individually">индивидуально</span></p>
+                                </li>
+                                <li>
+                                    <p>Теория и методология гештальт психотерапии</p>
+                                    <p>600 <span class="trl-common-hour">ч</span><span class="trl-popups-ingroup">в группе</span></p>
+                                    <p></p>
+                                </li>
+                                <li>
+                                    <p>Супервизия</p>
+                                    <p>100 <span class="trl-common-hour">ч</span><span class="trl-popups-ingroup">в группе</span></p>
+                                    <p>50 <span class="trl-common-hour">ч</span><span class="trl-popups-individually">индивидуально</span></p>
+                                </li>
+                                <li>
+                                    <p>Клиническая практика</p>
+                                    <p></p>
+                                    <p>400 <span class="trl-common-hour">ч</span><span class="trl-popups-individually">индивидуально</span></p>
+                                </li>
+                                <li>
+                                    <p>Участие в профессиональных конференциях, форумах, интенсивах</p>
+                                    <p></p>
+                                    <p>150 <span class="trl-common-hour">ч</span><span class="trl-popups-individually">индивидуально</span></p>
+                                </li>
+                                <li>
+                                    <p>Семинары схожего с гештальт психотерапией направления</p>
+                                    <p>50 <span class="trl-common-hour">ч</span><span class="trl-popups-ingroup">в группе</span></p>
+                                    <p></p>
+                                </li>
+                            </ol>
+                            <div class="subinfo">
+                                Содержание программы соответствует учебным стандартам Европейской Ассоциации Гештальт Терапии (EAGT) 
+                                и учитывает требования к профессии специалиста по психотерапии в Латвии.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="trigger mobile">Основные темы семинаров</div>
+                        <div class="info table">
+                            <ol>
+                                <li>История становления и развития гештальт психотерапии</li>
+                                <li>Теоретические основы гештальт психотерапии: теория поля; феноменология; Self, цикл контакта, граница-контакт, прерывания цикла контакта; творческое приспособление; психотерапевтический процесс</li>
+                                <li>Системное понимание профессии. Общая модель психотерапии. Феномены психотерапевтических отношений.</li>
+                                <li>Современные тенденции в психотерапевтических исследованиях. Методы исследования, подходящие для гештальт психотерапии. Тематические исследования, сравнительные методы, методы самоотчета.</li>
+                                <li>Техники гештальт психотерапии: эксперимент, арт-терапия, психотерапевтические метафоры, работа со сновидениями, диалог.</li>
+                                <li>Гештальт и телесно-ориентированный подход.</li>
+                                <li>Гештальт-подход в работе с кризисами и травмами.</li>
+                                <li>Клинические аспекты: общая психопатология, DSM-V; принципы аналитической диагностики в гештальт психотерапии.</li>
+                                <li>Гештальт психотерапия в работе с созависимостью.</li>
+                                <li>Сферы применения: гештальт психотерапия в работе с детьми, с семьями и супружескими парами, с группами, с организациями.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="trigger mobile">Куратор</div>
+                        <div class="info">
+                            <div class="curator">
+                                <img src="./assets/1.png" alt="curator">
+                                <div class="curator__info">
+                                    <p class="name">Татьяна Велента-Гринина</p>
+                                    <p class="desc">
+                                        доктор психологии (PhD), специалист по психотерапии, гештальт психотерапевт, супервизор, руководитель Балтийского Института Психотерапии.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="trigger mobile">После программы</div>
+                        <div class="info article">
+                            <p class="desc">
+                                Обучение в программе по гештальт психотерапии предполагает последовательное прохождение шести модулей: 
+                                одного подготовительного и пяти дидактических. После завершения каждого из модулей выдается соответствующее свидетельство.
+                            </p>
+                            <p class="desc">
+                                В своей совокупности эти свидетельства подтверждают завершенное обучение по гештальт психотерапии, подкрепляются общим сертификатом 
+                                Балтийского института психотерапии и дают право прохождения аккредитации в профессиональных сообществах для подтверждения статуса 
+                                гештальт психотерапевта (LGTA) и специалиста по психотерапии (LPB).
+                            </p>
+                            <img src="./assets/2.png" alt="diploma">
+                            <a href="./success-stories">
+                                <div class="success">
+                                    <p>Читать истории успеха</p>
+                                    <svg width="31" height="15" viewBox="0 0 31 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0 7.5L30 7.5" stroke="#4F4F4F" stroke-width="2"/>
+                                        <path d="M30 7.5C26.7708 7.39583 20.3125 5.75 20.3125 0" stroke="#4F4F4F" stroke-width="2"/>
+                                        <path d="M30 7.5C26.7708 7.60417 20.3125 9.25 20.3125 15" stroke="#4F4F4F" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #7F95D1;
+        }
+        #grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+    </style>
+    <script src="../../common/script.js"></script>
+    <script src="../../grid/drawer.js"></script>
+    <script src="./popups.js"></script>
+</body>
+</html>
