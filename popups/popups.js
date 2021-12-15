@@ -14,6 +14,8 @@ class Popup {
             mobile: this.popup.querySelectorAll('.trigger.mobile'),
         };
 
+        this.changeBlocks = this.changeBlocks.bind(this);
+
         this.modulesTrigger.addEventListener('click', this.toggleModules.bind(this));
         this.blocksTriggers.desktop.forEach((trigger, index) => {
             trigger.addEventListener('click', () => this.changeBlocks(index + 1));
@@ -23,6 +25,18 @@ class Popup {
         });
         this.open.addEventListener('click', this.togglePopup.bind(this));
         this.close.addEventListener('click', this.togglePopup.bind(this));
+        window.addEventListener('resize', this.openOnResize.bind(this));
+    }
+
+    openOnResize() {
+        const toOpen = !this.isMobile() && this.popup.getAttribute('data-block') == '';
+        if (toOpen) {
+            this.popup.setAttribute('data-block', '1');
+        }
+    }
+
+    isMobile() {
+        return document.documentElement.offsetWidth < 980;
     }
 
     togglePopup() {
@@ -44,7 +58,8 @@ class Popup {
     }
 
     changeBlocks(index) {
-        this.popup.setAttribute('data-block', index);
+        const toHide = this.isMobile() && this.popup.getAttribute('data-block') == index;
+        this.popup.setAttribute('data-block', toHide ? '' : index);
     }
 };
 

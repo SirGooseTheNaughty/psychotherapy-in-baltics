@@ -1,5 +1,7 @@
 :root {
-    --arrowUrl: url(./assets/arrow.png);
+    --arrowUrl: url(https://static.tildacdn.com/tild6139-3266-4432-b932-393964333139/arrow.png);
+    --firstPopupCuratorUrl: url(https://static.tildacdn.com/tild3633-6430-4165-b736-323430396533/1.png);
+    --firstPopupArticleUrl: url(https://static.tildacdn.com/tild3236-3064-4932-a464-363361313162/2.png);
 }
 
 body.popup-opened {
@@ -8,6 +10,7 @@ body.popup-opened {
 
 .popup {
     position: fixed;
+    z-index: 100;
     width: 100%;
     height: 100vh;
     top: 0;
@@ -21,6 +24,11 @@ body.popup-opened {
     transition: opacity var(--animTime) ease;
     opacity: 0;
     pointer-events: none;
+    backdrop-filter: blur(10px);
+
+    @supports not (backdrop-filter: blur(10px)) {
+        background-color: rgba(160, 195, 248, 0.6);
+    }
 
     &.opened {
         opacity: 1;
@@ -116,6 +124,19 @@ body.popup-opened {
             top: 35px;
             right: 35px;
             cursor: pointer;
+
+            @media screen and (max-width: 980px) {
+                top: 28px;
+                right: 28px;
+            }
+            @media screen and (max-width: 640px) {
+                top: 25px;
+                right: 25px;
+            }
+            @media screen and (max-width: 480px) {
+                top: 22px;
+                right: 22px;
+            }
         }
 
         .desc {
@@ -152,6 +173,9 @@ body.popup-opened {
                     display: flex;
                     flex-flow: column;
                     margin-left: 99px;
+                    height: 80%;
+                    position: relative;
+                    top: 10%;
 
                     @media screen and (max-width: 1200px) {
                         margin-left: 80px;
@@ -165,16 +189,22 @@ body.popup-opened {
                         font-size: 16px;
 
                         &:first-child {
-                            margin-bottom: 20px;
+                            margin-bottom: auto;
 
                             @media screen and (max-width: 980px) {
                                 width: 165px;
                             }
                         }
                         
-                        p:nth-child(2) {
-                            color: var(--gray3);
-                            font-size: 14px;
+                        p {
+                            &:nth-child(2) {
+                                color: var(--gray3);
+                                font-size: 14px;
+
+                                @media screen and (max-width: 980px) {
+                                    margin-top: 2px;
+                                }
+                            }
                         }
 
                         .module-trigger {
@@ -190,6 +220,9 @@ body.popup-opened {
                     }
 
                     .module-trigger svg {
+                        position: relative;
+                        top: 2px;
+                        left: 2px;
                         transition: transform var(--animTime) ease;
                     }
                 }
@@ -237,6 +270,7 @@ body.popup-opened {
                             > p {
                                 text-align: center;
                                 font-size: 14px;
+                                line-height: 125%;
 
                                 &:first-child {
                                     text-transform: uppercase;
@@ -268,6 +302,7 @@ body.popup-opened {
                     counter-reset: list-counter;
                     list-style-type: none;
                     padding: 0;
+                    padding-left: 0 !important;
                     margin: 0;
     
                     li {
@@ -277,6 +312,7 @@ body.popup-opened {
                         padding-left: 40px;
                         box-sizing: border-box;
                         font-weight: 500;
+                        line-height: 125%;
                         
                         &:not(:nth-child(3)) {
                             margin-bottom: 30px;
@@ -289,6 +325,10 @@ body.popup-opened {
                                 margin-bottom: 10px;
                                 font-size: 12px;
                                 font-weight: 700;
+            
+                                @media screen and (max-width: 980px) {
+                                    margin-bottom: 5px;
+                                }
                             }
                         }
     
@@ -437,6 +477,7 @@ body.popup-opened {
                                 border-top: 1px solid var(--gray3);
                                 font-size: 14px;
                                 font-weight: 500;
+                                line-height: 125%;
 
                                 @media screen and (max-width: 1200px) {
                                     padding-left: 40px;
@@ -526,10 +567,11 @@ body.popup-opened {
                     }
 
                     .subinfo {
-                        font-size: 14px;
+                        font-size: 12px;
                         font-weight: 500;
                         color: var(--brown);
                         margin-top: 20px;
+                        line-height: 145%;
 
                         @media screen and (max-width: 1200px) {
                             font-size: 12px;
@@ -548,6 +590,7 @@ body.popup-opened {
                         font-size: 16px;
                         font-weight: 500;
                         max-width: calc(2 * var(--cellWidth));
+                        line-height: 145%;
                     }
 
                     @media screen and (max-width: 980px) {
@@ -605,11 +648,12 @@ body.popup-opened {
                         font-size: 14px;
                         font-weight: 500;
                         margin-bottom: 30px;
+                        line-height: 145%;
                     }
 
                     .success {
                         display: flex;
-                        margin-top: 50px;
+                        margin-top: 30px;
 
                         p {
                             color: var(--gray);
@@ -621,6 +665,9 @@ body.popup-opened {
                     }
 
                     img {
+                        @media screen and (max-width: 1200px) {
+                            max-width: calc(5 * var(--cellWidth) / 2);
+                        }
                         @media screen and (max-width: 640px) {
                             max-width: calc(3 * var(--cellWidth));
                         }
