@@ -182,7 +182,7 @@ body.popup-opened {
                     display: flex;
                     flex-flow: column;
                     margin-left: 99px;
-                    height: 80%;
+                    height: 85%;
                     position: relative;
                     top: 10%;
 
@@ -209,7 +209,11 @@ body.popup-opened {
                             &:nth-child(2) {
                                 color: var(--gray3);
                                 font-size: 14px;
+                                margin-top: 2px;
 
+                                @media screen and (max-width: 1200px) {
+                                    margin-top: 0;
+                                }
                                 @media screen and (max-width: 980px) {
                                     margin-top: 2px;
                                 }
