@@ -686,7 +686,7 @@ body.popup-opened {
 }
 
 .popup .container .content .blocks .block .info.table ol {
-  padding-left: 0;
+  padding-left: 0 !important;
   margin: 0;
   counter-reset: list-counter;
 }

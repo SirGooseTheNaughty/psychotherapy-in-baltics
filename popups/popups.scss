@@ -461,7 +461,7 @@ body.popup-opened {
                             }
 
                             ol {
-                                padding-left: 0;
+                                padding-left: 0 !important;
                                 margin: 0;
                                 counter-reset: list-counter;
                             }
