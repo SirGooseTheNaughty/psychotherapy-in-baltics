@@ -8,6 +8,11 @@ body.popup-opened {
   overflow-y: hidden;
 }
 
+body.popup-opened .balt-nav {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .popup {
   position: fixed;
   z-index: 100;

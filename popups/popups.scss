@@ -6,6 +6,11 @@
 
 body.popup-opened {
     overflow-y: hidden;
+
+    .balt-nav {
+        opacity: 0;
+        pointer-events: none;
+    }
 }
 
 .popup {
