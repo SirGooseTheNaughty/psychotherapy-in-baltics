@@ -6,6 +6,12 @@
     --beige: #F0EFEC;
     --blue: #7F95D1;
     --lightGray: #F2F2F2;
+    --gray: #4f4f4f;
+    --gray3: #828282;
+    --brown: #A2A2A2;
+    --orange: #FF8552;
+
+    --animTime: .4s;
 }
 a {
     text-decoration: none;
