@@ -24,8 +24,8 @@ class Header {
             }
         };
         this.menu = {
-            desktop: document.querySelector('#rec389146024'),
-            mobile: document.querySelector('#rec389782989'),
+            desktop: document.querySelector('#rec392236590'),
+            mobile: document.querySelector('#rec392236647'),
             links: [],
         };
         this.body = document.querySelector('body');
