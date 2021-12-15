@@ -39,7 +39,7 @@ class Translator {
                 element.element.innerHTML = text;
             }
         } catch(e) {
-            console.error(e, element);
+            console.warn(e, element);
         }
     }
 
@@ -65,7 +65,7 @@ class Translator {
                 return text;
             }
         } catch(e) {
-            console.error(e, element);
+            console.warn(e, element);
             return '';
         }
     }
