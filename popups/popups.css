@@ -14,6 +14,7 @@ body.popup-opened .balt-nav {
 }
 
 .popup {
+  --gestaltBlue: #3474D1;
   position: fixed;
   z-index: 100;
   width: 100%;
@@ -253,6 +254,12 @@ body.popup-opened .balt-nav {
   margin-bottom: 50px;
 }
 
+@media screen and (max-width: 1200px) {
+  .popup .container .desc .short {
+    margin-bottom: 15px;
+  }
+}
+
 @media screen and (max-width: 980px) {
   .popup .container .desc .short {
     display: -webkit-box;
@@ -262,7 +269,6 @@ body.popup-opened .balt-nav {
     -webkit-box-direction: normal;
         -ms-flex-flow: column;
             flex-flow: column;
-    margin-bottom: 25px;
   }
 }
 
@@ -408,32 +414,32 @@ body.popup-opened .balt-nav {
 
 .popup .container .desc .modules__desktop .modules__cont.bars .bar:nth-child(1) {
   height: 20%;
-  opacity: 20%;
-  background-color: var(--blue);
+  opacity: 30%;
+  background-color: var(--gestaltBlue);
 }
 
 .popup .container .desc .modules__desktop .modules__cont.bars .bar:nth-child(2) {
   height: 40%;
   opacity: 40%;
-  background-color: var(--blue);
+  background-color: var(--gestaltBlue);
 }
 
 .popup .container .desc .modules__desktop .modules__cont.bars .bar:nth-child(3) {
   height: 60%;
-  opacity: 60%;
-  background-color: var(--blue);
+  opacity: 50%;
+  background-color: var(--gestaltBlue);
 }
 
 .popup .container .desc .modules__desktop .modules__cont.bars .bar:nth-child(4) {
   height: 80%;
-  opacity: 80%;
-  background-color: var(--blue);
+  opacity: 60%;
+  background-color: var(--gestaltBlue);
 }
 
 .popup .container .desc .modules__desktop .modules__cont.bars .bar:nth-child(5) {
   height: 100%;
-  opacity: 100%;
-  background-color: var(--blue);
+  opacity: 70%;
+  background-color: var(--gestaltBlue);
 }
 
 .popup .container .desc .modules__desktop .modules__cont.descriptions {
@@ -458,6 +464,7 @@ body.popup-opened .balt-nav {
   text-align: center;
   font-size: 14px;
   line-height: 125%;
+  font-weight: 500;
 }
 
 .popup .container .desc .modules__desktop .modules__cont.descriptions > div > p:first-child {
