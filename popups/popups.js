@@ -68,5 +68,3 @@ class Popup {
         this.popup.setAttribute('data-block', toHide ? '' : index);
     }
 };
-
-const gestaltPopup = new Popup(popupId, opener);
