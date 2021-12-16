@@ -32,6 +32,7 @@ class Header {
         this.translator = translator;
 
         this.toggleDropdown = this.toggleDropdown.bind(this);
+        this.toggleMenu = this.toggleMenu.bind(this);
         this.setLanguage = this.setLanguage.bind(this);
         this.setLocation = this.setLocation.bind(this);
         this.fetchLocation = this.fetchLocation.bind(this);
@@ -51,7 +52,7 @@ class Header {
         }
         this.controls.mobile.languages.addEventListener('change', (e) => this.setLanguage(e.target.value, false));
         this.controls.mobile.locations.addEventListener('change', (e) => this.setLocation(e.target.value, false));
-        this.menu.links.forEach(link => link.addEventListener('click', this.toggleMenu.bind(this)));
+        this.menu.links.forEach(link => link.addEventListener('click', this.toggleMenu));
 
         let lang = getLanguageCookie();
         if (!lang) {
