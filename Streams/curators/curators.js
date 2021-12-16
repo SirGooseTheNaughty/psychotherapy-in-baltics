@@ -70,7 +70,7 @@ const Curators = {
     },
     computed: {
         noDataMsg: function() {
-            return translator.getTranslation(['common', 'nodata', 'lang']);
+            return translator.getTranslation(['common', 'nodata', 'lang'], this.lang);
         },
         maxShift: function() {
             return this.currentItems.length - this.limit;
@@ -118,13 +118,13 @@ const Curators = {
     },
     methods: {
         getItems: async function() {
-            // this.items = mockedCurators;
-            await fetch(this.fetchLink)
-                .then(res => res.json())
-                .then(res => {
-                    this.items = this.preformItems(res);
-                })
-                .catch(console.log);
+            this.items = mockedCurators;
+            // await fetch(this.fetchLink)
+            //     .then(res => res.json())
+            //     .then(res => {
+            //         this.items = this.preformItems(res);
+            //     })
+            //     .catch(console.log);
         },
         preformItems: function(items) {
             return items.posts.map(post => {

@@ -63,10 +63,10 @@ class Translator {
         this.subscribers.forEach(s => s.setProperty('lang', lang));
     }
 
-    getTranslation(keys) {
+    getTranslation(keys, lang = null) {
         try {
             const texts = keys.reduce((obj, key) => obj = obj[key], this.translations);
-            const text = texts[this.lang];
+            const text = texts[lang || this.lang];
             if (typeof text === 'function') {
                 return text();
             } else {

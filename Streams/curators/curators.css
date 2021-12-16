@@ -1,5 +1,5 @@
 #curators {
-    width: calc(6 * var(--cellWidth) + 1px);
+    width: calc(6 * var(--cellWidth));
     margin: 0 auto;
     position: relative;
     color: var(--white);
@@ -13,7 +13,7 @@
     overflow: hidden;
 }
 #curators .card {
-    min-width: calc(2 * var(--cellWidth));
+    min-width: calc(2 * var(--cellWidth) - 0.1px);
     height: calc(3 * var(--cellHeight));
     border: 1px solid var(--beige);
     box-sizing: border-box;
