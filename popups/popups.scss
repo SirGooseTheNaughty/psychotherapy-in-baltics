@@ -33,7 +33,7 @@ body.popup-opened {
     backdrop-filter: blur(10px);
 
     @supports not (backdrop-filter: blur(10px)) {
-        background-color: rgba(147, 175, 217, 0,6);
+        // background-color: rgba(147, 175, 217, 0,6);
     }
 
     &.opened {
@@ -835,6 +835,50 @@ body.popup-opened {
                             &:last-child {
                                 opacity: 1 !important;
                             }
+                        }
+                    }
+                }
+            }
+        }
+        .curator,
+        .article {
+            @media screen and (max-width: 1200px) {
+                padding-left: 40px !important;
+            }
+            @media screen and (max-width: 980px) {
+                padding-left: 0 !important;
+            }
+        }
+    }
+
+    &.specialty#spouses {
+        &[data-modules="opened"] {
+            .modules__mobile {
+                @media screen and (max-width: 1200px) {
+                    height: 100px !important;
+                }
+                @media screen and (max-width: 980px) {
+                    height: 120px !important;
+                }
+            }
+        }
+        .desc {
+            .short {
+                .popup__title {
+                    @media screen and (max-width: 640px) {
+                        font-size: 24px;
+                    }
+                    span:nth-child(1) {
+                        margin-left: 0;
+                    }
+                    span:nth-child(2) {
+                        margin-left: 200px;
+    
+                        @media screen and (max-width: 980px) {
+                            margin-left: 100px;
+                        }
+                        @media screen and (max-width: 640px) {
+                            margin-left: 0;
                         }
                     }
                 }
