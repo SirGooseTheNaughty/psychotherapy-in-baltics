@@ -38,7 +38,7 @@ body.popup-opened .balt-nav {
 
 @supports not ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
   .popup {
-    background-color: rgba(160, 195, 248, 0.6);
+    background-color: rgba(147, 175, 217, 0,6);
   }
 }
 

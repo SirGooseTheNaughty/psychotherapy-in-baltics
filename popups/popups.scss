@@ -33,7 +33,7 @@ body.popup-opened {
     backdrop-filter: blur(10px);
 
     @supports not (backdrop-filter: blur(10px)) {
-        background-color: rgba(160, 195, 248, 0.6);
+        background-color: rgba(147, 175, 217, 0,6);
     }
 
     &.opened {

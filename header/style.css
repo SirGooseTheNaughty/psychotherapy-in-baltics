@@ -18,6 +18,11 @@ a {
     border-bottom-width: 1px;
     z-index: 9999;
 }
+@supports not (backdrop-filter: blur(10px)) {
+    .balt-nav {
+        background-color: rgba(147, 175, 217, 0,6);
+    }
+}
 .nav-container {
     width: calc(6 * var(--cellWidth));
     height: 100%;
