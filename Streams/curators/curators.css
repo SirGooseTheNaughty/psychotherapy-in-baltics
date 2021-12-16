@@ -12,15 +12,17 @@
     display: flex;
     justify-content: start;
     overflow: hidden;
-    border-right: 1px solid var(--beige);
+    /* border-right: 1px solid var(--beige); */
 }
 #curators .card {
     min-width: calc(2 * var(--cellWidth));
     height: calc(3 * var(--cellHeight));
     border: 1px solid var(--beige);
-    border-right: transparent;
     box-sizing: border-box;
     transition: transform .75s ease;
+}
+#curators .card:not(:last-child) {
+    border-right: transparent;
 }
 #curators .person {
     min-width: calc(2 * var(--cellWidth));
@@ -89,27 +91,51 @@
     top: calc(-1 * var(--cellHeight) / 2.5);
 }
 #curators .controls__tag {
-    margin: 0 14px;
+    width: 50%;
     font-weight: 600;
     opacity: 60%;
     cursor: pointer;
     transition: opacity .25s ease;
 }
+#curators .controls__tag.controls__curators {
+    text-align: end;
+    padding-right: 30px;
+    box-sizing: border-box;
+}
 #curators .controls__tag.active {
     opacity: 100%;
+}
+
+@media screen and (max-width: 1200px) {
+    #curators .card__info {
+        padding: 24px 37px;
+    }
+    #curators .card__info-name {
+        margin-bottom: 12px;
+    }
+    #curators .card__info-desc {
+        font-size: 14px;
+    }
 }
 
 @media screen and (max-width: 980px) {
     #curators {
         height: calc(5 * var(--cellHeight));
     }
+    #curators .person {
+        min-width: calc(2 * var(--cellWidth));
+        height: calc(3 * var(--cellHeight));
+    }
     #curators .card {
         min-width: calc(3 * var(--cellWidth));
         height: calc(5 * var(--cellHeight));
     }
-    #curators .person {
-        min-width: calc(2 * var(--cellWidth));
-        height: calc(3 * var(--cellHeight));
+    #curators .card__info {
+        padding: 34px 30px;
+        height: calc(2 * var(--cellHeight));
+    }
+    #curators .card__info-desc {
+        font-size: 16px;
     }
     #curators .controls__btn {
         top: calc(5 * var(--cellHeight) / 2);
@@ -120,10 +146,16 @@
     #curators {
         width: 100%;
     }
+    #curators .card {
+        transition: none;
+    }
     #curators .content {
         width: calc(4 * var(--cellWidth));
         position: relative;
         left: calc(50vw - 2 * var(--cellWidth));
+    }
+    #curators .card__info {
+        padding: 36px 40px;
     }
     .controls__btn {
         display: none;
@@ -131,15 +163,28 @@
 }
 @media screen and (max-width: 480px) {
     #curators .content {
-        width: calc(2 * var(--cellWidth));
+        width: calc(2 * var(--cellWidth) + 1px);
         left: calc(50vw - var(--cellWidth));
     }
     #curators .card {
-        width: calc(2 * var(--cellHeight));
+        min-width: calc(2 * var(--cellWidth));
+        width: calc(2 * var(--cellWidth));
         height: calc(3 * var(--cellHeight));
     }
     #curators .person {
-        width: calc(2 * var(--cellHeight));
+        min-width: calc(2 * var(--cellWidth) - 1px);
+        width: calc(2 * var(--cellWidth) - 1px);
         height: calc(2 * var(--cellHeight));
+    }
+    #curators .card__info {
+        padding: 23px 30px;
+        width: calc(2 * var(--cellWidth));
+        height: calc(1 * var(--cellHeight));
+    }
+    #curators .card__info-name {
+        font-size: 16px;
+    }
+    #curators .card__info-desc {
+        font-size: 14px;
     }
 }

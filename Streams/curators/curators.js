@@ -15,7 +15,7 @@ const Curators = {
             limit: 3,
             filters: ['curators'],
             category: 'curators',
-            lang: translator.lang,
+            lang: translator.lang || 'ru',
             loc: '',
             ids: streamIds,
             baseLink: '',
@@ -58,7 +58,7 @@ const Curators = {
             this.shift = 0;
         },
         lang: async function() {
-            await this.getItems();
+            this.getItems();
         },
     },
     async created() {
@@ -71,17 +71,16 @@ const Curators = {
         },
         maxShiftPx: function() {
             const docWidth = document.documentElement.offsetWidth;
-            let itemWidth, gap;
+            let itemWidth, cellWidth;
             if (docWidth > 480) {
-                const cellWidth = gridSizes[3].h;
+                cellWidth = gridSizes[3].h;
                 itemWidth = cellWidth * 3;
-                gap = (docWidth / 2) - (2 * cellWidth);
             } else {
-                const cellWidth = gridSizes[4].h;
+                cellWidth = gridSizes[4].h;
                 itemWidth = cellWidth * 2;
-                gap = (docWidth / 2) - cellWidth;
+                cellWidth = 0;
             }
-            return (this.currentItems.length - 1) * itemWidth - gap;
+            return (this.currentItems.length - 1) * itemWidth - cellWidth;
         },
         currentItems: function() {
             let currentItems = [...this.items];
@@ -113,7 +112,7 @@ const Curators = {
     },
     methods: {
         getItems: async function() {
-            // return mockedCurators;
+            // this.items = mockedCurators;
             await fetch(this.fetchLink)
                 .then(res => res.json())
                 .then(res => {
@@ -194,7 +193,7 @@ const Curator = {
     computed: {
         shiftStyle: function() {
             return this.transition
-                ? `transition: 0s; transform: translateX(${this.transition}px)`
+                ? `transform: translateX(${this.transition}px)`
                 : `transform: translateX(${-100 * this.shift}%)`;
         }
     }
