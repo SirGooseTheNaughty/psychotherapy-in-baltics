@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="../common/style.css">
+    <link rel="stylesheet" href="./popups.css">
+</head>
+<body class="popup-opened">
+    <canvas id="grid"></canvas>
+    <div class="open-popup">OPEN</div>
+
+    <div id="spouses" class="popup specialty opened" data-modules="opened" data-block="1">
+        <div class="container">
+            <div class="close">
+                <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="1" y1="17.1312" x2="16.5858" y2="1.54541" stroke="#7F95D1" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="16.5858" y1="17" x2="1" y2="1.41421" stroke="#7F95D1" stroke-width="2" stroke-linecap="round"/>
+                </svg>                    
+            </div>
+            <div class="desc">
+                <div class="short">
+                    <div class="specialty">специализация</div>
+                    <h2 class="popup__title">
+                        <span class="trl-popups-spouses-title-1">Психотерапия супружеских пар</span>
+                        <span class="trl-popups-spouses-title-2"><i>Интегрированный</i> подход</span>
+                    </h2>
+                    <div class="stats">
+                        <div class="stat">
+                            <p class="trl-popups-2years">2 года обучения</p>
+                            <p class="trl-popups-270hours">270 часов</p>
+                        </div>
+                        <div class="stat">
+                            <p class="trl-popups-2modules">2 модуля</p>
+                            <p class="module-trigger">
+                                <svg width="10" height="12" viewBox="0 0 10 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.5 5.13397C10.1667 5.51887 10.1667 6.48112 9.5 6.86602L2 11.1962C1.33333 11.5811 0.499999 11.0999 0.499999 10.3301L0.499999 1.66987C0.499999 0.900072 1.33333 0.418947 2 0.803847L9.5 5.13397Z" fill="#FF8552"/>
+                                </svg>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modules modules__desktop desktop">
+                    <div class="modules__cont bars">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                    <div class="modules__cont descriptions">
+                        <div class="desc">
+                            <p class="trl-popups-theory">введение</p>
+                            <p class="trl-popups-spouses-module">в психотерапию пар</p>
+                        </div>
+                        <div class="desc">
+                            <p class="trl-popups-practice">специальные темы парной психотерапии</p>
+                            <p class="trl-popups-spouses-module">психотерапия семейных кризисов</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="modules modules__mobile tablet split">
+                    <ol>
+                        <li>
+                            <p class="trl-popups-theory">введение</p>
+                            <p class="trl-popups-spouses-module">в психотерапию пар</p>
+                        </li>
+                        <li>
+                            <p class="trl-popups-practice">специальные темы парной психотерапии</p>
+                            <p class="trl-popups-spouses-module">психотерапия семейных кризисов</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            <div class="content split">
+                <div class="triggers desktop tablet">
+                    <div class="trigger trl-popups-contents">Содержание программы</div>
+                    <div class="trigger trl-popups-topics">Основные темы семинаров</div>
+                    <div class="trigger trl-popups-curator">Куратор</div>
+                    <div class="trigger trl-popups-after">После программы</div>
+                </div>
+                <div class="blocks">
+                    <div class="block">
+                        <div class="trigger mobile trl-popups-contents">Содержание программы</div>
+                        <div class="info table">
+                            <div class="caption">
+                                <p class="trl-popups-ingroup">в группе</p>
+                                <p class="trl-popups-individually">индивидуально</p>
+                            </div>
+                            <ol>
+                                <li>
+                                    <p class="trl-popups-spouses-content-1">Теория и методология парной психотерапии</p>
+                                    <p></p>
+                                    <p>120 <span class="trl-common-hour">ч</span><span class="trl-popups-ingroup">в группе</span></p>
+                                </li>
+                                <li>
+                                    <p class="trl-popups-spouses-content-2">Практикум отработки технических навыков</p>
+                                    <p></p>
+                                    <p>25 <span class="trl-common-hour">ч</span><span class="trl-popups-ingroup">в группе</span></p>
+                                </li>
+                                <li>
+                                    <p class="trl-popups-spouses-content-3">Супервизия практики</p>
+                                    <p>40 <span class="trl-common-hour">ч</span><span class="trl-popups-individually">индивидуально</span></p>
+                                    <p>10 <span class="trl-common-hour">ч</span><span class="trl-popups-ingroup">в группе</span></p>
+                                </li>
+                                <li>
+                                    <p class="trl-popups-spouses-content-4">Практическая работа</p>
+                                    <p></p>
+                                    <p></p>
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="trigger mobile trl-popups-topics">Основные темы семинаров</div>
+                        <div class="info table">
+                            <ol>
+                                <li class="trl-popups-spouses-topics-1">История развития психотерапии супружеских пар: от структурного подхода до эмоционально-фокусированной психотерапии. Правила и принципы работы семейного (парного) психотерапевта.</li>
+                                <li class="trl-popups-spouses-topics-2">Многоуровневая модель функционирования семейной системы как основа интегративного подхода в психотерапии пар. Фокусы психотерапии при работе на разных уровнях семейного функционирования (индивидуальном, микро-, макро- и мега-системном).</li>
+                                <li class="trl-popups-spouses-topics-3">Супружеская подсистема: характеристики, задачи, нормативная динамика (нормативные кризисы).</li>
+                                <li class="trl-popups-spouses-topics-4">Структурные параметры функционирования супружеской пары: границы, близость, иерархия, гибкость. Понятие дисфункциональности семейной структуры.</li>
+                                <li class="trl-popups-spouses-topics-5">Исторические параметры функционирования супружеской пары: семейная история, семейный сценарий (модели родительских семей супругов), семейные тайны, мифы, легенды, нормы и правила, ценности и ритуалы.</li>
+                                <li class="trl-popups-spouses-topics-6">Процессуальные параметры функционирования супружеской пары: супружеская коммуникация.</li>
+                                <li class="trl-popups-spouses-topics-7">Полезные концепции психотерапии супружеских пар: выбор брачного партнера; дифференциация Я, эмоциональные треугольники (М. Боуэн); сиблинговые позиции (В. Тоумен); стиль взаимодействия пары (комплементарная и симметричная модель); баланс «давать-брать».</li>
+                                <li class="trl-popups-spouses-topics-8">Специфические факторы отношений: интимность (сексуальная, эмоциональная, когнитивная, эстетика); ожидание и удовлетворение потребностей (реальность и инфантильные фантазии/ожидания).</li>
+                                <li class="trl-popups-spouses-topics-9">Ненормативные кризисы: измена, развод, болезнь, смерть, потеря работы, переезд и др.</li>
+                                <li class="trl-popups-spouses-topics-10">Этапы психотерапевтического процесса. Первая встреча с супружеской парой. Психотерапевтический контракт. Длительность психотерапии. Методы и технические приемы сопровождения пары на разных этапах психотерапии. Методология домашних заданий.</li>
+                                <li class="trl-popups-spouses-topics-11">Циркулярное интервью. Психотерапевтические гипотезы. Системное мышление парного психотерапевта.</li>
+                                <li class="trl-popups-spouses-topics-12">Модель эмоционально-фокусированной психотерапии как эффективный инструмент повышения эмоциональной близости и безопасности супружеских отношений.</li>
+                                <li class="trl-popups-spouses-topics-13">Ресурсы схема-терапии в работе с супружескими парами.</li>
+                                <li class="trl-popups-spouses-topics-14">Психотерапевтическая группа для супружеских пар как фактор развития отношений и проработки острых кризисов.</li>
+                            </ol>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="trigger mobile trl-popups-curator">Куратор</div>
+                        <div class="info">
+                            <div class="curator">
+                                <img src="https://static.tildacdn.com/tild3633-6430-4165-b736-323430396533/1.png" alt="curator">
+                                <div class="curator__info">
+                                    <p class="name trl-common-tatiana">Татьяна Велента-Гринина</p>
+                                    <p class="desc trl-common-tatianadesc">
+                                        доктор психологии (PhD), специалист по психотерапии, гештальт психотерапевт, супервизор, руководитель Балтийского Института Психотерапии.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="block">
+                        <div class="trigger mobile trl-popups-after">После программы</div>
+                        <div class="info article">
+                            <p class="desc trl-popups-spouses-article-1">
+                                По окончанию программы выдается свидетельство о пройденной специализации «Психотерапия супружеских пар: интегративный подход». 
+                            </p>
+                            <p class="desc trl-popups-spouses-article-2">
+                                Данное свидетельство является приложением к основному диплому специалиста и является формой подтверждения его профессионального развития.
+                            </p>
+                            <img src="https://static.tildacdn.com/tild3236-3064-4932-a464-363361313162/2.png" alt="diploma">
+                            <a href="./success-stories">
+                                <div class="success">
+                                    <p class="trl-popups-successstories">Читать истории успеха</p>
+                                    <svg width="31" height="15" viewBox="0 0 31 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0 7.5L30 7.5" stroke="#4F4F4F" stroke-width="2"/>
+                                        <path d="M30 7.5C26.7708 7.39583 20.3125 5.75 20.3125 0" stroke="#4F4F4F" stroke-width="2"/>
+                                        <path d="M30 7.5C26.7708 7.60417 20.3125 9.25 20.3125 15" stroke="#4F4F4F" stroke-width="2"/>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #7F95D1;
+        }
+        #grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+    </style>
+    
+    <script src="../../common/script.js"></script>
+    <script src="../../grid/drawer.js"></script>
+    <script src="./popups.js"></script>
+    <script>
+        const integratedApproachPopup = new Popup('#spouses', '.open-popup');
+    </script>
+</body>
+</html>
