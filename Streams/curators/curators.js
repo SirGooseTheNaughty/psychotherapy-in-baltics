@@ -22,6 +22,7 @@ const Curators = {
             shift: 0,
             transition: 0,
             touchX: 0,
+            order: 'desc',
         }
     },
     template: `
