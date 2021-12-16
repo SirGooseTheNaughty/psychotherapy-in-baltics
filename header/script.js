@@ -90,6 +90,9 @@ class Header {
     }
 
     toggleDropdown(dropdown = '') {
+        if (dropdown === 'menu') {
+            return this.toggleMenu();
+        }
         this.cont.setAttribute(
             'data-opened',
             this.cont.getAttribute('data-opened') === dropdown ? '' : dropdown
