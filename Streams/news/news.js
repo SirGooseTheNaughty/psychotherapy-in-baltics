@@ -24,7 +24,7 @@ const Feed = {
     },
     async created() {
         translator.subscribers.push(this);
-        await this.getItems();
+        this.getItems();
     },
     computed: {
         maxShift: function() {

@@ -62,8 +62,8 @@ const Curators = {
         },
     },
     async created() {
-        await this.getItems();
         translator.subscribers.push(this);
+        this.getItems();
     },
     computed: {
         maxShift: function() {

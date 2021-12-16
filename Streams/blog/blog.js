@@ -67,8 +67,8 @@ const Blog = {
         },
     },
     async created() {
-        this.getItems();
         translator.subscribers.push(this);
+        this.getItems();
     },
     computed: {
         currentItems: function() {
