@@ -23,8 +23,8 @@ const Feed = {
         },
     },
     async created() {
-        await this.getItems();
         translator.subscribers.push(this);
+        await this.getItems();
     },
     computed: {
         maxShift: function() {
@@ -32,12 +32,16 @@ const Feed = {
         },
         currentItems: function() {
             let currentItems = [...this.items];
+            const filters = [...this.filters];
             if (this.loc) {
-                this.filters.push(this.loc);
+                filters.push(this.loc);
             }
-            if (this.filters.length) {
+            if (this.lang) {
+                filters.push(this.lang);
+            }
+            if (filters.length) {
                 currentItems = currentItems.filter(item => {
-                    for (let filter of this.filters) {
+                    for (let filter of filters) {
                         if (!item.categories.includes(filter)) {
                             return false;
                         }
@@ -52,8 +56,9 @@ const Feed = {
         },
         fetchLink: function() {
             const rootId = this.ids[this.category].root;
-            const langId = this.ids[this.category][this.lang];
-            return `https://feeds.tildacdn.com/api/getfeed/?feeduid=${rootId}-${langId}&size=&slice=1&sort%5Bdate%5D=${this.order}`;
+            // const langId = this.ids[this.category][this.lang];
+            // return `https://feeds.tildacdn.com/api/getfeed/?feeduid=${rootId}-${langId}&size=&slice=1&sort%5Bdate%5D=${this.order}`;
+            return `https://feeds.tildacdn.com/api/getfeed/?feeduid=${rootId}&size=&slice=1&sort%5Bdate%5D=${this.order}`;
         }
     },
     methods: {
@@ -72,6 +77,7 @@ const Feed = {
                 return {
                     title: post.title,
                     description: post.descr,
+                    categories: post.parts.split(','),
                     date,
                     time,
                     link: post.url,

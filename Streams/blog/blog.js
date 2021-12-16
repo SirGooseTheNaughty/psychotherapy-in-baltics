@@ -77,6 +77,9 @@ const Blog = {
             if (this.loc) {
                 filters.push(this.loc);
             }
+            if (this.lang) {
+                filters.push(this.lang);
+            }
             currentItems = currentItems.filter(item => {
                 for (let filter of filters) {
                     if (filter !== 'все темы' && filter !== 'все форматы' && !item.categories.includes(filter)) {
@@ -95,8 +98,9 @@ const Blog = {
         },
         fetchLink: function() {
             const rootId = this.ids[this.category].root;
-            const langId = this.ids[this.category][this.lang];
-            return `https://feeds.tildacdn.com/api/getfeed/?feeduid=${rootId}-${langId}&size=&slice=1&sort%5Bdate%5D=${this.order}`;
+            // const langId = this.ids[this.category][this.lang];
+            // return `https://feeds.tildacdn.com/api/getfeed/?feeduid=${rootId}-${langId}&size=&slice=1&sort%5Bdate%5D=${this.order}`;
+            return `https://feeds.tildacdn.com/api/getfeed/?feeduid=${rootId}&size=&slice=1&sort%5Bdate%5D=${this.order}`;
         },
     },
     methods: {
