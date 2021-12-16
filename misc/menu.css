@@ -1,0 +1,8 @@
+#rec a {
+    transition: background-color var(--animTime) ease;
+}
+@media (pointer: fine) {
+    #rec a:hover {
+        background-color: rgba(255, 255, 255, 0.15);
+    }
+}

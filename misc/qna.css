@@ -1,0 +1,10 @@
+.t585__header {
+    height: calc(var(--cellHeight) / 2);
+    box-sizing: border-box;
+}
+.t585__content {
+    position: relative;
+}
+.t585__header:hover .t585__icon-hover {
+    opacity: 0.4 !important;
+}

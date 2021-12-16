@@ -32,7 +32,6 @@ class Header {
         this.translator = translator;
 
         this.toggleDropdown = this.toggleDropdown.bind(this);
-        this.toggleMenu = this.toggleMenu.bind(this);
         this.setLanguage = this.setLanguage.bind(this);
         this.setLocation = this.setLocation.bind(this);
         this.fetchLocation = this.fetchLocation.bind(this);
@@ -52,7 +51,7 @@ class Header {
         }
         this.controls.mobile.languages.addEventListener('change', (e) => this.setLanguage(e.target.value, false));
         this.controls.mobile.locations.addEventListener('change', (e) => this.setLocation(e.target.value, false));
-        this.menu.links.forEach(link => link.addEventListener('click', () => this.toggleDropdown('menu')));
+        this.menu.links.forEach(link => link.addEventListener('click', this.toggleMenu.bind(this)));
 
         let lang = getLanguageCookie();
         if (!lang) {
@@ -77,19 +76,20 @@ class Header {
     }
 
     toggleMenu() {
-        if (this.cont.getAttribute('data-opened') === 'menu') {
+        if (this.cont.getAttribute('data-menu') === 'opened') {
             this.menu.desktop.classList.remove('opened');
             this.menu.mobile.classList.remove('opened');
             this.body.classList.remove('menu-opened');
+            this.cont.setAttribute('data-menu', '');
         } else {
             this.menu.desktop.classList.add('opened');
             this.menu.mobile.classList.add('opened');
             this.body.classList.add('menu-opened');
+            this.cont.setAttribute('data-menu', 'opened');
         }
     }
 
     toggleDropdown(dropdown = '') {
-        dropdown === 'menu' && this.toggleMenu();
         this.cont.setAttribute(
             'data-opened',
             this.cont.getAttribute('data-opened') === dropdown ? '' : dropdown
