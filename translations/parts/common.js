@@ -84,4 +84,26 @@ const common = {
         en: 'h',
         lv: '',
     },
+    nodata: {
+        lang: {
+            ru: 'Эта часть пока что недоступна на русском. Она будет добавлена как можно быстрее.<br>Приносим извинения за неудобства!',
+            en: 'This part is not available in English for now. It will be added as soon as possible.<br>Sorry for inconvenience!',
+            lv: 'Šī daļa vēl nav pieejama krievu valodā. Tas tiks pievienots, cik drīz vien iespējams. <br> Atvainojiet par sagādātajām neērtībām!',
+        },
+        lv: {
+            ru: 'На данный момент предстоящих событий в Латвии нет.',
+            en: 'There are currently no upcoming events in Latvia.',
+            lv: 'Šobrīd Latvijā nav gaidāmu pasākumu.',
+        },
+        et: {
+            ru: 'На данный момент предстоящих событий в Эстонии нет.',
+            en: 'There are currently no upcoming events in Estonia.',
+            lv: 'Igaunijā pašlaik nav gaidāmu notikumu.',
+        },
+        lt: {
+            ru: 'На данный момент предстоящих событий в Литве нет.',
+            en: 'There are currently no upcoming events in Lithuania.',
+            lv: 'Lietuvā pašlaik nav gaidāmu notikumu.',
+        },
+    }
 };

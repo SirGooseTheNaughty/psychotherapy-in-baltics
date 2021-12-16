@@ -29,6 +29,7 @@ const Curators = {
         <div id="curators">
             <div
                 class="content"
+                v-if="currentItems.length"
                 v-on:touchmove="shiftMobile"
                 v-on:touchstart="addListener"
                 v-on:touchend="removeListener"
@@ -36,6 +37,7 @@ const Curators = {
             >
                 <person v-for="(person, index) in currentItems" :data="person" :shift="shift" :transition="transition" key="index"></person>
             </div>
+            <div v-if="!currentItems.length" class="nodata" v-html="noDataMsg"></div>
             <div class="controls">
                 <div class="controls__tags">
                     <div
@@ -49,8 +51,8 @@ const Curators = {
                         v-on:click="() => setFilter('experts')"
                     >Эксперты-консультанты</div>
                 </div>
-                <div :class="{ hidden: shift === 0 }" class="controls__btn controls__left" v-on:click="shiftLeft">${svgNextBtn}</div>
-                <div :class="{ hidden: shift === maxShift }" class="controls__btn controls__right" v-on:click="shiftRight">${svgNextBtn}</div>
+                <div v-if="currentItems.length" :class="{ hidden: shift === 0 }" class="controls__btn controls__left" v-on:click="shiftLeft">${svgNextBtn}</div>
+                <div v-if="currentItems.length" :class="{ hidden: shift === maxShift }" class="controls__btn controls__right" v-on:click="shiftRight">${svgNextBtn}</div>
             </div>
         </div>
     `,
@@ -67,6 +69,9 @@ const Curators = {
         this.getItems();
     },
     computed: {
+        noDataMsg: function() {
+            return translator.getTranslation(['common', 'nodata', 'lang']);
+        },
         maxShift: function() {
             return this.currentItems.length - this.limit;
         },

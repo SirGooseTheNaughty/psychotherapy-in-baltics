@@ -1,6 +1,5 @@
 #curators {
-    width: calc(6 * var(--cellWidth));
-    height: calc(3 * var(--cellHeight));
+    width: calc(6 * var(--cellWidth) + 1px);
     margin: 0 auto;
     position: relative;
     color: var(--white);
@@ -12,7 +11,6 @@
     display: flex;
     justify-content: start;
     overflow: hidden;
-    /* border-right: 1px solid var(--beige); */
 }
 #curators .card {
     min-width: calc(2 * var(--cellWidth));
@@ -106,6 +104,18 @@
     opacity: 100%;
 }
 
+.nodata {
+    width: 100%;
+    height: calc(1 * var(--cellHeight));
+    display: grid;
+    place-items: center;
+    padding: 5%;
+    box-sizing: border-box;
+    border: 1px solid var(--beige);
+    text-align: center;
+    line-height: 1.45em;
+}
+
 @media screen and (max-width: 1200px) {
     #curators .card__info {
         padding: 24px 37px;
@@ -140,6 +150,9 @@
     #curators .controls__btn {
         top: calc(5 * var(--cellHeight) / 2);
     }
+    .nodata {
+        height: calc(2 * var(--cellHeight));
+    }
 }
 
 @media screen and (max-width: 640px) {
@@ -159,6 +172,10 @@
     }
     .controls__btn {
         display: none;
+    }
+    .nodata {
+        width: calc(4 * var(--cellWidth));
+        margin: 0 auto;
     }
 }
 @media screen and (max-width: 480px) {
@@ -186,5 +203,8 @@
     }
     #curators .card__info-desc {
         font-size: 14px;
+    }
+    .nodata {
+        width: calc(2 * var(--cellWidth));
     }
 }
