@@ -2,7 +2,7 @@ class Translator {
     constructor() {
         this.translations = translations;
         this.texts = [];
-        this.lang = 'en';
+        this.lang = 'ru';
 
         this.subscribers = [];
 
@@ -29,10 +29,18 @@ class Translator {
         });
     }
 
+    getPossibleText(texts, lang) {
+        if (texts[lang] === null) {
+            return '';
+        }
+        return texts[lang] || texts.ru || texts.lv || texts.en || '';
+    }
+
     translateElement(element) {
         try {
             const texts = element.keys.reduce((obj, key) => obj = obj[key], this.translations);
-            const text = texts[this.lang];
+            // const text = texts[this.lang];
+            const text = this.getPossibleText(texts, this.lang);
             if (typeof text === 'function') {
                 element.element.innerHTML = text();
             } else {
