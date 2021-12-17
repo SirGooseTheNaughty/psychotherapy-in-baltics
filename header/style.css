@@ -33,6 +33,7 @@ a {
 }
 .nav-dropdown .nav-container {
     display: flex;
+    padding: 20px 0;
 }
 .nav-dropdown .nav-dropdown__title {
     width: 267px;
@@ -43,7 +44,6 @@ a {
 .nav-content,
 .nav-dropdown {
     width: 100%;
-    height: 60px;
 }
 [data-opened="locations"] .nav-locations .nav-dropdown__container {
     transform: translateY(0);
