@@ -282,6 +282,7 @@ a {
 .nav-languages__en,
 .nav-languages__lv {
     position: relative;
+    cursor: default;
 }
 .nav-languages__es::after,
 .nav-languages__en::after,
