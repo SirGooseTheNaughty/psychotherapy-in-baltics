@@ -128,6 +128,10 @@
 }
 
 #feed .more {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: translateY(100%);
     width: 100%;
     height: 52px;
     display: grid;
