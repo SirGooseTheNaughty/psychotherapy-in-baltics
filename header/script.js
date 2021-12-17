@@ -37,13 +37,13 @@ class Header {
         this.setLocation = this.setLocation.bind(this);
         this.fetchLocation = this.fetchLocation.bind(this);
 
-        // this.menu.desktop.classList.add('my-menu');
-        // this.menu.mobile.classList.add('my-menu');
-        // setTimeout(() => {
-        //     this.menu.desktop.classList.add('my-menu-transition');
-        //     this.menu.mobile.classList.add('my-menu-transition');
-        // }, 10);
-        // this.menu.links = [...this.menu.desktop.querySelectorAll('a'), ...this.menu.mobile.querySelectorAll('a')];
+        this.menu.desktop.classList.add('my-menu');
+        this.menu.mobile.classList.add('my-menu');
+        setTimeout(() => {
+            this.menu.desktop.classList.add('my-menu-transition');
+            this.menu.mobile.classList.add('my-menu-transition');
+        }, 10);
+        this.menu.links = [...this.menu.desktop.querySelectorAll('a'), ...this.menu.mobile.querySelectorAll('a')];
 
         for (let key of Object.keys(this.controls.togglers)) {
             this.controls.togglers[key].addEventListener('click', () => this.toggleDropdown(key));
