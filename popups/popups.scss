@@ -1,9 +1,3 @@
-:root {
-    --arrowUrl: url(https://static.tildacdn.com/tild6139-3266-4432-b932-393964333139/arrow.png);
-    --firstPopupCuratorUrl: url(https://static.tildacdn.com/tild3633-6430-4165-b736-323430396533/1.png);
-    --firstPopupArticleUrl: url(https://static.tildacdn.com/tild3236-3064-4932-a464-363361313162/2.png);
-}
-
 body.popup-opened {
     overflow-y: hidden;
 
@@ -416,7 +410,6 @@ body.popup-opened {
                             display: block;
                             width: 30px;
                             height: 15px;
-                            background-image: var(--arrowUrl);
                             transform: translate(50%, 25%);
                             opacity: 0;
                             transition: opacity var(--animTime) ease;
