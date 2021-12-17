@@ -38,7 +38,7 @@
     font-size: 14px;
     min-height: 1em;
 }
-.content {
+.post__content {
     margin-bottom: auto;
 }
 .title {
@@ -51,7 +51,7 @@
     color: var(--lightGray);
     font-size: 16px;
 }
-.seemore a {
+.post__seemore a {
     color: var(--beige) !important;
     font-size: 14px;
     text-transform: uppercase;
