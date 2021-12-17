@@ -14,7 +14,9 @@ const Feed = {
     },
     template: `
         <div id="feed">
-            <post v-for="post in currentItems" :data="post" :key="post.data"></post>
+            <div class="content">
+                <post v-for="post in currentItems" :data="post" :key="post.data"></post>
+            </div>
         </div>
     `,
     watch: {
@@ -63,7 +65,7 @@ const Feed = {
     },
     methods: {
         getItems: async function() {
-            // this.items = mockedPosts;
+            // this.items = mockedEvents;
             await fetch(this.fetchLink)
                 .then(res => res.json())
                 .then(res => {
