@@ -15,7 +15,7 @@ const Feed = {
     data() {
         return {
             items: [],
-            limit: 3,
+            limit: 6,
             filters: [],
             category: 'events',
             lang: translator.lang,
