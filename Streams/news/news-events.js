@@ -200,15 +200,15 @@ const Post = {
     props: ['data'],
     template: `
         <div class="post">
-            <div class="datetime">
+            <div class="post__datetime">
                 <p class="date">{{ data.date }}</p>
                 <p class="time">{{ data.time === '00:00' ? '' : data.time }}</p>
             </div>
-            <div class="content">
+            <div class="post__content">
                 <h3 class="title">{{ data.title }}</h3>
                 <p class="description">{{ data.description }}</p>
             </div>
-            <div class="seemore">
+            <div class="post__seemore">
                 <a :href="data.link">Подробнее</a>
                 <svg width="23" height="12" viewBox="0 0 23 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M0 6L22 6" stroke="#F0EFEC"/>
