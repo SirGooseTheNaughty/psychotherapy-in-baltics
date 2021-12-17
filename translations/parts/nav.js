@@ -50,7 +50,7 @@ const nav = {
             en: 'Lithuania',
             ru: 'Литва',
         },
-        es: {
+        et: {
             en: 'Estonia',
             ru: 'Эстония',
         },
@@ -68,7 +68,7 @@ const nav = {
             en: 'Russian',
             ru: 'Русский',
         },
-        es: {
+        et: {
             en: 'Estonian',
             ru: 'Эстонский',
         },
