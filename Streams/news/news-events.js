@@ -77,6 +77,9 @@ const Feed = {
         this.getItems();
     },
     computed: {
+        noDataMsg: function() {
+            return translator.getTranslation(['common', 'nodata', 'lang'], this.lang);
+        },
         maxShift: function() {
             return Math.floor((this.currentItems.length - 1) / 3);
         },

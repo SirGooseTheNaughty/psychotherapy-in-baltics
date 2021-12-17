@@ -71,6 +71,9 @@ const Blog = {
         this.getItems();
     },
     computed: {
+        noDataMsg: function() {
+            return translator.getTranslation(['common', 'nodata', 'lang'], this.lang);
+        },
         currentItems: function() {
             let currentItems = [...this.items];
             const filters = [this.type, this.filter];
