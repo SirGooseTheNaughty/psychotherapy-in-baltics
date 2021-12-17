@@ -251,6 +251,8 @@ a {
     opacity: 0;
     pointer-events: none;
     transform: translateX(-10%);
+}
+.my-menu-transition {
     transition: .4s ease;
 }
 .my-menu.opened {

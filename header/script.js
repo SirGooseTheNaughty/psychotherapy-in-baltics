@@ -39,6 +39,10 @@ class Header {
 
         this.menu.desktop.classList.add('my-menu');
         this.menu.mobile.classList.add('my-menu');
+        setTimeout(() => {
+            this.menu.desktop.classList.add('my-menu-transition');
+            this.menu.mobile.classList.add('my-menu-transition');
+        }, 10);
         this.menu.links = [...this.menu.desktop.querySelectorAll('a'), ...this.menu.mobile.querySelectorAll('a')];
 
         for (let key of Object.keys(this.controls.togglers)) {
