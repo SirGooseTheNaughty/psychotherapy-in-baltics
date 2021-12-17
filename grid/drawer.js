@@ -12,9 +12,18 @@ class GridDrawer {
         this.drawHorizontalLines = this.drawHorizontalLines.bind(this);
         this.redraw = this.redraw.bind(this);
         this.unmount = this.unmount.bind(this);
+        this.checkHeight = this.checkHeight.bind(this);
 
-        document.addEventListener('DOMContentLoaded', this.resizeCanvas);
+        document.addEventListener('DOMContentLoaded', this.checkHeight);
         window.addEventListener('resize', this.resizeCanvas);
+    }
+
+    checkHeight() {
+        if (this.canvas.height !== document.documentElement.offsetHeight) {
+            console.log('resized grid on doc height change');
+            this.resizeCanvas();
+        }
+        setTimeout(this.checkHeight, 500);
     }
 
     unmount() {
