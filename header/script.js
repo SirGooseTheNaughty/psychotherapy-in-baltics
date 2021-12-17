@@ -44,13 +44,13 @@ class Header {
         for (let key of Object.keys(this.controls.togglers)) {
             this.controls.togglers[key].addEventListener('click', () => this.toggleDropdown(key));
         }
-        for (let key of Object.keys(this.controls.languages)) {
-            this.controls.languages[key].addEventListener('click', () => this.setLanguage(key));
-        }
+        // for (let key of Object.keys(this.controls.languages)) {
+        //     this.controls.languages[key].addEventListener('click', () => this.setLanguage(key));
+        // }
         for (let key of Object.keys(this.controls.locations)) {
             this.controls.locations[key].addEventListener('click', () => this.setLocation(key));
         }
-        this.controls.mobile.languages.addEventListener('change', (e) => this.setLanguage(e.target.value, false));
+        // this.controls.mobile.languages.addEventListener('change', (e) => this.setLanguage(e.target.value, false));
         this.controls.mobile.locations.addEventListener('change', (e) => this.setLocation(e.target.value, false));
         this.menu.links.forEach(link => link.addEventListener('click', this.toggleMenu));
 

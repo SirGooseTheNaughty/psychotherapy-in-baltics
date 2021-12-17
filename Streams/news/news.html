@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="https://unpkg.com/vue@next"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700;800&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="../../common/style.css">
+    <link rel="stylesheet" href="./news.css">
+    <script src="./mockedPosts.js"></script>
+    <script src="../ids.js"></script>
+</head>
+<body>
+    <canvas id="grid"></canvas>
+    <div id="feed"></div>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: lightblue;
+            padding-top: calc(2 * var(--cellHeight));
+        }
+        .cont {
+            width: 1160px;
+            height: 400px;
+            margin: 0 auto;
+        }
+        #grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+
+    <script src="../../common/script.js"></script>
+    <script src="../../grid/drawer.js"></script>
+    <script>const translator = {subscribers: []};</script>
+    <script src="./news-events.js"></script>
+</body>
+</html>

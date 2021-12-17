@@ -1,0 +1,12 @@
+.t-submit {
+    width: calc(2 * var(--cellWidth)) !important;
+    height: calc(var(--cellWidth) / 2) !important;
+    margin-top: 32px !important;
+    padding: 20px 30px !important;
+    display: grid !important;
+    place-items: end end !important;
+    font-weight: 600 !important;
+}
+input {
+    font-family: 'Inter', sans-serif !important;
+}

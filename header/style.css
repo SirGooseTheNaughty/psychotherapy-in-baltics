@@ -277,3 +277,39 @@ a {
 .menu-opened #grid {
     opacity: 0;
 }
+
+.nav-languages__es,
+.nav-languages__en,
+.nav-languages__lv {
+    position: relative;
+}
+.nav-languages__es::after,
+.nav-languages__en::after,
+.nav-languages__lv::after {
+    content: '';
+    width: max-content;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(0, -20px);
+    font-family: 'Inter', sans-serif;
+    color: var(--white);
+    font-size: 14px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity .4s ease;
+}
+.nav-languages__es::after {
+    content: 'Eesti keel pole veel saadaval, lisame esimesel võimalusel';
+}
+.nav-languages__en::after {
+    content: 'English is unavailable for now, we will add it as soon as possible';
+}
+.nav-languages__lv::after {
+    content: 'Latviešu valoda vēl nav pieejama, pievienosim pēc iespējas ātrāk';
+}
+.nav-languages__es:hover::after,
+.nav-languages__en:hover::after,
+.nav-languages__lv:hover::after {
+    opacity: 1;
+}
