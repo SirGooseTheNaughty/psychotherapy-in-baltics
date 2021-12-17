@@ -69,7 +69,7 @@ class GridDrawer {
 
     drawVerticalLine(shift) {
         this.ctx.beginPath();
-        this.ctx.moveTo(shift, this.horizontalLinesStart);
+        this.ctx.moveTo(shift, 0);
         this.ctx.lineTo(shift, this.canvas.height);
         this.ctx.stroke();
     }
