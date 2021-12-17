@@ -105,16 +105,16 @@ const Blog = {
     },
     methods: {
         getItems: async function() {
-            // this.items = mockedPosts.reverse();
-            // this.filters = mockedFilters;
-            await fetch(this.fetchLink)
-                .then(res => res.json())
-                .then(res => {
-                    const { posts, filters } = this.preformItems(res);
-                    this.items = posts;
-                    this.filters = filters;
-                })
-                .catch(console.log);
+            this.items = mockedPosts.reverse();
+            this.filters = mockedFilters;
+            // await fetch(this.fetchLink)
+            //     .then(res => res.json())
+            //     .then(res => {
+            //         const { posts, filters } = this.preformItems(res);
+            //         this.items = posts;
+            //         this.filters = filters;
+            //     })
+            //     .catch(console.log);
         },
         preformItems: function(data) {
             let posts = [], filters = [];
@@ -122,7 +122,7 @@ const Blog = {
                 let postCategory = '';
                 const categories = post.parts.split(',');
                 categories.forEach(category => {
-                    if (!this.types.includes(category) && !this.languages.includes(category)) {
+                    if (category && !this.types.includes(category) && !this.languages.includes(category)) {
                         if (!postCategory) {
                             postCategory = category;
                         }
@@ -221,7 +221,7 @@ const Controls = {
                         <div class="selection__option" v-for="option in types" v-if="type !== option" v-on:click="setType(option)">{{ option }}</div>
                     </div>
                 </div>
-                <div class="tab tabs__all" :class="{ selected: filter === 'все' }" v-on:click="setFilter('все')">все темы</div>
+                <div class="tab tabs__all" :class="{ selected: filter === 'все темы' }" v-on:click="setFilter('все темы')">все темы</div>
                 <div class="tabs">
                     <div class="tab" v-for="tab in filters" :class="{ selected: filter === tab }" v-on:click="setFilter(tab)" :style="shiftedStyle">{{ tab }}</div>
                     <div v-if="shift !== 0" v-on:click="shiftRight" class="tabs__shift-icon left">${shiftFiltersIcon}</div>

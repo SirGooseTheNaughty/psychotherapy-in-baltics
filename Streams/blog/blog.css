@@ -17,16 +17,19 @@
     height: calc(2 * var(--cellHeight));
     border: 1px solid #F0EFEC;
     box-sizing: border-box;
-    padding: 22px 27px;
+    padding: 22px 25px;
     color: var(--white);
 }
 #blog .card__category {
     position: absolute;
-    top: 42px;
-    right: 45px;
+    top: 32px;
+    right: 35px;
+    padding: 10px 12px;
+    color: var(--blue);
     font-size: 12px;
     text-transform: uppercase;
     font-weight: 500;
+    background-color: var(--lightGray);
 }
 #blog .card__image {
     min-width: 100%;
@@ -262,6 +265,7 @@
     }
     #blog .card__category {
         position: relative;
+        width: max-content;
         top: 24px;
         left: 0;
     }
@@ -352,10 +356,11 @@
 }
 @media screen and (max-width: 480px) {
     #blog {
-        width: calc(2 * var(--cellWidth));
+        width: calc(100% - 20px);
+        
     }
     #blog .card {
-        width: calc(2 * var(--cellWidth));
+        width: 100%;
         height: calc(3 * var(--cellHeight));
         padding: 18px;
     }
@@ -365,13 +370,31 @@
     #blog .card__info-desc__date {
         width: var(--cellWidth);
     }
+    #blog .search {
+        width: 100%;
+    }
     #blog .search input {
-        width: calc(2 * var(--cellWidth));
+        width: 100%;
     }
     #blog .controls {
+        width: 100%;
         flex-flow: column;
+    }
+    #blog .selection {
+        width: 100%;
+    }
+    #blog .selection.filters {
+        z-index: 5;
     }
     #blog .selection.categories {
         margin-bottom: 14px;
+    }
+    #blog .selection__result {
+        position: relative;
+        z-index: 9;
+    }
+    #blog .selection__options {
+        position: absolute;
+        z-index: 10;
     }
 }
