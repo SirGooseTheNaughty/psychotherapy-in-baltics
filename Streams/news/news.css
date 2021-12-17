@@ -164,9 +164,9 @@
     .post__seemore:hover a {
         margin-right: 10px;
     }
-    .post:hover {
+    /* .post:hover {
         background-color: var(--dimmedWhite);
-    }
+    } */
 }
 
 @media screen and (max-width: 1200px) {

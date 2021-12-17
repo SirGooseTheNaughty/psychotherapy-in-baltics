@@ -24,6 +24,7 @@ class Popup {
         this.blocksTriggers.mobile.forEach((trigger, index) => {
             trigger.addEventListener('click', () => this.changeBlocks(index + 1));
         });
+        this.open.style.cursor = 'pointer';
         this.open.addEventListener('click', this.togglePopup);
         this.close.addEventListener('click', this.togglePopup);
         window.addEventListener('resize', this.openOnResize.bind(this));
