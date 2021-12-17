@@ -20,7 +20,6 @@ class GridDrawer {
 
     checkHeight() {
         if (this.canvas.height !== document.documentElement.offsetHeight) {
-            console.log('resized grid on doc height change');
             this.resizeCanvas();
         }
         setTimeout(this.checkHeight, 500);
