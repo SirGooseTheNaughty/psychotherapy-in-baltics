@@ -9,13 +9,13 @@ class Header {
             },
             languages: {
                 ru: this.cont.querySelector('.nav-languages__ru'),
-                et: this.cont.querySelector('.nav-languages__es'),
+                et: this.cont.querySelector('.nav-languages__et'),
                 lv: this.cont.querySelector('.nav-languages__lv'),
                 en: this.cont.querySelector('.nav-languages__en'),
             },
             locations: {
                 LT: this.cont.querySelector('.nav-locations__lt'),
-                ET: this.cont.querySelector('.nav-locations__es'),
+                ET: this.cont.querySelector('.nav-locations__et'),
                 LV: this.cont.querySelector('.nav-locations__lv'),
             },
             mobile: {
@@ -37,13 +37,13 @@ class Header {
         this.setLocation = this.setLocation.bind(this);
         this.fetchLocation = this.fetchLocation.bind(this);
 
-        this.menu.desktop.classList.add('my-menu');
-        this.menu.mobile.classList.add('my-menu');
-        setTimeout(() => {
-            this.menu.desktop.classList.add('my-menu-transition');
-            this.menu.mobile.classList.add('my-menu-transition');
-        }, 10);
-        this.menu.links = [...this.menu.desktop.querySelectorAll('a'), ...this.menu.mobile.querySelectorAll('a')];
+        // this.menu.desktop.classList.add('my-menu');
+        // this.menu.mobile.classList.add('my-menu');
+        // setTimeout(() => {
+        //     this.menu.desktop.classList.add('my-menu-transition');
+        //     this.menu.mobile.classList.add('my-menu-transition');
+        // }, 10);
+        // this.menu.links = [...this.menu.desktop.querySelectorAll('a'), ...this.menu.mobile.querySelectorAll('a')];
 
         for (let key of Object.keys(this.controls.togglers)) {
             this.controls.togglers[key].addEventListener('click', () => this.toggleDropdown(key));

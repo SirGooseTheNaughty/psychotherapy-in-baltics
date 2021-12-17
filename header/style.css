@@ -1,6 +1,6 @@
 a {
     text-decoration: none !important;
-    color: white !important;
+    color: var(--white) !important;
 }
 
 .balt-nav {
@@ -9,7 +9,7 @@ a {
     position: fixed;
     top: 0;
     left: 0;
-    color: white;
+    color: var(--white);
     font-family: 'Inter', sans-serif;
     font-size: 14px;
     font-weight: 500;
@@ -31,10 +31,19 @@ a {
     align-items: center;
     grid-template-columns: 267px 119px 119px 119px auto;
 }
+.nav-dropdown .nav-container {
+    display: flex;
+}
+.nav-dropdown .nav-dropdown__title {
+    width: 267px;
+}
+.nav-dropdown .nav-dropdown__toggler {
+    margin-right: 60px;
+}
 .nav-content,
 .nav-dropdown {
     width: 100%;
-    height: 52px;
+    height: 60px;
 }
 [data-opened="locations"] .nav-locations .nav-dropdown__container {
     transform: translateY(0);
@@ -83,15 +92,15 @@ a {
     margin-right: 16px;
 }
 .nav-menu__icon {
-    width: 16px;
-    height: 8px;
+    width: 24px;
+    height: 12px;
     position: relative;
 }
 .nav-menu__icon span {
     width: 70%;
-    height: 1px;
+    height: 1.5px;
     border-radius: 0.5px;
-    background-color: white;
+    background-color: var(--white);
     position: absolute;
     right: 0;
     transition: .4s ease;
@@ -130,7 +139,7 @@ a {
 }
 .nav-dropdown-icon {
 	position: relative;
-	background-color: white;
+	background-color: var(--white);
 	text-align: left;
     margin-left: 10px;
     top: 1px;
@@ -176,12 +185,13 @@ a {
 [data-language="ru"] .nav-languages__ru,
 [data-language="en"] .nav-languages__en,
 [data-language="lv"] .nav-languages__lv,
-[data-language="es"] .nav-languages__es,
-[data-location="es"] .nav-locations__es,
+[data-language="et"] .nav-languages__et,
+[data-location="et"] .nav-locations__et,
 [data-location="lt"] .nav-locations__lt,
 [data-location="lv"] .nav-locations__lv {
     font-weight: 600;
     pointer-events: none;
+    text-decoration: underline;
 }
 
 .mobile-select__container {
@@ -190,15 +200,24 @@ a {
 
 @media screen and (max-width: 1200px) {
     .nav-container {
-        grid-template-columns: calc(2 * var(--cellWidth)) 100px 100px 100px auto;
+        grid-template-columns: calc(2 * var(--cellWidth)) 120px 100px 100px auto;
+    }
+    .nav-dropdown .nav-dropdown__title {
+        width: calc(2 * var(--cellWidth));
     }
 }
 @media screen and (max-width: 960px) {
     .nav-container {
         grid-template-columns: calc(2 * var(--cellWidth)) var(--cellWidth) var(--cellWidth) var(--cellWidth) auto;
     }
-    .nav-dropdown__title {
-        max-width: calc(3 * var(--cellWidth) / 2);
+    .nav-dropdown .nav-dropdown__title {
+        width: calc(2 * var(--cellWidth));
+        min-width: calc(2 * var(--cellWidth));
+        padding-right: 20px;
+        box-sizing: border-box;
+    }
+    .nav-dropdown .nav-dropdown__toggler {
+        margin-right: 60px;
     }
 }
 @media screen and (max-width: 640px) {
@@ -280,13 +299,13 @@ a {
     opacity: 0;
 }
 
-.nav-languages__es,
+.nav-languages__et,
 .nav-languages__en,
 .nav-languages__lv {
     position: relative;
     cursor: default;
 }
-.nav-languages__es::after,
+.nav-languages__et::after,
 .nav-languages__en::after,
 .nav-languages__lv::after {
     content: '';
@@ -302,7 +321,7 @@ a {
     opacity: 0;
     transition: opacity .4s ease;
 }
-.nav-languages__es::after {
+.nav-languages__et::after {
     content: 'Eesti keel pole veel saadaval, lisame esimesel võimalusel';
 }
 .nav-languages__en::after {
@@ -311,7 +330,7 @@ a {
 .nav-languages__lv::after {
     content: 'Latviešu valoda vēl nav pieejama, pievienosim pēc iespējas ātrāk';
 }
-.nav-languages__es:hover::after,
+.nav-languages__et:hover::after,
 .nav-languages__en:hover::after,
 .nav-languages__lv:hover::after {
     opacity: 1;

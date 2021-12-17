@@ -4,6 +4,7 @@ class GridDrawer {
         this.ctx = this.canvas.getContext('2d');
         this.breakpoints = [1200, 960, 640, 480];
         this.steps = gridSizes;
+        this.horizontalLinesStart = 86;
 
         this.resizeCanvas = this.resizeCanvas.bind(this);
         this.getCurrentSteps = this.getCurrentSteps.bind(this);
@@ -59,7 +60,7 @@ class GridDrawer {
 
     drawHorizontalLines() {
         const { v } = this.getCurrentSteps();
-        let y = 0;
+        let y = this.horizontalLinesStart;
         do {
             this.drawHorizontalLine(y)
             y += v;
