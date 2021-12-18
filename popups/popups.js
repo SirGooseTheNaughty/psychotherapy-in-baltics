@@ -1,7 +1,8 @@
 class Popup {
-    constructor(id, openerSelector) {
+    constructor(id, openerSelector, openMobile = null) {
         this.popup = document.querySelector(id);
         this.open = document.querySelector(openerSelector);
+        this.openMobile = openMobile ? document.querySelector(openMobile) : null;
         this.close = this.popup.querySelector('.close');
         this.docBody = document.querySelector('body');
         this.modules = {
@@ -26,6 +27,7 @@ class Popup {
         });
         this.open.style.cursor = 'pointer';
         this.open.addEventListener('click', this.togglePopup);
+        this.openMobile && this.openMobile.addEventListener('click', this.togglePopup);
         this.close.addEventListener('click', this.togglePopup);
         window.addEventListener('resize', this.openOnResize.bind(this));
         this.popup.addEventListener('click', (e) => {
