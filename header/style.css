@@ -115,9 +115,6 @@
 .nav-menu__icon span:nth-child(3) {
     top: 100%;
 }
-[data-menu="opened"] .nav-menu__icon span {
-    height: 2px
-}
 [data-menu="opened"] .nav-menu__icon span:nth-child(1) {
     top: 50%;
     transform: rotate(-45deg);
@@ -297,10 +294,12 @@
     }
 }
 #allrecords > [id^=rec],
+#allrecords > #t-footer,
 #grid {
     transition: opacity .4s ease;
 }
 .menu-opened #allrecords > [id^=rec],
+.menu-opened #allrecords > #t-footer,
 .menu-opened #grid {
     opacity: 0;
 }
