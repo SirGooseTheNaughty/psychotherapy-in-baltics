@@ -290,6 +290,12 @@ a {
         padding-right: 17px;
     }
 }
+@media screen and (max-width: 640px) {
+    .my-menu {
+        height: calc(100vh - 100px);
+        overflow-y: scroll;
+    }
+}
 #allrecords > [id^=rec],
 #grid {
     transition: opacity .4s ease;
