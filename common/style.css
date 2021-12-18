@@ -22,6 +22,12 @@ p {
 input {
     font-family: 'Inter', sans-serif !important;
 }
+::-webkit-input-placeholder,
+::-moz-placeholder,
+:-ms-input-placeholder,
+:-moz-placeholder {
+    color: var(--white);
+}
 
 @media screen and (max-width: 1200px) {
     :root {

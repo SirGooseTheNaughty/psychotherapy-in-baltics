@@ -548,8 +548,9 @@ function init() {
 }
 
 try {
-  init();
+  if (!navigator.userAgent.match(/Android/i)) {
+    init();
+  }
 } catch(e) {
   console.error(e);
-  alert(e);
 }
