@@ -189,7 +189,7 @@
 @media screen and (max-width: 640px) {
     #curators {
         width: 100%;
-        height: calc(4 * var(--cellHeight));
+        height: calc(6 * var(--cellHeight));
     }
     #curators .content {
         width: calc(4 * var(--cellWidth));
@@ -208,6 +208,9 @@
     }
 }
 @media screen and (max-width: 480px) {
+    #curators {
+        height: calc(4 * var(--cellHeight));
+    }
     #curators .controls__tag {
         width: calc(--cellWidth);
         font-size: 14px;
