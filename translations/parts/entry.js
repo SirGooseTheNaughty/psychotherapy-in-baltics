@@ -17,12 +17,12 @@ const entry = {
     desc: {
         top: {
             en: 'The largest platform in the Baltics,',
-            ru: 'Самая большая в Балтии платформа',
+            ru: 'Крупнейшая платформа в Балтии,',
             lt: ''
         },
         bottom: {
             en: 'combining psychotherapy of different directions, allowing to develop the topic of psychotherapeutic education, implement joint research projects, share news in the professional world.',
-            ru: 'объединяющая что-то там какой-то текст',
+            ru: 'позволяющая развивать тему психотерапевтического образования, реализовывать совместные исследовательские проекты, делиться новостями профессионального мира.',
             lt: ''
         },
     },
