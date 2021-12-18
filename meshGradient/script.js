@@ -547,4 +547,9 @@ function init() {
   loop();
 }
 
-init();
+try {
+  init();
+} catch(e) {
+  console.error(e);
+  alert(e);
+}
