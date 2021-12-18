@@ -28,7 +28,7 @@ body.popup-opened .balt-nav {
   pointer-events: none;
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
-  word-break: break-word;
+  word-break: keep-all;
 }
 
 @supports not (backdrop-filter: blur(10px)) {
