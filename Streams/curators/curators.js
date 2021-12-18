@@ -12,7 +12,6 @@ const Curators = {
     data() {
         return {
             items: [],
-            limit: 3,
             filters: ['curators'],
             category: 'curators',
             lang: translator.lang || 'ru',
@@ -22,6 +21,7 @@ const Curators = {
             shift: 0,
             transition: 0,
             touchX: 0,
+            touchY: 0,
             order: 'asc',
         }
     },
@@ -69,24 +69,20 @@ const Curators = {
         this.getItems();
     },
     computed: {
+        limit: function() {
+            const dw = document.documentElement.clientWidth;
+            if (dw > 980) {
+                return 3;
+            } else if (dw > 640) {
+                return 2;
+            }
+            return 1;
+        },
         noDataMsg: function() {
             return translator.getTranslation(['common', 'nodata', 'lang'], this.lang);
         },
         maxShift: function() {
             return this.currentItems.length - this.limit;
-        },
-        maxShiftPx: function() {
-            const docWidth = document.documentElement.offsetWidth;
-            let itemWidth, cellWidth;
-            if (docWidth > 480) {
-                cellWidth = gridSizes[3].h;
-                itemWidth = cellWidth * 3;
-            } else {
-                cellWidth = gridSizes[4].h;
-                itemWidth = cellWidth * 2;
-                cellWidth = 0;
-            }
-            return (this.currentItems.length - 1) * itemWidth - cellWidth;
         },
         currentItems: function() {
             let currentItems = [...this.items];
@@ -156,27 +152,29 @@ const Curators = {
             this[key] = property;
         },
         shiftMobile: function(e) {
-            if (this.isDrag) {
+            const diffX = e.targetTouches[0].screenX - this.touchX;
+            const diffY = e.targetTouches[0].screenY - this.touchY;
+            if (Math.abs(diffX) > Math.abs(diffY)) {
                 e.preventDefault();
-                const diffX = e.targetTouches[0].screenX - this.touchX;
-                let newX = this.transition + diffX;
-                if (newX > 0) {
-                    newX = 0;
-                } else if (Math.abs(newX) > this.maxShiftPx) {
-                    newX = -this.maxShiftPx;
-                }
-                this.touchX = e.targetTouches[0].screenX;
-                this.transition = newX;
-                console.log(this.transition);
+                this.isDrag = true;
+                this.transition = diffX;
             }
+            this.touchX = e.targetTouches[0].screenX;
+            this.touchY = e.targetTouches[0].screenY;
         },
         addListener: function(e) {
-            this.isDrag = true;
             if (e.targetTouches && e.targetTouches[0]) {
                 this.touchX = e.targetTouches[0].screenX;
             }
         },
-        removeListener: function() {
+        removeListener: function(e) {
+            if (this.isDrag) {
+                if (this.transition < 0) {
+                    this.shiftRight();
+                } else {
+                    this.shiftLeft();
+                }
+            }
             this.isDrag = false;
         },
     }
@@ -198,9 +196,7 @@ const Curator = {
     `,
     computed: {
         shiftStyle: function() {
-            return this.transition
-                ? `transform: translateX(${this.transition}px)`
-                : `transform: translateX(${-100 * this.shift}%)`;
+            return `transform: translateX(${-100 * this.shift}%)`;
         }
     }
 };

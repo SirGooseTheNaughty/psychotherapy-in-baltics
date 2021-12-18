@@ -117,35 +117,65 @@
 }
 
 @media screen and (max-width: 1200px) {
+    #curators {
+        height: calc(4 * var(--cellHeight));
+    }
+    #curators .card {
+        height: calc(4 * var(--cellHeight));
+    }
     #curators .card__info {
         padding: 24px 37px;
+        height: calc(2 * var(--cellHeight));
     }
     #curators .card__info-name {
-        margin-bottom: 12px;
+        margin-top: 22px;
+        margin-bottom: 22px;
     }
     #curators .card__info-desc {
         font-size: 14px;
+    }
+    #curators .card__info-desc p {
+        position: relative;
+        opacity: 1;
+    }
+    #curators .card__info-desc p:first-child {
+        position: relative;
+        opacity: 1;
+        margin-bottom: 20px;
+    }
+    #curators .card .card__info-desc.changable p:last-child {
+        opacity: 1;
+    }
+    #curators .card:hover .card__info-desc.changable p:first-child {
+        opacity: 1;
     }
 }
 
 @media screen and (max-width: 980px) {
     #curators {
-        height: calc(5 * var(--cellHeight));
+        height: calc(6 * var(--cellHeight));
     }
     #curators .person {
         min-width: calc(2 * var(--cellWidth));
         height: calc(3 * var(--cellHeight));
     }
     #curators .card {
-        min-width: calc(3 * var(--cellWidth));
-        height: calc(5 * var(--cellHeight));
+        min-width: calc(3 * var(--cellWidth) - 0.1px);
+        height: calc(6 * var(--cellHeight));
     }
     #curators .card__info {
         padding: 34px 30px;
-        height: calc(2 * var(--cellHeight));
+        height: calc(3 * var(--cellHeight));
+    }
+    #curators .card__info-name {
+        margin-top: 0;
+        margin-bottom: 20px;
     }
     #curators .card__info-desc {
         font-size: 16px;
+    }
+    #curators .card__info-desc p:first-child {
+        margin-bottom: 16px;
     }
     #curators .controls__btn {
         top: calc(5 * var(--cellHeight) / 2);
@@ -158,9 +188,6 @@
 @media screen and (max-width: 640px) {
     #curators {
         width: 100%;
-    }
-    #curators .card {
-        transition: none;
     }
     #curators .content {
         width: calc(4 * var(--cellWidth));
@@ -186,7 +213,7 @@
     #curators .card {
         min-width: calc(2 * var(--cellWidth));
         width: calc(2 * var(--cellWidth));
-        height: calc(3 * var(--cellHeight));
+        height: calc(4 * var(--cellHeight));
     }
     #curators .person {
         min-width: calc(2 * var(--cellWidth) - 1px);
@@ -196,10 +223,11 @@
     #curators .card__info {
         padding: 23px 30px;
         width: calc(2 * var(--cellWidth));
-        height: calc(1 * var(--cellHeight));
+        height: calc(2 * var(--cellHeight));
     }
     #curators .card__info-name {
         font-size: 16px;
+        margin-top: 12px;
     }
     #curators .card__info-desc {
         font-size: 14px;
