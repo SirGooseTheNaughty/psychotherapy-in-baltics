@@ -296,7 +296,7 @@ const Controls = {
             clearTimeout(this.unfocusTimeout);
             this.isFocused = true;
         },
-        unfocus: function() { this.unfocusTimeout = setTimeout(() => this.isFocused = false, 50); },
+        unfocus: function() { this.unfocusTimeout = setTimeout(() => this.isFocused = false, 250); },
         setSearch: function(e) {
             if (e.key === 'Enter' || e.type === 'click') {
                 if (this.search.length >= 3) {
