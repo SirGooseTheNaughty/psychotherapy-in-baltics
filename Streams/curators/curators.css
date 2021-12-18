@@ -89,8 +89,7 @@
     top: calc(-1 * var(--cellHeight) / 2.5);
 }
 #curators .controls__tag {
-    width: 50%;
-    font-weight: 600;
+    font-weight: 500;
     opacity: 60%;
     cursor: pointer;
     transition: opacity .25s ease;
@@ -206,6 +205,10 @@
     }
 }
 @media screen and (max-width: 480px) {
+    #curators .controls__tag {
+        width: calc(--cellWidth);
+        font-size: 14px;
+    }
     #curators .content {
         width: calc(2 * var(--cellWidth) + 1px);
         left: calc(50vw - var(--cellWidth));
