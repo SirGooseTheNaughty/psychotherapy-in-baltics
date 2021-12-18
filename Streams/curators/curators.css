@@ -156,8 +156,8 @@
         height: calc(6 * var(--cellHeight));
     }
     #curators .person {
-        min-width: calc(2 * var(--cellWidth));
-        width: calc(2 * var(--cellWidth));
+        min-width: calc(3 * var(--cellWidth));
+        width: calc(3 * var(--cellWidth));
         height: calc(3 * var(--cellHeight));
     }
     #curators .card {
@@ -189,6 +189,7 @@
 @media screen and (max-width: 640px) {
     #curators {
         width: 100%;
+        height: calc(4 * var(--cellHeight));
     }
     #curators .content {
         width: calc(4 * var(--cellWidth));
