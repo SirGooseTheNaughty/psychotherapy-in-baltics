@@ -842,12 +842,6 @@ body.popup-opened .balt-nav {
   }
 }
 
-@media screen and (max-width: 640px) {
-  .popup .container .content .blocks .block .trigger.mobile {
-    margin-bottom: 25px;
-  }
-}
-
 .popup .container .content .blocks .block .subinfo {
   font-size: 12px;
   font-weight: 500;
