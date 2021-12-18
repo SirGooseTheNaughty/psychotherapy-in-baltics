@@ -19,7 +19,7 @@ a {
 p {
     margin: 0;
 }
-input {
+input, textarea {
     font-family: 'Inter', sans-serif !important;
 }
 ::-webkit-input-placeholder,
