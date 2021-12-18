@@ -19,6 +19,9 @@ a {
 p {
     margin: 0;
 }
+input {
+    font-family: 'Inter', sans-serif !important;
+}
 
 @media screen and (max-width: 1200px) {
     :root {
