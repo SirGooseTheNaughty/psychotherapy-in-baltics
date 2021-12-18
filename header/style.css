@@ -294,12 +294,12 @@
     }
 }
 #allrecords > [id^=rec],
-#allrecords > #t-footer,
+#allrecords > #t-footer .t396,
 #grid {
     transition: opacity .4s ease;
 }
 .menu-opened #allrecords > [id^=rec],
-.menu-opened #allrecords > #t-footer,
+.menu-opened #allrecords > #t-footer .t396,
 .menu-opened #grid {
     opacity: 0;
 }
