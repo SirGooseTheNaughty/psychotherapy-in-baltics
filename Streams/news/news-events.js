@@ -41,7 +41,7 @@ const Feed = {
                         class="controls__tag"
                         :class="{ active: category === 'events' }"
                         v-on:click="() => setProperty('category', 'events')"
-                    >Предстоящие события</div>
+                    >Ближайшие мероприятия</div>
                     <div
                         class="controls__tag"
                         :class="{ active: category === 'news' }"
@@ -206,7 +206,7 @@ const Post = {
             </div>
             <div class="post__content">
                 <h3 class="title">{{ data.title }}</h3>
-                <p class="description">{{ data.description }}</p>
+                <p class="description" v-html="data.description"></p>
             </div>
             <div class="post__seemore">
                 <a :href="data.link">Подробнее</a>
