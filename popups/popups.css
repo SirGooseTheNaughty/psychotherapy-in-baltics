@@ -28,9 +28,10 @@ body.popup-opened .balt-nav {
   pointer-events: none;
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
+  word-break: break-word;
 }
 
-@supports not ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
+@supports not (backdrop-filter: blur(10px)) {
   .popup {
     background-color: rgba(147, 175, 217, 0,6);
   }
