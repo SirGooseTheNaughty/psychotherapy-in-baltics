@@ -3,7 +3,7 @@
     position: relative;
     font-family: 'Inter', sans-serif;
     font-size: 18px;
-    margin: calc(2 * var(--cellHeight)) auto var(--cellHeight) auto;
+    margin: var(--cellHeight) auto var(--cellHeight) auto;
 }
 
 #blog .content {
@@ -106,6 +106,7 @@
 }
 #blog .search input::placeholder {
     color: var(--white);
+    opacity: 0.55;
 }
 #blog .search input:focus {
     outline: none;

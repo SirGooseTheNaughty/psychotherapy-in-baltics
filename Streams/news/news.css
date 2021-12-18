@@ -106,6 +106,10 @@
     box-sizing: border-box;
     color: var(--white);
 }
+#feed .search input::placeholder {
+    color: var(--white);
+    opacity: 0.55;
+}
 #feed .search input:focus {
     outline: none;
 }
