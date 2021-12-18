@@ -15,16 +15,9 @@ const entry = {
         lt: ''
     },
     desc: {
-        top: {
-            en: 'The largest platform in the Baltics,',
-            ru: 'Крупнейшая платформа в Балтии,',
-            lt: ''
-        },
-        bottom: {
-            en: 'combining psychotherapy of different directions, allowing to develop the topic of psychotherapeutic education, implement joint research projects, share news in the professional world.',
-            ru: 'позволяющая развивать тему психотерапевтического образования, реализовывать совместные исследовательские проекты, делиться новостями профессионального мира.',
-            lt: ''
-        },
+        en: 'The largest platform in the Baltics, combining psychotherapy of different directions, allowing to develop the topic of psychotherapeutic education, implement joint research projects, share news in the professional world.',
+        ru: 'Крупнейшая платформа в Балтии, позволяющая развивать тему психотерапевтического образования, реализовывать совместные исследовательские проекты, делиться новостями профессионального мира.',
+        lt: ''
     },
     links: {
         main: {
