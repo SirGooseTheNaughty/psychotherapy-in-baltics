@@ -1,42 +1,42 @@
 const common = {
     main: {
-        ru: 'главная',
-        en: 'main page',
+        ru: 'Главная',
+        en: 'Main page',
         lv: '',
     },
     institute: {
-        ru: 'институт',
-        en: 'institute',
+        ru: 'Институт',
+        en: 'Institute',
         lv: '',
     },
     about: {
-        ru: 'об институте',
-        en: 'about',
+        ru: 'Об институте',
+        en: 'Sbout',
         lv: '',
     },
     incoming: {
-        ru: 'поступающим',
-        en: 'for incoming',
+        ru: 'Поступающим',
+        en: 'For incoming',
         lv: '',
     },
     blog: {
-        ru: 'блог',
-        en: 'blog',
+        ru: 'Блог',
+        en: 'Blog',
         lv: '',
     },
     research: {
-        ru: 'исследовательский центр',
-        en: 'research center',
+        ru: 'Исследовательский центр',
+        en: 'Research center',
         lv: '',
     },
     news: {
-        ru: 'новости и события',
-        en: 'news and events',
+        ru: 'Новости и события',
+        en: 'News and events',
         lv: '',
     },
     contacts: {
-        ru: 'контакты',
-        en: 'contacts',
+        ru: 'Контакты',
+        en: 'Contacts',
         lv: '',
     },
     psy: {
