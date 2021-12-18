@@ -25,7 +25,8 @@ input {
 ::-webkit-input-placeholder,
 ::-moz-placeholder,
 :-ms-input-placeholder,
-:-moz-placeholder {
+:-moz-placeholder
+::placeholder {
     color: var(--white);
 }
 

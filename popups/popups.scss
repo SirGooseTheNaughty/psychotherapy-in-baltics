@@ -113,7 +113,8 @@ body.popup-opened {
             width: calc(4 * var(--cellWidth));
         }
         @media screen and (max-width: 480px) {
-            width: calc(2 * var(--cellWidth));
+            // width: calc(2 * var(--cellWidth));
+            width: calc(100% - 20px);
         }
         @media screen and (max-width: 480px) {
             padding: 38px 25px;
@@ -484,7 +485,7 @@ body.popup-opened {
                                 border-top: 1px solid var(--gray3);
                                 font-size: 14px;
                                 font-weight: 500;
-                                line-height: 125%;
+                                line-height: 145%;
 
                                 @media screen and (max-width: 1200px) {
                                     padding-left: 40px;
@@ -513,6 +514,7 @@ body.popup-opened {
                                             margin-right: 20px;
                                         }
                                         @media screen and (max-width: 480px) {
+                                            width: 100%;
                                             flex-grow: 1;
                                             margin-right: 0;
                                             margin-bottom: 10px;
@@ -678,6 +680,8 @@ body.popup-opened {
                     }
 
                     img {
+                        width: 500px;
+
                         @media screen and (max-width: 1200px) {
                             max-width: calc(5 * var(--cellWidth) / 2);
                         }
@@ -716,7 +720,7 @@ body.popup-opened {
 
         .desc {
             .short {
-                margin-bottom: 30px;
+                margin-bottom: 50px;
 
                 .specialty {
                     font-size: 12px;
@@ -725,12 +729,17 @@ body.popup-opened {
                     margin: 0 auto;
                     margin-bottom: 10px;
                     text-align: center;
+                    font-weight: 600;
                 }
 
                 .popup__title {
                     display: flex;
                     flex-flow: column;
-                    margin-bottom: 25px !important;
+                    margin-bottom: 50px !important;
+
+                    i {
+                        font-family: 'Playfair Display', serif;
+                    }
     
                     @media screen and (max-width: 1200px) {
                         width: 100% !important;
@@ -865,14 +874,7 @@ body.popup-opened {
                         margin-left: 0;
                     }
                     span:nth-child(2) {
-                        margin-left: 200px;
-    
-                        @media screen and (max-width: 980px) {
-                            margin-left: 100px;
-                        }
-                        @media screen and (max-width: 640px) {
-                            margin-left: 0;
-                        }
+                        margin-left: 0;
                     }
                 }
             }

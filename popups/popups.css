@@ -206,7 +206,7 @@ body.popup-opened .balt-nav {
 
 @media screen and (max-width: 480px) {
   .popup .container {
-    width: calc(2 * var(--cellWidth));
+    width: calc(100% - 20px);
   }
 }
 
@@ -714,7 +714,7 @@ body.popup-opened .balt-nav {
   border-top: 1px solid var(--gray3);
   font-size: 14px;
   font-weight: 500;
-  line-height: 125%;
+  line-height: 145%;
 }
 
 @media screen and (max-width: 480px) {
@@ -769,6 +769,7 @@ body.popup-opened .balt-nav {
 
 @media screen and (max-width: 480px) {
   .popup .container .content .blocks .block .info.table li p:first-child {
+    width: 100%;
     -webkit-box-flex: 1;
         -ms-flex-positive: 1;
             flex-grow: 1;
@@ -962,6 +963,10 @@ body.popup-opened .balt-nav {
   margin-right: 12px;
 }
 
+.popup .container .content .blocks .article img {
+  width: 500px;
+}
+
 @media screen and (max-width: 1200px) {
   .popup .container .content .blocks .article img {
     max-width: calc(5 * var(--cellWidth) / 2);
@@ -1007,7 +1012,7 @@ body.popup-opened .balt-nav {
 }
 
 .popup.specialty .desc .short {
-  margin-bottom: 30px;
+  margin-bottom: 50px;
 }
 
 .popup.specialty .desc .short .specialty {
@@ -1017,6 +1022,7 @@ body.popup-opened .balt-nav {
   margin: 0 auto;
   margin-bottom: 10px;
   text-align: center;
+  font-weight: 600;
 }
 
 .popup.specialty .desc .short .popup__title {
@@ -1027,7 +1033,11 @@ body.popup-opened .balt-nav {
   -webkit-box-direction: normal;
       -ms-flex-flow: column;
           flex-flow: column;
-  margin-bottom: 25px !important;
+  margin-bottom: 50px !important;
+}
+
+.popup.specialty .desc .short .popup__title i {
+  font-family: 'Playfair Display', serif;
 }
 
 @media screen and (max-width: 1200px) {
@@ -1221,19 +1231,7 @@ body.popup-opened .balt-nav {
 }
 
 .popup.specialty#spouses .desc .short .popup__title span:nth-child(2) {
-  margin-left: 200px;
-}
-
-@media screen and (max-width: 980px) {
-  .popup.specialty#spouses .desc .short .popup__title span:nth-child(2) {
-    margin-left: 100px;
-  }
-}
-
-@media screen and (max-width: 640px) {
-  .popup.specialty#spouses .desc .short .popup__title span:nth-child(2) {
-    margin-left: 0;
-  }
+  margin-left: 0;
 }
 
 @media screen and (max-width: 980px) {
