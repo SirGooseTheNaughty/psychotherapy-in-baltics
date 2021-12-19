@@ -546,9 +546,12 @@ function init() {
   redraw();
   loop();
 }
+function isMobile() {
+  return /Mobi/i.test(window.navigator.userAgent);
+}
 
 try {
-  if (!navigator.userAgent.match(/Android/i)) {
+  if (!isMobile()) {
     init();
   }
 } catch(e) {

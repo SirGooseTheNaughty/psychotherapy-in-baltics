@@ -58,11 +58,11 @@ class Header {
         this.controls.mobile.locations.addEventListener('change', (e) => this.setLocation(e.target.value, false));
         this.menu.links.forEach(link => link.addEventListener('click', this.toggleMenu));
 
-        let lang = getLanguageCookie();
-        if (!lang) {
-            lang = window.navigator.language.split('-')[0] || 'ru';
-            setLanguageCookie(lang);
-        }
+        // let lang = getLanguageCookie();
+        // if (!lang) {
+        //     lang = window.navigator.language.split('-')[0] || 'ru';
+        //     setLanguageCookie(lang);
+        // }
         const loc = getLocationCookie();
         if (!loc) {
             this.setLocation('lv');
@@ -71,7 +71,8 @@ class Header {
             this.setLocation(loc);
         }
 
-        this.setLanguage(lang);
+        // this.setLanguage(lang);
+        this.setLanguage('ru');
     }
 
     async fetchLocation() {
