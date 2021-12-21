@@ -46,7 +46,7 @@ const Feed = {
                         class="controls__tag"
                         :class="{ active: category === 'news' }"
                         v-on:click="() => setProperty('category', 'news')"
-                    >Новости</div>
+                    >События</div>
                 </div>
             </div>
             <div class="search">
