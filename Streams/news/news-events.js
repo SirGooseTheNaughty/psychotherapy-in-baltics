@@ -224,8 +224,8 @@ const Post = {
     `,
     computed: {
         date: function() {
-            return this.translator
-                ? `${this.day} ${this.translator.getTranslation(['common', 'months', this.month])}, ${this.year}`
+            return translator
+                ? `${this.day} ${translator.getTranslation(['common', 'months', this.month])}, ${this.year}`
                 : this.data.date;
         }
     }
