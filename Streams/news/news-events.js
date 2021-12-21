@@ -144,11 +144,15 @@ const Feed = {
         preformItems: function(items) {
             return items.posts.map(post => {
                 const [ date, time ] = post.date.split(' ');
+                const [ year, month, day ] = date.split('-');
                 return {
                     title: post.title,
                     description: post.descr,
                     categories: post.parts.split(','),
                     date,
+                    year,
+                    month,
+                    day,
                     time,
                     link: post.url,
                 };
@@ -201,7 +205,7 @@ const Post = {
     template: `
         <div class="post">
             <div class="post__datetime">
-                <p class="date">{{ data.date }}</p>
+                <p class="date">{{ date }}</p>
                 <p class="time">{{ data.time === '00:00' ? '' : data.time }}</p>
             </div>
             <div class="post__content">
@@ -218,6 +222,13 @@ const Post = {
             </div>
         </div>
     `,
+    computed: {
+        date: function() {
+            return this.translator
+                ? `${this.day} ${this.translator.getTranslation(['common', 'months', this.month])}, ${this.year}`
+                : this.data.date;
+        }
+    }
 };
 
 Vue.component('post', Post);

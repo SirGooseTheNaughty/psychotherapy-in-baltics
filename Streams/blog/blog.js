@@ -135,14 +135,10 @@ const Blog = {
                     }
                 });
                 const date = post.date.split(' ')[0];
-                const [ year, month, day ] = date.split('-');
                 return {
                     title: post.title,
                     img: post.image || null,
-                    date,
-                    year,
-                    month,
-                    day,
+                    date: post.date.split(' ')[0],
                     time: post.descr,
                     content: post.text,
                     categories: categories,
@@ -184,7 +180,7 @@ const Post = {
                     <div class="card__category">{{ data.category || '' }}</div>
                     <h4 class="card__info-title">{{ data.title }}</h4>
                     <div class="card__info-desc">
-                        <p class="card__info-desc__date">{{ date }}</p>
+                        <p class="card__info-desc__date">{{ data.date }}</p>
                         <p v-if="data.time" class="card__info-desc__time"><span>${timeConsumationIcon}</span><span>{{ data.time }}</span></p>
                     </div>
                 </div>
@@ -198,9 +194,6 @@ const Post = {
         },
         isMobile: function() {
             return document.documentElement.offsetWidth < 1200;
-        },
-        date: function() {
-            return `${this.day} ${this.translator.getTranslation(['common', 'months', this.month])}, ${this.year}`;
         }
     }
 };
