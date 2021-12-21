@@ -180,7 +180,7 @@ const Post = {
                     <h4 class="card__info-title">{{ data.title }}</h4>
                     <div class="card__info-desc">
                         <p class="card__info-desc__date">{{ data.date }}</p>
-                        <p class="card__info-desc__time"><span>${timeConsumationIcon}</span><span>{{ data.time }}</span></p>
+                        <p v-if="data.time" class="card__info-desc__time"><span>${timeConsumationIcon}</span><span>{{ data.time }}</span></p>
                     </div>
                 </div>
                 <div class="card__read-more">читать</div>
