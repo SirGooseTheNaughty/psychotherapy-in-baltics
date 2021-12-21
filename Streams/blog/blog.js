@@ -31,7 +31,7 @@ const Blog = {
         return {
             items: [],
             limit: 6,
-            filters: [],
+            filters: ['методы и подходы', 'исследования', 'профессия', 'семья', 'дети', 'клиника'],
             type: 'все форматы',
             filter: 'все темы',
             search: '',
@@ -120,7 +120,7 @@ const Blog = {
                 .catch(console.log);
         },
         preformItems: function(data) {
-            let posts = [], filters = [];
+            let posts = [], filters = [...this.filters];
             posts = data.posts.map(post => {
                 let postCategory = '';
                 const categories = post.parts.split(',');
