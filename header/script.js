@@ -4,7 +4,6 @@ class Header {
         this.controls = {
             togglers: {
                 languages: this.cont.querySelector('.nav-language'),
-                locations: this.cont.querySelector('.nav-location'),
                 menu: this.cont.querySelector('.nav-menu'),
             },
             languages: {
@@ -13,14 +12,8 @@ class Header {
                 lv: this.cont.querySelector('.nav-languages__lv'),
                 en: this.cont.querySelector('.nav-languages__en'),
             },
-            locations: {
-                LT: this.cont.querySelector('.nav-locations__lt'),
-                ET: this.cont.querySelector('.nav-locations__et'),
-                LV: this.cont.querySelector('.nav-locations__lv'),
-            },
             mobile: {
                 languages: this.cont.querySelector('.mobile-select__languages select'),
-                locations: this.cont.querySelector('.mobile-select__locations select'),
             }
         };
         this.menu = {
@@ -31,11 +24,9 @@ class Header {
         this.body = document.querySelector('body');
         this.translator = translator;
 
-        this.toggleDropdown = this.toggleDropdown.bind(this);
+        this.toggleLanguages = this.toggleLanguages.bind(this);
         this.toggleMenu = this.toggleMenu.bind(this);
         this.setLanguage = this.setLanguage.bind(this);
-        this.setLocation = this.setLocation.bind(this);
-        this.fetchLocation = this.fetchLocation.bind(this);
 
         this.menu.desktop.classList.add('my-menu');
         this.menu.mobile.classList.add('my-menu');
@@ -45,17 +36,11 @@ class Header {
         }, 10);
         this.menu.links = [...this.menu.desktop.querySelectorAll('a'), ...this.menu.mobile.querySelectorAll('a')];
 
-        for (let key of Object.keys(this.controls.togglers)) {
-            this.controls.togglers[key].addEventListener('click', () => this.toggleDropdown(key));
-        }
+        this.controls.togglers.languages.addEventListener('click', this.toggleLanguages);
+        this.controls.togglers.menu.addEventListener('click', this.toggleMenu);
         // for (let key of Object.keys(this.controls.languages)) {
         //     this.controls.languages[key].addEventListener('click', () => this.setLanguage(key));
         // }
-        for (let key of Object.keys(this.controls.locations)) {
-            this.controls.locations[key].addEventListener('click', () => this.setLocation(key));
-        }
-        // this.controls.mobile.languages.addEventListener('change', (e) => this.setLanguage(e.target.value, false));
-        this.controls.mobile.locations.addEventListener('change', (e) => this.setLocation(e.target.value, false));
         this.menu.links.forEach(link => link.addEventListener('click', this.toggleMenu));
 
         // let lang = getLanguageCookie();
@@ -63,22 +48,9 @@ class Header {
         //     lang = window.navigator.language.split('-')[0] || 'ru';
         //     setLanguageCookie(lang);
         // }
-        const loc = getLocationCookie();
-        if (!loc) {
-            this.setLocation('lv');
-            this.fetchLocation();
-        } else {
-            this.setLocation(loc);
-        }
 
         // this.setLanguage(lang);
-        this.setLanguage('ru');
-    }
-
-    async fetchLocation() {
-        const loc = await getLocationRequest();
-        setLocationCookie(loc);
-        this.setLocation(loc);
+        this.setLanguage('ru', false);
     }
 
     toggleMenu() {
@@ -95,14 +67,8 @@ class Header {
         }
     }
 
-    toggleDropdown(dropdown = '') {
-        if (dropdown === 'menu') {
-            return this.toggleMenu();
-        }
-        this.cont.setAttribute(
-            'data-opened',
-            this.cont.getAttribute('data-opened') === dropdown ? '' : dropdown
-        );
+    toggleLanguages() {
+        this.cont.setAttribute('data-languages', this.cont.getAttribute('data-languages') === 'opened' ? '' : 'opened');
     }
 
     setLanguage(lang, isToggler = true) {
@@ -110,19 +76,7 @@ class Header {
         this.cont.setAttribute('data-language', lang);
         setLanguageCookie(lang);
         this.translator && this.translator.changeLang(lang);
-        isToggler && this.toggleDropdown();
-    }
-
-    setLocation(location, isToggler = true) {
-        const loc = location.toLowerCase();
-        console.log('set location ' + loc);
-        this.cont.setAttribute('data-location', loc);
-        setLocationCookie(loc);
-        // this.translator && this.translator.changeLang();
-        this.controls.togglers.locations.firstElementChild.textContent = this.translator
-            ? (this.translator.getTranslation(['nav', 'location']) || 'Language')
-            : 'Language';
-        isToggler && this.toggleDropdown();
+        isToggler && this.toggleLanguages();
     }
 }
 
