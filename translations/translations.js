@@ -73,7 +73,7 @@ class Translator {
                 return text;
             }
         } catch(e) {
-            console.warn(e, element);
+            console.warn(e);
             return '';
         }
     }

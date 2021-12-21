@@ -224,9 +224,12 @@ const Post = {
     `,
     computed: {
         date: function() {
-            return translator
-                ? `${this.day} ${translator.getTranslation(['common', 'months', this.month])}, ${this.year}`
-                : this.data.date;
+            try {
+                return `${this.day} ${translator.getTranslation(['common', 'months', this.month])}, ${this.year}`;
+            } catch(e) {
+                console.warn(e);
+                return this.data.date;
+            }
         }
     }
 };
