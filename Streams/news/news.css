@@ -165,16 +165,22 @@
 }
 
 @media (hover: hover) {
-    .post__seemore:hover a {
+    .post:hover {
+        background-color: var(--dimmedWhite);
+    }
+    .post:hover .post__seemore a {
         margin-right: 10px;
     }
-    /* .post:hover {
-        background-color: var(--dimmedWhite);
-    } */
 }
 
 @media screen and (max-width: 1200px) {
-    .post {
+    #feed .content > a {
+        pointer-events: none;
+    }
+    #feed .post__seemore a {
+        pointer-events: auto;
+    }
+    #feed .post {
         height: calc(var(--cellHeight) * 3);
     }
     #feed .search input {
