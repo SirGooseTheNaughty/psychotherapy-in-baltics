@@ -44,7 +44,7 @@ const Blog = {
         }
     },
     template: `
-        <div id="blog">
+        <div id="blog" class="appearing" ref="container">
             <controls
                 :type="type"
                 :types="types"
@@ -69,6 +69,9 @@ const Blog = {
     async created() {
         translator.subscribers.push(this);
         this.getItems();
+    },
+    mounted() {
+        this.$refs.container.classList.add('appear');
     },
     computed: {
         noDataMsg: function() {
@@ -108,8 +111,8 @@ const Blog = {
     },
     methods: {
         getItems: async function() {
-            // this.items = mockedPosts.reverse();
-            // this.filters = mockedFilters;
+            this.items = mockedPosts.reverse();
+            return this.filters = mockedFilters;
             await fetch(this.fetchLink)
                 .then(res => res.json())
                 .then(res => {

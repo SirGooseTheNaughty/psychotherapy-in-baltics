@@ -29,7 +29,7 @@ const Feed = {
         }
     },
     template: `
-        <div id="feed">
+        <div id="feed" ref="container">
             <div class="content">
                 <post v-for="post in slicedItems" :data="post" :key="post.data"></post>
             </div>
@@ -75,6 +75,9 @@ const Feed = {
     async created() {
         translator.subscribers.push(this);
         this.getItems();
+    },
+    mounted() {
+        this.$refs.container.classList.add('appear');
     },
     computed: {
         noDataMsg: function() {

@@ -240,6 +240,19 @@
 }
 
 @media (hover: hover) {
+    #blog .card {
+        transition: background-color var(--animTime) ease;
+    }
+    #blog .card:hover {
+        background-color: var(--dimmedWhite);
+    }
+    #blog .card__image {
+        filter: saturate(0);
+        transition: filter var(--animTime) ease;
+    }
+    #blog .card:hover .card__image {
+        filter: saturate(1);
+    }
     #blog .more:hover {
         background-color: var(--white);
     }

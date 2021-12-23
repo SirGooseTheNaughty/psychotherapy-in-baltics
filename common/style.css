@@ -29,6 +29,22 @@ input, textarea {
 ::placeholder {
     color: var(--white);
 }
+i, em {
+    font-family: 'Playfair Display', serif !important;
+    position: relative;
+    top: -0.01em;
+    font-size: 1.01em;
+}
+.appearing {
+    opacity: 0;
+}
+.appearing.appear {
+    animation: appear var(--animTime) ease 2s forwards;
+}
+@keyframes appear {
+    from { opacity: 0 }
+    to { opacity: 1 }
+}
 
 @media screen and (max-width: 1200px) {
     :root {
