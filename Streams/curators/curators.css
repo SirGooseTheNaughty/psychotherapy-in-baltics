@@ -23,8 +23,8 @@
     border-right: transparent;
 }
 #curators .person {
-    min-width: calc(2 * var(--cellWidth));
-    width: calc(2 * var(--cellWidth));
+    min-width: calc(2 * var(--cellWidth) - 2px);
+    width: calc(2 * var(--cellWidth) - 2px);
     height: calc(2 * var(--cellHeight));
     border-bottom: 1px solid var(--beige);
 }
@@ -156,8 +156,8 @@
         height: calc(6 * var(--cellHeight));
     }
     #curators .person {
-        min-width: calc(3 * var(--cellWidth));
-        width: calc(3 * var(--cellWidth));
+        min-width: calc(3 * var(--cellWidth) - 2px);
+        width: calc(3 * var(--cellWidth) - 2px);
         height: calc(3 * var(--cellHeight));
     }
     #curators .card {
