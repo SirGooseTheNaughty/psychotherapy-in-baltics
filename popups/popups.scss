@@ -488,6 +488,9 @@ body.popup-opened {
                                 font-weight: 500;
                                 line-height: 145%;
 
+                                @media screen and (min-width: 1200px) {
+                                    padding-left: 98px;
+                                }
                                 @media screen and (max-width: 1200px) {
                                     padding-left: 40px;
                                 }
@@ -842,11 +845,6 @@ body.popup-opened {
                         }
                     }
                 }
-            }
-        }
-        .content .blocks .block .info.table li {
-            @media screen and (min-width: 1200px) {
-                padding-left: 98px !important;
             }
         }
         .curator,

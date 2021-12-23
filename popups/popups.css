@@ -725,6 +725,12 @@ body.popup-opened .balt-nav {
   }
 }
 
+@media screen and (min-width: 1200px) {
+  .popup .container .content .blocks .block .info.table li {
+    padding-left: 98px;
+  }
+}
+
 @media screen and (max-width: 1200px) {
   .popup .container .content .blocks .block .info.table li {
     padding-left: 40px;
@@ -1193,12 +1199,6 @@ body.popup-opened .balt-nav {
 
 .popup.specialty .desc .modules__desktop .modules__cont.bars .bar:last-child {
   opacity: 1 !important;
-}
-
-@media screen and (min-width: 1200px) {
-  .popup.specialty .content .blocks .block .info.table li {
-    padding-left: 98px !important;
-  }
 }
 
 @media screen and (min-width: 1200px) {
