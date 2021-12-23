@@ -193,8 +193,7 @@
     }
     #curators .content {
         width: calc(4 * var(--cellWidth));
-        position: relative;
-        left: calc(50vw - 2 * var(--cellWidth));
+        margin: 0 auto;
     }
     #curators .card__info {
         padding: 36px 40px;
@@ -217,7 +216,6 @@
     }
     #curators .content {
         width: calc(2 * var(--cellWidth) + 1px);
-        left: calc(50vw - var(--cellWidth));
     }
     #curators .card {
         min-width: calc(2 * var(--cellWidth));
