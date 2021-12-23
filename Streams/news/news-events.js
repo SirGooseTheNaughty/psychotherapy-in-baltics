@@ -29,7 +29,7 @@ const Feed = {
         }
     },
     template: `
-        <div id="feed" ref="container">
+        <div id="feed" class="appearing" ref="container">
             <div class="content">
                 <post v-for="post in slicedItems" :data="post" :key="post.data"></post>
             </div>
