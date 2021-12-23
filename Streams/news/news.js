@@ -114,24 +114,26 @@ const Feed = {
 const Post = {
     props: ['data'],
     template: `
-        <div class="post">
-            <div class="post__datetime">
-                <p class="date">{{ date }}</p>
-                <p class="time">{{ data.time === '00:00' ? '' : data.time }}</p>
+        <a :href="data.link">
+            <div class="post">
+                <div class="post__datetime">
+                    <p class="date">{{ date }}</p>
+                    <p class="time">{{ data.time === '00:00' ? '' : data.time }}</p>
+                </div>
+                <div class="post__content">
+                    <h3 class="title">{{ data.title }}</h3>
+                    <p class="description">{{ data.description }}</p>
+                </div>
+                <div class="post__seemore">
+                    <a :href="data.link">Подробнее</a>
+                    <svg width="23" height="12" viewBox="0 0 23 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M0 6L22 6" stroke="#F0EFEC"/>
+                        <path d="M22 6C19.632 5.92361 14.8959 4.71667 14.8959 0.5" stroke="#F0EFEC"/>
+                        <path d="M22 6C19.632 6.07639 14.8959 7.28333 14.8959 11.5" stroke="#F0EFEC"/>
+                    </svg>
+                </div>
             </div>
-            <div class="post__content">
-                <h3 class="title">{{ data.title }}</h3>
-                <p class="description">{{ data.description }}</p>
-            </div>
-            <div class="post__seemore">
-                <a :href="data.link">Подробнее</a>
-                <svg width="23" height="12" viewBox="0 0 23 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0 6L22 6" stroke="#F0EFEC"/>
-                    <path d="M22 6C19.632 5.92361 14.8959 4.71667 14.8959 0.5" stroke="#F0EFEC"/>
-                    <path d="M22 6C19.632 6.07639 14.8959 7.28333 14.8959 11.5" stroke="#F0EFEC"/>
-                </svg>
-            </div>
-        </div>
+        </a>
     `,
     computed: {
         date: function() {
