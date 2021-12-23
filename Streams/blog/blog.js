@@ -111,8 +111,8 @@ const Blog = {
     },
     methods: {
         getItems: async function() {
-            this.items = mockedPosts.reverse();
-            return this.filters = mockedFilters;
+            // this.items = mockedPosts.reverse();
+            // return this.filters = mockedFilters;
             await fetch(this.fetchLink)
                 .then(res => res.json())
                 .then(res => {
