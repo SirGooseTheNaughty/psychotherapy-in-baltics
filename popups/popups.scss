@@ -722,7 +722,7 @@ body.popup-opened {
 
         .desc {
             .short {
-                margin-bottom: 50px;
+                margin-bottom: 60px;
 
                 .specialty {
                     font-size: 12px;
@@ -758,7 +758,7 @@ body.popup-opened {
                         }
                     }
                     span:nth-child(2) {
-                        margin-left: 500px;
+                        margin-left: 504px;
     
                         @media screen and (max-width: 1200px) {
                             margin-left: 360px;
@@ -776,7 +776,7 @@ body.popup-opened {
                 }
                 .stats {
                     flex-flow: row !important;
-                    margin-left: 50% !important;
+                    margin-left: calc(50% + 4px) !important;
         
                     .stat:first-child {
                         margin-right: 100px;
@@ -844,8 +844,16 @@ body.popup-opened {
                 }
             }
         }
+        .content .blocks .block .info.table li {
+            @media screen and (min-width: 1200px) {
+                padding-left: 98px !important;
+            }
+        }
         .curator,
         .article {
+            @media screen and (min-width: 1200px) {
+                padding-left: 100px !important;
+            }
             @media screen and (max-width: 1200px) {
                 padding-left: 40px !important;
             }
