@@ -943,6 +943,10 @@ body.popup-opened .balt-nav {
   line-height: 145%;
 }
 
+.popup .container .content .blocks .article .desc:nth-child(2) {
+  margin-bottom: 40px;
+}
+
 .popup .container .content .blocks .article .success {
   display: -webkit-box;
   display: -ms-flexbox;
