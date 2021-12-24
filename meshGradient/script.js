@@ -12,17 +12,43 @@ const meshData = {
       [-1, -1],
       [-1, 1],
       [1, -1],
-      [0, 0],
-      [0.9, 0.8]
+      [1, 1],
+      [-0.9, -0.8],
+      [1, 1],
   ],
   moving: [
-      { index: 4, revert: false },
-      // { index: 3, revert: true, coeff: 0.4, add: { vert: 0.5, hor: 0.5 } },
+    { index: 4, revert: false, add: { vert: 0.3, hor: 0.3 } },
+    { index: 5, revert: true, add: { vert: -0.5, hor: 0.5 } },
+    // { index: 6, revert: true, add: { vert: -0.25, hor: -0.5 } },
   ],
   target: [
       [-1, 0.5],
+      [1, -0.5],
   ]
 };
+
+// const meshData = {
+//   colors: {
+//       tl: '#91AED8',
+//       tr: '#9FB7DE',
+//       bl: '#AABEE1',
+//       br: '#AABEE1'
+//   },
+//   canvasId: 'mesh-canvas',
+//   dots: [
+//       [-1, -1],
+//       [-1, 1],
+//       [1, -1],
+//       [0, 0],
+//       [0.9, 0.8],
+//   ],
+//   moving: [
+//     { index: 4, revert: false },
+//   ],
+//   target: [
+//       [-1, 0.5],
+//   ]
+// };
 
 let warps,
   gradient,

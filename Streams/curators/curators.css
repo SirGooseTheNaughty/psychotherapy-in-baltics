@@ -47,16 +47,20 @@
     position: absolute;
     top: 0;
     left: 0;
-    transition: opacity .75s ease;
+    transform: translateY(0);
+    transition: opacity calc(2 * var(--animTime)) ease, transform var(--animTime) ease;
 }
 #curators .card__info-desc p:last-child {
     opacity: 0;
+    transform: translateY(10%);
 }
 #curators .card:hover .card__info-desc.changable p:last-child {
     opacity: 1;
+    transform: translateY(0);
 }
 #curators .card:hover .card__info-desc.changable p:first-child {
     opacity: 0;
+    transform: translateY(-10%);
 }
 
 #curators .controls {
