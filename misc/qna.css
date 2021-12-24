@@ -27,6 +27,13 @@
     width: calc(6 * var(--cellWidth));
     margin: 0;
 }
+/* .t585__header .t585__circle {
+    background-color: var(--dimmedWhite) !important;
+}
+.t585__header:hover path {
+    stroke: rgba(240, 239, 236, 1);
+} */
+
 @media screen and (max-width: 980px) {
     .t585__header {
         height: var(--cellHeight);

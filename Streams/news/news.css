@@ -82,12 +82,12 @@
     text-align: center;
     background-color: var(--dimmedWhite);
     line-height: 4em;
-    border-bottom: 1px solid transparent;
+    border-bottom: 2px solid transparent;
     transition: var(--animTime) ease;
 }
 #feed .controls__tag.active {
     font-weight: 600;
-    border-bottom: 1px solid var(--white);
+    border-bottom: 2px solid var(--white);
 }
 #feed .search {
     position: absolute;
