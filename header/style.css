@@ -20,7 +20,7 @@
 }
 @supports not (backdrop-filter: blur(10px)) {
     .balt-nav {
-        background-color: rgba(147, 175, 217, 0,6);
+        background-color: rgba(147, 175, 217, 0.6);
     }
 }
 .nav-container {

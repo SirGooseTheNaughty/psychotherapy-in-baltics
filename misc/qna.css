@@ -9,6 +9,9 @@
     place-items: center start;
     border-bottom: 1px solid var(--beige);
 }
+.t585__title {
+    padding-right: 50px;
+}
 .t585__content {
     position: relative;
     padding-top: 35px;

@@ -1,0 +1,18 @@
+<style>
+    .hidden-at-first {
+        opacity: 0;
+    }
+    .appear {
+        opacity: 1;
+    }
+</style>
+
+<script>
+    const hiddenStuff = document.querySelectorAll('.hidden-at-first');
+    document.addEventListener('DOMContentLoaded', () => {
+        hiddenStuff.forEach(el => {
+            el.style.transition = 'opacity 3s ease';
+            setTimeout(() => el.classList.add('appear'), 1000);
+        });
+    });
+</script>

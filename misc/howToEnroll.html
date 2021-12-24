@@ -1,0 +1,54 @@
+<script>
+    class Enroll {
+        constructor() {
+            this.blocks = [
+                document.querySelector('#rec388665269'),
+                document.querySelector('#rec393278104'),
+            ];
+            this.triggers = [
+                document.querySelector('[data-elem-id="1638861594558"]'),
+                document.querySelector('[data-elem-id="1638861625418"]'),
+            ];
+
+            this.changeBlocks = this.changeBlocks.bind(this);
+
+            this.triggers.forEach((trigger, i) => {
+                trigger.addEventListener('click', () => this.changeBlocks(i));
+                trigger.classList.add('trigger');
+            });
+            this.triggers[0].classList.add('active');
+            this.blocks.forEach(block => block.classList.add('enroll-block'));
+            this.blocks[1].classList.add('hidden');
+        }
+
+        changeBlocks(index) {
+            this.blocks.forEach((block, i) => {
+                if (i === index) {
+                    block.classList.remove('hidden');
+                    this.triggers[i].classList.add('active');
+                } else {
+                    block.classList.add('hidden');
+                    this.triggers[i].classList.remove('active');
+                }
+            });
+        }
+    };
+    const enroll = new Enroll();
+</script>
+
+<style>
+    .enroll-block {
+        display: block !important;
+    }
+    .enroll-block.hidden {
+        display: none !important;
+    }
+    .trigger {
+        cursor: pointer;
+        opacity: 0.55 !important;
+    }
+    .trigger.active {
+        pointer-events: none;
+        opacity: 1 !important;
+    }
+</style>
