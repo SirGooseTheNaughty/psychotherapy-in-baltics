@@ -24,7 +24,7 @@ class Localizator {
 
     fillSelectorsToHide() {
         let styleStr = '';
-        for (let key in Object.keys(this.changable)) {
+        for (let key of this.changable) {
             if (key !== this.locale) {
                 this.changable[key].forEach(selector => {
                     if (styleStr) {
