@@ -136,7 +136,7 @@ const Post = {
         date: function() {
             try {
                 const day = this.data.day[0] === '0' ? this.data.day[1] : this.data.day;
-                const month = localizator.getTranslation(['common', 'months', this.data.month]);
+                const month = localizator.getTranslation(['months', this.data.month]);
                 return month ? `${day} ${month}, ${this.data.year}` : this.data.date;
             } catch(e) {
                 console.warn(e);
@@ -144,7 +144,7 @@ const Post = {
             }
         },
         seeMoreText: function() {
-            return localizator.getTranslation(['common', 'more']);
+            return localizator.getTranslation(['more']);
         }
     }
 };
