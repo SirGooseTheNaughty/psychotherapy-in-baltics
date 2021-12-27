@@ -22,12 +22,12 @@ class Header {
             links: [],
         };
         this.body = document.querySelector('body');
-        this.translator = translator;
         this.localizator = localizator;
 
         this.toggleLanguages = this.toggleLanguages.bind(this);
         this.toggleMenu = this.toggleMenu.bind(this);
         this.setLanguage = this.setLanguage.bind(this);
+        this.changeLanguage = this.changeLanguage.bind(this);
 
         this.menu.desktop.classList.add('my-menu');
         this.menu.mobile.classList.add('my-menu');
@@ -39,9 +39,9 @@ class Header {
 
         this.controls.togglers.languages.addEventListener('click', this.toggleLanguages);
         this.controls.togglers.menu.addEventListener('click', this.toggleMenu);
-        // for (let key of Object.keys(this.controls.languages)) {
-        //     this.controls.languages[key].addEventListener('click', () => this.setLanguage(key));
-        // }
+        for (let key in this.controls.languages) {
+            this.controls.languages[key].addEventListener('click', () => this.changeLanguage(key));
+        }
         this.menu.links.forEach(link => link.addEventListener('click', this.toggleMenu));
 
         // let lang = getLanguageCookie();
@@ -75,9 +75,13 @@ class Header {
     setLanguage(lang, isToggler = true) {
         console.log('set lang ' + lang);
         this.cont.setAttribute('data-language', lang);
+        isToggler && this.toggleLanguages();
+    }
+
+    changeLanguage(lang, isToggler = true) {
+        this.setLanguage(lang, isToggler = true);
         setLanguageCookie(lang);
         this.localizator && this.localizator.changeLanguage(lang);
-        isToggler && this.toggleLanguages();
     }
 }
 
