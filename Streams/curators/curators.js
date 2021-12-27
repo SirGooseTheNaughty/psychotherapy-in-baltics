@@ -14,7 +14,7 @@ const Curators = {
             items: [],
             filters: ['curators'],
             category: 'curators',
-            lang: translator.lang || 'ru',
+            lang: localizator.locale || 'ru',
             loc: '',
             ids: streamIds,
             baseLink: '',
@@ -44,12 +44,12 @@ const Curators = {
                         class="controls__tag controls__curators"
                         :class="{ active: filters.includes('curators') }"
                         v-on:click="() => setFilter('curators')"
-                    >Кураторы программ</div>
+                    >{{ curatorsText }}</div>
                     <div
                         class="controls__tag controls__experts"
                         :class="{ active: filters.includes('experts') }"
                         v-on:click="() => setFilter('experts')"
-                    >Эксперты-консультанты</div>
+                    >{{ expertsText }}</div>
                 </div>
                 <div v-if="currentItems.length" :class="{ hidden: shift === 0 }" class="controls__btn controls__left" v-on:click="shiftLeft">${svgNextBtn}</div>
                 <div v-if="currentItems.length" :class="{ hidden: shift === maxShift }" class="controls__btn controls__right" v-on:click="shiftRight">${svgNextBtn}</div>
@@ -65,7 +65,6 @@ const Curators = {
         },
     },
     async created() {
-        translator.subscribers.push(this);
         this.getItems();
     },
     computed: {
@@ -78,8 +77,14 @@ const Curators = {
             }
             return 1;
         },
+        curatorsText: function() {
+            return localizator.getTranslation(['curators', 'curators']);
+        },
+        expertsText: function() {
+            return localizator.getTranslation(['curators', 'experts']);
+        },
         noDataMsg: function() {
-            return translator.getTranslation(['common', 'nodata', 'lang'], this.lang);
+            return localizator.getTranslation(['nodata', 'lang']);
         },
         maxShift: function() {
             return this.currentItems.length - this.limit;
@@ -107,8 +112,6 @@ const Curators = {
         },
         fetchLink: function() {
             const rootId = this.ids[this.category].root;
-            // const langId = this.ids[this.category][this.lang];
-            // return `https://feeds.tildacdn.com/api/getfeed/?feeduid=${rootId}-${langId}&size=&slice=1&sort%5Bdate%5D=${this.order}`;
             return `https://feeds.tildacdn.com/api/getfeed/?feeduid=${rootId}&size=&slice=1&sort%5Bdate%5D=${this.order}`;
         }
     },

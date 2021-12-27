@@ -36,7 +36,7 @@ const Blog = {
             filter: 'все темы',
             search: '',
             category: 'blog',
-            lang: translator.lang,
+            lang: localizator.lang || 'ru',
             loc: '',
             ids: streamIds,
             types: ['интервью', 'посты', 'видео', 'статьи', 'книги'],
@@ -57,8 +57,8 @@ const Blog = {
             <div class="content">
                 <post v-for="(post, index) in slicedItems" :data="post" key="index"></post>
             </div>
-            <div v-if="currentItems.length > limit" class="more" v-on:click="showMore">смотреть еще</div>
-            <div v-if="currentItems.length === 0" class="posts-not-found">По таким параметрам не найдено публикаций</div>
+            <div v-if="currentItems.length > limit" class="more" v-on:click="showMore">{{ seeMoreText }}</div>
+            <div v-if="currentItems.length === 0" class="posts-not-found">{{ noPostsText }}</div>
         </div>
     `,
     watch: {
@@ -67,7 +67,6 @@ const Blog = {
         },
     },
     async created() {
-        translator.subscribers.push(this);
         this.getItems();
     },
     mounted() {
@@ -75,7 +74,13 @@ const Blog = {
     },
     computed: {
         noDataMsg: function() {
-            return translator.getTranslation(['common', 'nodata', 'lang'], this.lang);
+            return localizator.getTranslation(['nodata', 'lang']);
+        },
+        seeMoreText: function() {
+            return localizator.getTranslation(['seemore']);
+        },
+        noPostsText: function() {
+            return localizator.getTranslation(['blog', 'noPosts']);
         },
         currentItems: function() {
             let currentItems = [...this.items];
@@ -104,8 +109,6 @@ const Blog = {
         },
         fetchLink: function() {
             const rootId = this.ids[this.category].root;
-            // const langId = this.ids[this.category][this.lang];
-            // return `https://feeds.tildacdn.com/api/getfeed/?feeduid=${rootId}-${langId}&size=&slice=1&sort%5Bdate%5D=${this.order}`;
             return `https://feeds.tildacdn.com/api/getfeed/?feeduid=${rootId}&size=&slice=1&sort%5Bdate%5D=${this.order}`;
         },
     },
@@ -205,7 +208,7 @@ const Post = {
         date: function() {
             try {
                 const day = this.data.day[0] === '0' ? this.data.day[1] : this.data.day;
-                const month = translator.getTranslation(['common', 'months', this.data.month]);
+                const month = localizator.getTranslation(['months', this.data.month]);
                 return month ? `${day} ${month}, ${this.data.year}` : this.data.date;
             } catch(e) {
                 console.warn(e);
@@ -263,7 +266,7 @@ const Controls = {
             </div>
             <div class="search">
                 <input
-                    placeholder="Введите свой запрос, например, гештальт"
+                    :placeholder="enterYourQuery"
                     v-model="search"
                     v-on:focus="focus"
                     v-on:blur="unfocus"
@@ -272,8 +275,8 @@ const Controls = {
                 <div v-if="!currentSearch" v-on:click="setSearch" class="search__icon">${searchIcon}</div>
                 <div v-if="currentSearch" v-on:click="clearSearch" class="search__icon">${deleteIcon}</div>
                 <div class="search__results" v-if="isFocused">
-                    <div class="search__result not-enough-letters" v-if="search.length < 3">Начните печатать для поиска</div>
-                    <div class="search__result not-found" v-if="search.length >= 3 && relevantPosts.length === 0">По данному запросу не найдено публикаций</div>
+                    <div class="search__result not-enough-letters" v-if="search.length < 3">{{ startTyping }}</div>
+                    <div class="search__result not-found" v-if="search.length >= 3 && relevantPosts.length === 0">{{ noPostsSearchText }}</div>
                     <a v-for="(post, index) of relevantPosts" :href="post.link"><div class="search__result">{{ post.title }}</div></a>
                 </div>
             </div>
@@ -286,6 +289,9 @@ const Controls = {
             return this.getRelevantPosts(this.search);
         },
         notFound: function() { return this.search.length >= 3 && this.relevantPosts.length === 0 },
+        noPostsSearchText: function() { return localizator.getTranslation(['blog', 'noPostsSearch']); },
+        startTyping: function() { return localizator.getTranslation(['blog', 'startTyping']); },
+        enterYourQuery: function() { return localizator.getTranslation(['blog', 'enterYourQuery']); },
     },
     methods: {
         toggleSelection: function() {

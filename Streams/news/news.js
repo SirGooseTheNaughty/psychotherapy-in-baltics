@@ -6,7 +6,7 @@ const Feed = {
             limit: 3,
             filters: [],
             category: 'events',
-            lang: translator.lang,
+            lang: localizator.lang || 'ru',
             loc: '',
             ids: streamIds,
             order: 'desc',
@@ -25,7 +25,6 @@ const Feed = {
         },
     },
     async created() {
-        translator.subscribers.push(this);
         this.getItems();
     },
     computed: {
@@ -58,8 +57,6 @@ const Feed = {
         },
         fetchLink: function() {
             const rootId = this.ids[this.category].root;
-            // const langId = this.ids[this.category][this.lang];
-            // return `https://feeds.tildacdn.com/api/getfeed/?feeduid=${rootId}-${langId}&size=&slice=1&sort%5Bdate%5D=${this.order}`;
             return `https://feeds.tildacdn.com/api/getfeed/?feeduid=${rootId}&size=&slice=1&sort%5Bdate%5D=${this.order}`;
         }
     },
@@ -125,7 +122,7 @@ const Post = {
                     <p class="description">{{ data.description }}</p>
                 </div>
                 <div class="post__seemore">
-                    <a :href="data.link">Подробнее</a>
+                    <a :href="data.link">{{ seeMoreText }}</a>
                     <svg width="23" height="12" viewBox="0 0 23 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0 6L22 6" stroke="#F0EFEC"/>
                         <path d="M22 6C19.632 5.92361 14.8959 4.71667 14.8959 0.5" stroke="#F0EFEC"/>
@@ -139,12 +136,15 @@ const Post = {
         date: function() {
             try {
                 const day = this.data.day[0] === '0' ? this.data.day[1] : this.data.day;
-                const month = translator.getTranslation(['common', 'months', this.data.month]);
+                const month = localizator.getTranslation(['common', 'months', this.data.month]);
                 return month ? `${day} ${month}, ${this.data.year}` : this.data.date;
             } catch(e) {
                 console.warn(e);
                 return this.data.date;
             }
+        },
+        seeMoreText: function() {
+            return localizator.getTranslation(['common', 'more']);
         }
     }
 };

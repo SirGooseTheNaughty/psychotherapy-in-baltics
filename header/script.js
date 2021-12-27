@@ -23,6 +23,7 @@ class Header {
         };
         this.body = document.querySelector('body');
         this.translator = translator;
+        this.localizator = localizator;
 
         this.toggleLanguages = this.toggleLanguages.bind(this);
         this.toggleMenu = this.toggleMenu.bind(this);
@@ -50,7 +51,7 @@ class Header {
         // }
 
         // this.setLanguage(lang);
-        this.setLanguage('ru', false);
+        // this.setLanguage('ru', false);
     }
 
     toggleMenu() {
@@ -75,7 +76,7 @@ class Header {
         console.log('set lang ' + lang);
         this.cont.setAttribute('data-language', lang);
         setLanguageCookie(lang);
-        this.translator && this.translator.changeLang(lang);
+        this.localizator && this.localizator.changeLanguage(lang);
         isToggler && this.toggleLanguages();
     }
 }

@@ -11,6 +11,7 @@ class Localizator {
             en: [],
             lv: [],
         };
+        this.db = localeDb || null;
         this.selectorsToHide = '';
 
         this.changeLanguage = this.changeLanguage.bind(this);
@@ -47,6 +48,21 @@ class Localizator {
     changeLanguage(lang) {
         const locale = lang === 'ru' ? '' : lang + '/';
         window.location.href = `${this.root}/${locale}${this.page}`;
+    }
+    
+    getTranslation(keys) {
+        try {
+            const texts = keys.reduce((obj, key) => obj = obj[key], this.translations);
+            const text = texts[this.locale];
+            if (typeof text === 'function') {
+                return text();
+            } else {
+                return text;
+            }
+        } catch(e) {
+            console.warn(e);
+            return '';
+        }
     }
 };
 const localizator = new Localizator();

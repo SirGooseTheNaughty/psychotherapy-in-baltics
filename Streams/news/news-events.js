@@ -18,7 +18,7 @@ const Feed = {
             limit: 6,
             filters: [],
             category: 'events',
-            lang: translator.lang,
+            lang: localizator.lang || 'ru',
             loc: '',
             ids: streamIds,
             order: 'desc',
@@ -73,7 +73,6 @@ const Feed = {
         },
     },
     async created() {
-        translator.subscribers.push(this);
         this.getItems();
     },
     mounted() {
@@ -81,7 +80,7 @@ const Feed = {
     },
     computed: {
         noDataMsg: function() {
-            return translator.getTranslation(['common', 'nodata', 'lang'], this.lang);
+            return localizator.getTranslation(['nodata', 'lang']);
         },
         maxShift: function() {
             return Math.floor((this.currentItems.length - 1) / 3);
@@ -231,7 +230,7 @@ const Post = {
         date: function() {
             try {
                 const day = this.data.day[0] === '0' ? this.data.day[1] : this.data.day;
-                const month = translator.getTranslation(['common', 'months', this.data.month]);
+                const month = localizator.getTranslation(['months', this.data.month]);
                 return month ? `${day} ${month}, ${this.data.year}` : this.data.date;
             } catch(e) {
                 console.warn(e);
