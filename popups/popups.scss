@@ -53,6 +53,9 @@ body.popup-opened {
             @media screen and (max-width: 640px) {
                 height: 320px !important;
             }
+            @media screen and (max-width: 480px) {
+                height: 300px !important;
+            }
         }
         .module-trigger svg {
             transform: rotate(90deg);
@@ -78,6 +81,8 @@ body.popup-opened {
     
                     &::after {
                         transform: translateY(25%) rotate(45deg) !important;
+                        border-right-color: var(--blue) !important;
+                        border-bottom-color: var(--blue) !important;
                     }
                 }
             }
@@ -189,6 +194,9 @@ body.popup-opened {
                         flex-flow: row;
                         margin-left: 0;
                     }
+                    @media screen and (max-width: 480px) {
+                        flex-flow: column;
+                    }
 
                     .stat {
                         font-size: 16px;
@@ -198,6 +206,9 @@ body.popup-opened {
 
                             @media screen and (max-width: 980px) {
                                 width: 165px;
+                            }
+                            @media screen and (max-width: 480px) {
+                                margin-bottom: 13px;
                             }
                         }
                         
@@ -225,6 +236,9 @@ body.popup-opened {
                         }
                         @media screen and (max-width: 640px) {
                             width: 50% !important;
+                        }
+                        @media screen and (max-width: 480px) {
+                            width: 100% !important;
                         }
                     }
 
@@ -330,7 +344,7 @@ body.popup-opened {
 
                         p {
                             &:first-child {
-                                color: var(--orange);
+                                color: var(--gestaltBlue);
                                 text-transform: uppercase;
                                 margin-bottom: 10px;
                                 font-size: 12px;
@@ -351,6 +365,10 @@ body.popup-opened {
 
                         &:last-child {
                             justify-self: start;
+
+                            @media screen and (max-width: 480px) {
+                                margin-bottom: 0 !important;
+                            }
                         }
             
                         @media screen and (max-width: 980px) {
@@ -382,6 +400,10 @@ body.popup-opened {
 
                 @media screen and (min-width: 1200px) {
                     display: none;
+                }
+
+                @media screen and (max-width: 480px) {
+                    margin-bottom: 37px;
                 }
             }
         }
@@ -429,10 +451,6 @@ body.popup-opened {
 
                 .block {
                     .info {
-                        @media screen and (max-width: 980px) {
-                            margin-bottom: 50px;
-                        }
-    
                         display: none;
     
                         &.table {
@@ -501,6 +519,9 @@ body.popup-opened {
                                     padding-left: 30px;
                                     padding-bottom: 30px;
                                 }
+                                @media screen and (max-width: 480px) {
+                                    padding: 13px 0 25px 0;
+                                }
     
                                 p {
                                     &:first-child {
@@ -521,7 +542,7 @@ body.popup-opened {
                                             width: 100%;
                                             flex-grow: 1;
                                             margin-right: 0;
-                                            margin-bottom: 10px;
+                                            margin-bottom: 12px;
                                         }
                                     }
 
@@ -544,6 +565,7 @@ body.popup-opened {
     
                                         @media screen and (max-width: 480px) {
                                             display: block;
+                                            margin-top: -1px;
                                         }
                                     }
                                 }
@@ -552,8 +574,23 @@ body.popup-opened {
                                     content: counter(list-counter);
                                     position: absolute;
                                     left: 0;
+
+                                    @media screen and (max-width: 480px) {
+                                        display: none;
+                                    }
                                 }
                             }
+
+                            @media screen and (max-width: 480px) {
+                                margin-top: 26px;
+                            }
+                        }
+
+                        @media screen and (max-width: 980px) {
+                            margin-bottom: 50px;
+                        }
+                        @media screen and (max-width: 480px) {
+                            margin-top: 25px;
                         }
                     }
 
@@ -570,7 +607,7 @@ body.popup-opened {
                             width: 12px;
                             height: 12px;
                             box-sizing: border-box;
-                            border: 2px solid var(--blue);
+                            border: 2px solid var(--gray);
                             border-left-color: transparent;
                             border-top-color: transparent;
                             transform: translateY(25%) rotate(-45deg);
@@ -592,6 +629,10 @@ body.popup-opened {
                         @media screen and (max-width: 1200px) {
                             font-size: 12px;
                         }
+                    }
+
+                    &:last-child .trigger.mobile {
+                        margin-bottom: 0;
                     }
                 }
 
