@@ -2,7 +2,7 @@ class GridDrawer {
     constructor() {
         this.canvas = document.querySelector('#grid');
         this.ctx = this.canvas.getContext('2d');
-        this.breakpoints = [1200, 960, 640, 480];
+        this.breakpoints = [1200, 980, 640, 480];
         this.steps = gridSizes;
         this.horizontalLinesStart = 86;
 

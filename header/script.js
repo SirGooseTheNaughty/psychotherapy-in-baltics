@@ -23,7 +23,6 @@ class Header {
         };
         this.body = document.querySelector('body');
         this.localizator = localizator;
-        // just fucking deploy
 
         this.toggleLanguages = this.toggleLanguages.bind(this);
         this.toggleMenu = this.toggleMenu.bind(this);

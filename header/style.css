@@ -68,7 +68,6 @@
     transform: translateY(-100%);
     transition: transform .25s ease;
     background-color: #bdcde766;
-    /* border-top: 1px solid #F0EFEC; */
 }
 .nav-logo p {
     margin: 0;
@@ -194,7 +193,7 @@
         width: calc(2 * var(--cellWidth));
     }
 }
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 980px) {
     .nav-container {
         grid-template-columns: calc(2 * var(--cellWidth)) var(--cellWidth) var(--cellWidth) var(--cellWidth) auto;
     }
@@ -225,7 +224,7 @@
 
     .mobile-select__container {
         position: fixed;
-        bottom: 3vh;
+        top: calc(100vh - 50px);
         left: 12px;
         width: calc(100% - 24px);
         display: flex;
