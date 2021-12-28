@@ -575,9 +575,12 @@ function init() {
 function isMobile() {
   return /Mobi/i.test(window.navigator.userAgent);
 }
+function isTablet() {
+  return /(ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(IP|AP|WP))))/.test(window.navigator.userAgent);
+}
 
 try {
-  if (!isMobile()) {
+  if (!isMobile() && !isTablet()) {
     init();
   }
 } catch(e) {
