@@ -37,6 +37,7 @@
     margin: 0 0 14px 0;
 }
 #curators .card__info-desc {
+    line-height: 1.40em;
     font-size: 16px;
     height: calc(100% - 20px);
     overflow: hidden;
@@ -132,7 +133,7 @@
         height: calc(2 * var(--cellHeight));
     }
     #curators .card__info-name {
-        margin-top: 22px;
+        margin-top: 5px;
         margin-bottom: 22px;
     }
     #curators .card__info-desc {
@@ -145,7 +146,7 @@
     #curators .card__info-desc p:first-child {
         position: relative;
         opacity: 1;
-        margin-bottom: 20px;
+        margin-bottom: 7px;
     }
     #curators .card .card__info-desc.changable p:last-child {
         opacity: 1;
@@ -176,11 +177,8 @@
         margin-top: 0;
         margin-bottom: 20px;
     }
-    #curators .card__info-desc {
-        font-size: 16px;
-    }
     #curators .card__info-desc p:first-child {
-        margin-bottom: 16px;
+        margin-bottom: 5px;
     }
     #curators .controls__btn {
         top: calc(5 * var(--cellHeight) / 2);
