@@ -1,6 +1,6 @@
 class Localizator {
     constructor() {
-        this.root = 'https://psy-baltics.com';
+        this.root = 'https://psy-baltics.com/';
         this.changable = {
             ru: [],
             en: [],
@@ -27,9 +27,12 @@ class Localizator {
             return;
         }
         this.path = window.location.toString().split(this.root)[1];
-        [this.locale, this.page] = this.path.split('/');
-        if (!this.locale) {
+        const localeAndPage = this.path.split('/');
+        if (localeAndPage.length === 1) {
             this.locale = 'ru';
+            this.page = localeAndPage[0];
+        } else {
+            [this.locale, this.page] = localeAndPage;
         }
     }
 
