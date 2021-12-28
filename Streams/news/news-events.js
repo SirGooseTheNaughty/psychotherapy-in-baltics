@@ -135,7 +135,7 @@ const Feed = {
             return [];
         },
         getItems: async function() {
-            return this.items = this.category === 'events' ? mockedEvents : mockedNews;
+            // return this.items = this.category === 'events' ? mockedEvents : mockedNews;
             await fetch(this.fetchLink)
                 .then(res => res.json())
                 .then(res => {
