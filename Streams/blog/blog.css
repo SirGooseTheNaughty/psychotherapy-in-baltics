@@ -285,13 +285,11 @@
         width: var(--cellWidth);
     }
     #blog .card__category {
-        position: relative;
-        width: max-content;
-        top: 24px;
-        left: 0;
+        top: 32px;
+        right: 28px;
     }
     #blog .card__info-title {
-        margin-top: 35px;
+        margin-top: 20px;
     }
     #blog .selection__result {
         padding-left: 16px;
@@ -353,6 +351,10 @@
     #blog .search input {
         font-size: 14px;
     }
+    #blog .card__category {
+        top: 30px;
+        right: 24px;
+    }
 }
 @media screen and (max-width: 640px) {
     #blog {
@@ -373,6 +375,10 @@
     }
     #blog .search input {
         width: calc(4 * var(--cellWidth));
+    }
+    #blog .card__category {
+        top: 35px;
+        right: 35px;
     }
 }
 @media screen and (max-width: 480px) {
@@ -420,5 +426,9 @@
     #blog .selection__options {
         position: absolute;
         z-index: 10;
+    }
+    #blog .card__category {
+        top: 30px;
+        right: 30px;
     }
 }
