@@ -1069,6 +1069,13 @@ body.popup-opened .balt-nav {
 
 .popup .container .content .blocks .article img {
   width: 500px;
+  margin-bottom: 40px;
+  border: 1px solid var(--blue);
+  display: block;
+}
+
+.popup .container .content .blocks .article img:last-of-type {
+  margin-bottom: 0;
 }
 
 @media screen and (max-width: 1200px) {

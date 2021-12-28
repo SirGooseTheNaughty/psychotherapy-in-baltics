@@ -744,6 +744,13 @@ body.popup-opened {
 
                     img {
                         width: 500px;
+                        margin-bottom: 40px;
+                        border: 1px solid var(--blue);
+                        display: block;
+
+                        &:last-of-type {
+                            margin-bottom: 0;
+                        }
 
                         @media screen and (max-width: 1200px) {
                             max-width: calc(5 * var(--cellWidth) / 2);
