@@ -200,10 +200,13 @@
     #curators .card__info {
         padding: 36px 40px;
     }
-    .controls__btn {
-        display: none;
+    #curators .controls .controls__right {
+        right: calc(50vw - 2 * var(--cellWidth));
     }
-    .nodata {
+    #curators .controls .controls__left {
+        left: calc(50vw - 2 * var(--cellWidth));
+    }
+    #curators .nodata {
         width: calc(4 * var(--cellWidth));
         margin: 0 auto;
     }
@@ -241,7 +244,16 @@
     #curators .card__info-desc {
         font-size: 14px;
     }
-    .nodata {
+    #curators .nodata {
         width: calc(2 * var(--cellWidth));
+    }
+    #curators .controls__btn {
+        top: calc(2 * var(--cellHeight));
+    }
+    #curators .controls .controls__right {
+        right: calc(50vw - var(--cellWidth));
+    }
+    #curators .controls .controls__left {
+        left: calc(50vw - var(--cellWidth));
     }
 }
