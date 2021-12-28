@@ -135,7 +135,7 @@ const Feed = {
             return [];
         },
         getItems: async function() {
-            // return this.items = this.category === 'events' ? mockedEvents : mockedNews;
+            return this.items = this.category === 'events' ? mockedEvents : mockedNews;
             await fetch(this.fetchLink)
                 .then(res => res.json())
                 .then(res => {
@@ -216,7 +216,7 @@ const Post = {
                     <p class="description" v-html="data.description"></p>
                 </div>
                 <div class="post__seemore">
-                    <a :href="data.link">Подробнее</a>
+                    <a :href="data.link">{{ seeMoreText }}</a>
                     <svg width="23" height="12" viewBox="0 0 23 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0 6L22 6" stroke="#F0EFEC"/>
                         <path d="M22 6C19.632 5.92361 14.8959 4.71667 14.8959 0.5" stroke="#F0EFEC"/>
@@ -236,6 +236,9 @@ const Post = {
                 console.warn(e);
                 return this.data.date;
             }
+        },
+        seeMoreText: function() {
+            return localizator.getTranslation(['more']);
         }
     }
 };
