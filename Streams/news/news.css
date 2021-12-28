@@ -12,7 +12,7 @@
     flex-wrap: wrap;
     justify-content: start;
 }
-.post {
+#feed .post {
     width: calc(var(--cellWidth) * 2);
     height: calc(var(--cellHeight) * 2);
     display: flex;
@@ -27,32 +27,32 @@
     letter-spacing: -0.025em;
     transition: background-color var(--animTime) ease;
 }
-.post:not(:last-child):not(:nth-child(3n)) {
+#feed .post:not(:last-child):not(:nth-child(3n)) {
     border-right: transparent;
 }
-.date {
+#feed .date {
     color: var(--beige);
     font-size: 18px;
 }
-.time {
+#feed .time {
     color: var(--lightGray);
     font-size: 14px;
     min-height: 1em;
 }
-.post__content {
+#feed .post__content {
     margin-bottom: auto;
 }
-.title {
+#feed .title {
     color: var(--white);
     font-size: 18px;
     font-weight: 600;
     margin: 20px 0;
 }
-.description {
+#feed .description {
     color: var(--white);
     font-size: 16px;
 }
-.post__seemore a {
+#feed .post__seemore a {
     color: var(--beige) !important;
     font-size: 14px;
     text-transform: uppercase;
@@ -152,7 +152,7 @@
     transition: background-color .4s ease;
 }
 
-.nodata {
+#feed .nodata {
     width: 100%;
     height: calc(1 * var(--cellHeight));
     display: grid;
@@ -165,10 +165,10 @@
 }
 
 @media (hover: hover) {
-    .post:hover {
+    #feed .post:hover {
         background-color: var(--dimmedWhite);
     }
-    .post:hover .post__seemore a {
+    #feed .post:hover .post__seemore a {
         margin-right: 10px;
     }
 }
@@ -192,14 +192,14 @@
         width: calc(var(--cellWidth) * 6);
         flex-wrap: wrap;
     }
-    .post {
+    #feed .post {
         width: calc(var(--cellWidth) * 3);
         height: calc(var(--cellHeight) * 4);
     }
-    .post:nth-child(2n) {
+    #feed .post:nth-child(2n) {
         border-right: 1px solid var(--white) !important;
     }
-    .nodata {
+    #feed .nodata {
         height: calc(2 * var(--cellHeight));
     }
 }
@@ -207,14 +207,14 @@
     #feed {
         width: calc(var(--cellWidth) * 4);
     }
-    .post {
+    #feed .post {
         width: calc(var(--cellWidth) * 4);
         height: calc(var(--cellHeight) * 3);
     }
-    .post {
+    #feed .post {
         border-right: 1px solid var(--white) !important;
     }
-    .nodata {
+    #feed .nodata {
         width: calc(4 * var(--cellWidth));
         margin: 0 auto;
     }
@@ -223,7 +223,7 @@
     #feed {
         width: calc(100% - 20px)
     }
-    .post {
+    #feed .post {
         width: 100%;
         height: calc(var(--cellHeight) * 3);
     }
@@ -242,7 +242,7 @@
     #feed .search input {
         width: 100%;
     }
-    .nodata {
+    #feed .nodata {
         width: 100%;
     }
 }

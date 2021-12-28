@@ -69,7 +69,6 @@ class Localizator {
         try {
             const texts = keys.reduce((obj, key) => obj = obj[key], this.db);
             const text = texts[this.locale];
-            console.log(this.locale)
             if (typeof text === 'function') {
                 return text();
             } else {
