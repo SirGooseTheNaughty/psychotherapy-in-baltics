@@ -28,7 +28,7 @@ body.popup-opened {
     word-break: keep-all;
 
     @supports not (backdrop-filter: blur(10px)) {
-        // background-color: rgba(147, 175, 217, 0,6);
+        background-color: rgba(147, 175, 217, 0.6);
     }
 
     &.opened {
@@ -45,7 +45,7 @@ body.popup-opened {
             height: 200px !important;
         }
         .modules__mobile {
-            height: 240px !important;
+            height: 245px !important;
             
             @media screen and (max-width: 980px) {
                 height: 290px !important;
@@ -326,7 +326,7 @@ body.popup-opened {
                     counter-reset: list-counter;
                     list-style-type: none;
                     padding: 0;
-                    padding-left: 0 !important;
+                    padding-top: 20px;
                     margin: 0;
     
                     li {
@@ -344,9 +344,9 @@ body.popup-opened {
 
                         p {
                             &:first-child {
-                                color: var(--gestaltBlue);
+                                color: var(--blue);
                                 text-transform: uppercase;
-                                margin-bottom: 10px;
+                                margin-bottom: 8px;
                                 font-size: 12px;
                                 font-weight: 700;
             
@@ -360,7 +360,7 @@ body.popup-opened {
                             content: counter(list-counter);
                             position: absolute;
                             left: 0;
-                            color: var(--orange);
+                            color: var(--blue);
                         }
 
                         &:last-child {
@@ -594,10 +594,6 @@ body.popup-opened {
                             margin-top: 25px;
                             margin-top: 28px;
                         }
-
-                        &:last-child {
-                            margin-bottom: 0;
-                        }
                     }
 
                     .trigger.mobile {
@@ -640,6 +636,10 @@ body.popup-opened {
                     &:last-child .trigger.mobile {
                         margin-bottom: 0;
                     }
+
+                    &:last-child .info {
+                        margin-bottom: 0;
+                    }
                 }
 
                 .curator {
@@ -656,14 +656,18 @@ body.popup-opened {
                         line-height: 145%;
                     }
 
+                    @media screen and (max-width: 1200px) {
+                        padding-left: 40px;
+
+                        img {
+                            width: calc(1.5 * var(--cellWidth));
+                            aspect-ratio: 1/1;
+                        }
+                    }
+
                     @media screen and (max-width: 980px) {
                         padding-left: 0;
                         display: flex;
-
-                        img {
-                            width: 116px;
-                            height: 116px;
-                        }
 
                         &__info {
                             width: 100%;
@@ -689,8 +693,7 @@ body.popup-opened {
                         flex-flow: column;
 
                         img {
-                            width: 90px;
-                            height: 90px;
+                            width: calc(2 * var(--cellWidth));
                         }
 
                         &__info {
@@ -703,6 +706,9 @@ body.popup-opened {
                 .article {
                     padding-left: calc(var(--cellWidth) / 2);
 
+                    @media screen and (max-width: 1200px) {
+                        padding-left: 40px;
+                    }
                     @media screen and (max-width: 980px) {
                         padding-left: 0;
                     }
@@ -883,6 +889,10 @@ body.popup-opened {
 
                     li {
                         p:first-child {
+                            color: var(--orange);
+                        }
+
+                        &::before {
                             color: var(--orange);
                         }
                     }
