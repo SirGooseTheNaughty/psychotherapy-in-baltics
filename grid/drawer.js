@@ -39,7 +39,7 @@ class GridDrawer {
 
     getCurrentSteps() {
         for (let i = 0; i < this.breakpoints.length; i++) {
-            if (this.canvas.width > this.breakpoints[i]) {
+            if (this.canvas.width >= this.breakpoints[i]) {
                 return this.steps[i];
             }
         }
