@@ -119,7 +119,7 @@ const Post = {
                 </div>
                 <div class="post__content">
                     <h3 class="title">{{ data.title }}</h3>
-                    <p class="description">{{ data.description }}</p>
+                    <p class="description" v-html="data.description"></p>
                 </div>
                 <div class="post__seemore">
                     <a :href="data.link">{{ seeMoreText }}</a>
