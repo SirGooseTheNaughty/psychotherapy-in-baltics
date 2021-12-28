@@ -5,7 +5,7 @@ const localeDb = {
             en: 'Programs curators',
             lv: '',
         },
-        consultants: {
+        experts: {
             ru: 'Эксперты-консультанты',
             en: 'Experts-consultants',
             lv: '',
