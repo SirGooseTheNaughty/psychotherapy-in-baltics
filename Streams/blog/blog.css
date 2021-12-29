@@ -236,7 +236,7 @@
     color: var(--white);
     text-transform: uppercase;
     font-size: 14px;
-    border-top: 2px solid var(--beige)
+    border-top: 1px solid var(--beige)
 }
 
 @media (hover: hover) {
@@ -430,5 +430,28 @@
     #blog .card__category {
         top: 30px;
         right: 30px;
+    }
+}
+
+@media screen and (min-width: 980px) {
+    #blog a:not(:last-child):not(:nth-child(3n)) .card {
+        border-right-color: transparent;
+    }
+    #blog a:nth-child(n + 4) .card {
+        border-top-color: transparent;
+    }
+}
+@media screen and (max-width: 980px) and (min-width: 640px) {
+    #blog a:not(:last-child):not(:nth-child(2n)) .card {
+        border-right-color: transparent;
+    }
+    #blog a:nth-child(n + 3) .card {
+        border-top-color: transparent;
+    }
+    
+}
+@media screen and (max-width: 640px) {
+    #blog a:nth-child(n + 2) .card {
+        border-top-color: transparent;
     }
 }
