@@ -23,6 +23,7 @@ const Curators = {
             touchX: 0,
             touchY: 0,
             order: 'asc',
+            limit: 3,
         }
     },
     template: `
@@ -66,6 +67,10 @@ const Curators = {
     },
     async created() {
         this.getItems();
+    },
+    mounted() {
+        this.setLimit();
+        window.addEventListener('resize', this.setLimit);
     },
     computed: {
         limit: function() {
@@ -124,6 +129,16 @@ const Curators = {
                     this.items = this.preformItems(res);
                 })
                 .catch(console.log);
+        },
+        setLimit: function() {
+            const dw = document.documentElement.clientWidth;
+            if (dw > 980) {
+                this.limit = 3;
+            } else if (dw > 640) {
+                this.limit = 2;
+            } else {
+                this.limit = 1;
+            }
         },
         preformItems: function(items) {
             return items.posts.map(post => {
