@@ -117,7 +117,7 @@ const Curators = {
     },
     methods: {
         getItems: async function() {
-            // return this.items = mockedCurators;
+            return this.items = mockedCurators;
             await fetch(this.fetchLink)
                 .then(res => res.json())
                 .then(res => {
@@ -191,8 +191,8 @@ const Curator = {
             <div class="card__info">
                 <h4 class="card__info-name">{{ data.name }}</h4>
                 <div class="card__info-desc" :class="{ changable: !!data.desc2 }">
-                    <p>{{ data.desc1 }}</p>
-                    <p>{{ data.desc2 || '' }}</p>
+                    <p v-html="data.desc1"></p>
+                    <p v-html="data.desc2 || ''"></p>
                 </div>
             </div>
         </div>
