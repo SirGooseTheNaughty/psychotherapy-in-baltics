@@ -27,9 +27,6 @@
     letter-spacing: -0.025em;
     transition: background-color var(--animTime) ease;
 }
-#feed .post:not(:last-child):not(:nth-child(3n)) {
-    border-right: transparent;
-}
 #feed .date {
     color: var(--beige);
     font-size: 18px;
@@ -196,9 +193,6 @@
         width: calc(var(--cellWidth) * 3);
         height: calc(var(--cellHeight) * 4);
     }
-    #feed .post:nth-child(2n) {
-        border-right: 1px solid var(--white) !important;
-    }
     #feed .nodata {
         height: calc(2 * var(--cellHeight));
     }
@@ -210,9 +204,6 @@
     #feed .post {
         width: calc(var(--cellWidth) * 4);
         height: calc(var(--cellHeight) * 3);
-    }
-    #feed .post {
-        border-right: 1px solid var(--white) !important;
     }
     #feed .nodata {
         width: calc(4 * var(--cellWidth));
@@ -244,5 +235,28 @@
     }
     #feed .nodata {
         width: 100%;
+    }
+}
+
+@media screen and (min-width: 980px) {
+    #feed a:not(:last-child):not(:nth-child(3n)) .post {
+        border-right-color: transparent;
+    }
+    #feed a:nth-child(n + 4) .post {
+        border-top-color: transparent;
+    }
+}
+@media screen and (max-width: 980px) and (min-width: 640px) {
+    #feed a:not(:last-child):not(:nth-child(2n)) .post {
+        border-right-color: transparent;
+    }
+    #feed a:nth-child(n + 3) .post {
+        border-top-color: transparent;
+    }
+    
+}
+@media screen and (max-width: 640px) {
+    #feed a:nth-child(n + 2) .post {
+        border-top-color: transparent;
     }
 }
