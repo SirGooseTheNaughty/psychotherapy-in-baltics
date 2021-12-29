@@ -11,6 +11,7 @@
 }
 .t585__title {
     padding-right: 50px;
+    font-weight: 400 !important;
 }
 .t585__content {
     position: relative;
@@ -27,12 +28,6 @@
     width: calc(6 * var(--cellWidth));
     margin: 0;
 }
-/* .t585__header .t585__circle {
-    background-color: var(--dimmedWhite) !important;
-}
-.t585__header:hover path {
-    stroke: rgba(240, 239, 236, 1);
-} */
 
 @media screen and (max-width: 980px) {
     .t585__header {
@@ -53,5 +48,8 @@
     .t585 .t-col_8 {
         max-width: calc(2 * var(--cellWidth));
         width: calc(2 * var(--cellWidth));
+    }
+    .t585__title {
+        font-size: 16px !important;
     }
 }

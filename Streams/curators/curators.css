@@ -30,12 +30,12 @@
 }
 #curators .card__info {
     height: var(--cellHeight);
-    padding: 36px 39px;
+    padding: 26px 35px;
     box-sizing: border-box;
 }
 #curators .card__info-name {
     font-weight: 600;
-    margin: 0 0 14px 0;
+    margin: 0 0 10px 0;
 }
 #curators .card__info-desc {
     line-height: 1.40em;
