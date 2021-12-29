@@ -31,7 +31,12 @@ const Blog = {
         return {
             items: [],
             limit: 6,
-            filters: ['методы и подходы', 'исследования', 'профессия', 'семья', 'дети', 'клиника'],
+            prefilledFilters: {
+                ru: ['методы и подходы', 'исследования', 'профессия', 'семья', 'дети', 'клиника'],
+                en: ['methods and approaches', 'research', 'profession', 'family', 'children', 'clinique'],
+                lv: ['методы и подходы', 'исследования', 'профессия', 'семья', 'дети', 'клиника'],
+            },
+            filters: [],
             type: 'все форматы',
             filter: 'все темы',
             search: '',
@@ -126,7 +131,7 @@ const Blog = {
                 .catch(console.log);
         },
         preformItems: function(data) {
-            let posts = [], filters = [...this.filters];
+            let posts = [], filters = [...this.prefilledFilters[this.lang]];
             posts = data.posts.map(post => {
                 let postCategory = '';
                 const categories = post.parts.split(',');

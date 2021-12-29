@@ -6,3 +6,57 @@
         window.history.go(-1);
     });
 </script>
+
+<style>
+    .t-body * {
+        background-color: transparent !important;
+        color: var(--white) !important;
+        font-family: 'Inter', sans-serif !important;
+    }
+    a.t-feed__post-popup__tag {
+        display: none;
+    }
+    .t-popup__close-icon path {
+        stroke: var(--white) !important;
+    }
+    .t-feed__post-popup__title {
+        font-weight: 400;
+    }
+    .t-rec {
+        position: relative;
+        z-index: 2;
+    }
+    #allrecords .t-feed__post-popup__close-wrapper {
+        display: flex !important;
+    }
+    @supports (backdrop-filter: blur(10px)) {
+        .t-feed__post-popup__close-wrapper {
+            backdrop-filter: blur(10px);
+        }
+    }
+    @supports not (backdrop-filter: blur(10px)) {
+        .t-feed__post-popup__close-wrapper {
+            background-color: var(--bgBlue) !important;
+        }
+    }
+</style>
+
+<canvas id="mesh-canvas" width="1200" height="600"></canvas>
+<style>
+    #mesh-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--bgBlue);
+        z-index: 1;
+    }
+</style>
+<script id="warp_fragment" src="https://sirgoosethenaughty.github.io/psychotherapy-in-baltics/meshGradient/resources/fragment.glsl" type="x-shader/x-fragment"></script>
+<script id="point_fragment" src="https://sirgoosethenaughty.github.io/psychotherapy-in-baltics/meshGradient/resources/point_fragment.glsl" type="x-shader/x-fragment"></script>
+<script id="point_vertex" src="https://sirgoosethenaughty.github.io/psychotherapy-in-baltics/meshGradient/resources/point_vertex.glsl" type="x-shader/x-vertex"></script>
+<script id="smoke_fragment" src="https://sirgoosethenaughty.github.io/psychotherapy-in-baltics/meshGradient/resources/smoke_fragment.glsl" type="x-shader/x-fragment"></script>
+<script id="smoke_vertex" src="https://sirgoosethenaughty.github.io/psychotherapy-in-baltics/meshGradient/resources/smoke_vertex.glsl" type="x-shader/x-vertex"></script>
+<script id="warp_vertex" src="https://sirgoosethenaughty.github.io/psychotherapy-in-baltics/meshGradient/resources/vertex.glsl" type="x-shader/x-vertex"></script>
+<script src="https://sirgoosethenaughty.github.io/psychotherapy-in-baltics/meshGradient/script.js"></script>
