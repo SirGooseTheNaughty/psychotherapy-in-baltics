@@ -117,7 +117,7 @@ const Curators = {
     },
     methods: {
         getItems: async function() {
-            return this.items = mockedCurators;
+            // return this.items = mockedCurators;
             await fetch(this.fetchLink)
                 .then(res => res.json())
                 .then(res => {
