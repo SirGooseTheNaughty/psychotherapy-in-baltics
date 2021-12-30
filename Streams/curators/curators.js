@@ -73,7 +73,7 @@ const Curators = {
         window.addEventListener('resize', this.setLimit);
         try {
             const selector = document.querySelector('.t395__select');
-            selector.addEventListener('change', (e) => this.setFilter(e.target.value));
+            selector.addEventListener('change', (e) => this.setFilter(e.target.value == '0' ? 'curators' : 'experts'));
         } catch(e) {};
     },
     computed: {
