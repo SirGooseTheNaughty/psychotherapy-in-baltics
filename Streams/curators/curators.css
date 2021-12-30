@@ -194,7 +194,7 @@
     }
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 639px) {
     #curators {
         width: 100%;
         height: calc(6 * var(--cellHeight));

@@ -1,5 +1,6 @@
 .t585 .t-container {
     max-width: calc(6 * var(--cellWidth));
+    margin-bottom: var(--cellHeight);
 }
 .t585 .t-container * {
     font-weight: 400 !important;
