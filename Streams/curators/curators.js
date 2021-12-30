@@ -1,9 +1,9 @@
 const svgNextBtn = `
     <svg width="59" height="59" viewBox="0 0 59 59" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="29.5" cy="29.5" r="29" fill="white" fill-opacity="1"/>
         <path d="M14 30.5L44 30.5" stroke="#FF8552"/>
         <path d="M44 30.5C40.7708 30.3958 34.3125 28.75 34.3125 23" stroke="#FF8552"/>
         <path d="M44 30.5C40.7708 30.6042 34.3125 32.25 34.3125 38" stroke="#FF8552"/>
-        <circle cx="29.5" cy="29.5" r="29" fill="white" fill-opacity="0.26" stroke="#FF8552"/>
     </svg>
 `;
 
@@ -71,6 +71,10 @@ const Curators = {
     mounted() {
         this.setLimit();
         window.addEventListener('resize', this.setLimit);
+        try {
+            const selector = document.querySelector('.t395__select');
+            selector.addEventListener('change', (e) => this.setFilter(e.target.value));
+        } catch(e) {};
     },
     computed: {
         limit: function() {

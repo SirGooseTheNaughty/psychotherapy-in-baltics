@@ -13,14 +13,19 @@
     overflow: hidden;
 }
 #curators .card {
-    min-width: calc(2 * var(--cellWidth) - 0.1px);
+    min-width: calc(2 * var(--cellWidth));
     height: calc(3 * var(--cellHeight));
-    border: 1px solid var(--beige);
+    border: 0.5px solid var(--beige);
+    border-top-width: 1px;
+    border-bottom-width: 1px;
     box-sizing: border-box;
     transition: transform .75s ease;
 }
-#curators .card:not(:last-child) {
-    border-right: transparent;
+#curators .card:first-child {
+    border-left-width: 1px;
+}
+#curators .card:last-child {
+    border-right-width: 1px;
 }
 #curators .person {
     min-width: calc(2 * var(--cellWidth) - 1px);
@@ -206,6 +211,9 @@
     }
     #curators .controls .controls__left {
         left: calc(50vw - 2 * var(--cellWidth));
+    }
+    #curators .controls__tag {
+        display: none;
     }
     #curators .nodata {
         width: calc(4 * var(--cellWidth));
