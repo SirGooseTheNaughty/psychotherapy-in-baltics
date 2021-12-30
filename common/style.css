@@ -59,7 +59,7 @@ i, em {
         --cellHeight: 107px;
     }
 }
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 639px) {
     :root {
         --cellWidth: 115px;
         --cellHeight: 119px;

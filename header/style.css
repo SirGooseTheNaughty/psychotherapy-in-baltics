@@ -207,7 +207,7 @@
         margin-right: 60px;
     }
 }
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 639px) {
     .nav-container {
         display: flex;
         justify-content: space-between;
@@ -277,7 +277,7 @@
         padding-right: 17px;
     }
 }
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 639px) {
     .my-menu {
         height: calc(100vh - 100px);
         overflow-y: scroll;

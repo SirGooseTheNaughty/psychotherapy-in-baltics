@@ -356,7 +356,7 @@
         right: 24px;
     }
 }
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 639px) {
     #blog {
         width: calc(4 * var(--cellWidth));
     }
@@ -450,7 +450,7 @@
     }
     
 }
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 639px) {
     #blog a:nth-child(n + 2) .card {
         border-top-color: transparent;
     }
