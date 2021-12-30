@@ -58,7 +58,7 @@ const Curators = {
         </div>
     `,
     watch: {
-        category: function() {
+        filters: function() {
             this.shift = 0;
         },
         lang: async function() {
