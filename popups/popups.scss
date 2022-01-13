@@ -7,6 +7,10 @@ body.popup-opened {
     }
 }
 
+#allrecords .popup ol {
+    padding-left: 0;
+}
+
 .popup {
     --gestaltBlue: #3474D1;
     position: fixed;
