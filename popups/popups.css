@@ -615,12 +615,6 @@ body.popup-opened .balt-nav {
 
 @media screen and (max-width: 639px) {
   .popup .container .desc .modules__mobile ol {
-    margin-left: 20px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .popup .container .desc .modules__mobile ol {
     margin-left: 0;
   }
   .popup .container .desc .modules__mobile ol li {
