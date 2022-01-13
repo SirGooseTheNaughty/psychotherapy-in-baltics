@@ -2,9 +2,9 @@ class Localizator {
     constructor() {
         this.root = 'https://psy-baltics.com/';
         this.changable = {
-            ru: [],
+            ru: ['#rec393332220'],
             en: [],
-            lv: [],
+            lv: ['#rec399620798'],
         };
         this.db = localeDb || null;
         this.selectorsToHide = '';
