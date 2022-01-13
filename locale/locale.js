@@ -3,7 +3,7 @@ class Localizator {
         this.root = 'https://psy-baltics.com/';
         this.changable = {
             ru: ['#rec393332220', '.trl-ru'],
-            en: [],
+            en: ['#rec400573573', '.trl-en'],
             lv: ['#rec399620798', '.trl-lv'],
         };
         this.db = localeDb || null;
