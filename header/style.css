@@ -180,6 +180,12 @@
     pointer-events: none;
     text-decoration: underline;
 }
+[data-language="ru"] .trl:not(.trl-ru),
+[data-language="en"] .trl:not(.trl-en),
+[data-language="lv"] .trl:not(.trl-lv),
+[data-language="et"] .trl:not(.trl-et) {
+    display: none;
+}
 
 .mobile-select__container {
     display: none;
@@ -295,14 +301,12 @@
 }
 
 .nav-languages__et,
-.nav-languages__en,
-.nav-languages__lv {
+.nav-languages__en {
     position: relative;
     cursor: default;
 }
 .nav-languages__et::after,
-.nav-languages__en::after,
-.nav-languages__lv::after {
+.nav-languages__en::after {
     content: '';
     width: max-content;
     position: absolute;
@@ -322,11 +326,7 @@
 .nav-languages__en::after {
     content: 'English is unavailable for now, we will add it as soon as possible';
 }
-.nav-languages__lv::after {
-    content: 'Latviešu valoda vēl nav pieejama, pievienosim pēc iespējas ātrāk';
-}
 .nav-languages__et:hover::after,
-.nav-languages__en:hover::after,
-.nav-languages__lv:hover::after {
+.nav-languages__en:hover::after {
     opacity: 1;
 }

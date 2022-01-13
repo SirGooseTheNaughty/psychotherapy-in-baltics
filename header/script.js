@@ -44,14 +44,13 @@ class Header {
         }
         this.menu.links.forEach(link => link.addEventListener('click', this.toggleMenu));
 
-        // let lang = getLanguageCookie();
-        // if (!lang) {
-        //     lang = window.navigator.language.split('-')[0] || 'ru';
-        //     setLanguageCookie(lang);
-        // }
+        let lang = getLanguageCookie();
+        if (!lang) {
+            lang = window.navigator.language.split('-')[0] || 'ru';
+            setLanguageCookie(lang);
+        }
 
-        // this.setLanguage(lang);
-        // this.setLanguage('ru', false);
+        this.setLanguage(lang, false);
     }
 
     toggleMenu() {

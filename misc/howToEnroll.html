@@ -5,25 +5,55 @@
                 document.querySelector('#rec388665269'),
                 document.querySelector('#rec393278104'),
             ];
+            this.mobileBlocks = [
+                document.querySelector('#rec397045583'),
+                document.querySelector('#rec393781551'),
+            ];
             this.triggers = [
                 document.querySelector('[data-elem-id="1638861594558"]'),
                 document.querySelector('[data-elem-id="1638861625418"]'),
             ];
+            this.select = document.querySelector('#rec393778519 select');
+            this.active = 0;
+            this.breakpoint = 640;
+            this.screenWidth = document.documentElement.offsetWidth;
+            this.resizeTimeout = null;
 
+            this.changeActive = this.changeActive.bind(this);
             this.changeBlocks = this.changeBlocks.bind(this);
+            this.changeScreenWidth = this.changeScreenWidth.bind(this);
 
             this.triggers.forEach((trigger, i) => {
-                trigger.addEventListener('click', () => this.changeBlocks(i));
+                trigger.addEventListener('click', () => this.changeActive(i));
                 trigger.classList.add('trigger');
             });
+            this.select.addEventListener('change', (e) => this.changeActive(e.target.selectedIndex));
             this.triggers[0].classList.add('active');
             this.blocks.forEach(block => block.classList.add('enroll-block'));
             this.blocks[1].classList.add('hidden');
+            this.mobileBlocks.forEach(block => block.classList.add('enroll-block'));
+            this.mobileBlocks[1].classList.add('hidden');
+            if (this.screenWidth > this.breakpoint) {
+                this.mobileBlocks[0].classList.add('hidden');
+            } else {
+                this.blocks[0].classList.add('hidden');
+            }
+            window.addEventListener('resize', () => {
+                this.screenWidth = document.documentElement.offsetWidth;
+                clearTimeout(this.resizeTimeout);
+                this.resizeTimeout = setTimeout(this.changeScreenWidth, 250);
+            });
         }
 
-        changeBlocks(index) {
-            this.blocks.forEach((block, i) => {
-                if (i === index) {
+        changeActive(index) {
+            this.active = index;
+            this.changeBlocks();
+        }
+
+        changeBlocks() {
+            const blocks = this.screenWidth > this.breakpoint ? [...this.blocks] : [...this.mobileBlocks];
+            blocks.forEach((block, i) => {
+                if (i === this.active) {
                     block.classList.remove('hidden');
                     this.triggers[i].classList.add('active');
                 } else {
@@ -31,6 +61,16 @@
                     this.triggers[i].classList.remove('active');
                 }
             });
+        }
+
+        changeScreenWidth() {
+            if (this.screenWidth > this.breakpoint) {
+                this.mobileBlocks.forEach(block => block.classList.add('hidden'));
+            } else {
+                this.select.selectedIndex = this.active;
+                this.blocks.forEach(block => block.classList.add('hidden'));
+            }
+            this.changeBlocks();
         }
     };
     const enroll = new Enroll();
