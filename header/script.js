@@ -42,7 +42,7 @@ class Header {
         for (let key in this.controls.languages) {
             this.controls.languages[key].addEventListener('click', () => this.changeLanguage(key));
         }
-        this.menu.links.forEach(link => link.addEventListener('click', this.toggleMenu));
+        this.menu.links.forEach(link => link.addEventListener('click', this.goToLink));
 
         let lang = getLanguageCookie();
         if (!lang) {
@@ -51,6 +51,11 @@ class Header {
         }
 
         this.setLanguage(lang, false);
+    }
+
+    goToLink(e) {
+        e.preventDefault();
+        window.location = `${window.location.toString()}/../${e.currentTarget.getAttribute('href')}`;
     }
 
     toggleMenu() {
