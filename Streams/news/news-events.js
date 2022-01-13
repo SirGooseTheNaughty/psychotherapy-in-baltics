@@ -18,7 +18,7 @@ const Feed = {
             limit: 6,
             filters: [],
             category: 'events',
-            lang: localizator.lang || 'ru',
+            lang: localizator.locale || 'ru',
             loc: '',
             ids: streamIds,
             order: 'desc',

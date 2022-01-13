@@ -41,7 +41,7 @@ const Blog = {
             filter: 'все темы',
             search: '',
             category: 'blog',
-            lang: localizator.lang || 'ru',
+            lang: localizator.locale || 'ru',
             loc: '',
             ids: streamIds,
             types: ['интервью', 'посты', 'видео', 'статьи', 'книги'],
