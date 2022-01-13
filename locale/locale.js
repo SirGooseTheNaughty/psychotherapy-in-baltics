@@ -65,7 +65,7 @@ class Localizator {
 
     changeLanguage(lang) {
         const locale = lang === 'ru' ? '' : lang + '/';
-        window.location.href = `${this.root}/${locale}${this.page}`;
+        window.location.href = `${this.root}${locale}${this.page}`;
     }
     
     getTranslation(keys) {
