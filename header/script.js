@@ -55,7 +55,7 @@ class Header {
 
     goToLink(e) {
         e.preventDefault();
-        window.location = `${window.location.toString()}/../${e.currentTarget.getAttribute('href')}`;
+        window.location = `${window.location.toString()}/..${e.currentTarget.getAttribute('href')}`;
     }
 
     toggleMenu() {
