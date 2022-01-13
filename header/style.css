@@ -312,13 +312,11 @@
     opacity: 0;
 }
 
-.nav-languages__et,
-.nav-languages__en {
+.nav-languages__et {
     position: relative;
     cursor: default;
 }
-.nav-languages__et::after,
-.nav-languages__en::after {
+.nav-languages__et::after {
     content: '';
     width: max-content;
     position: absolute;
@@ -335,10 +333,6 @@
 .nav-languages__et::after {
     content: 'Eesti keel pole veel saadaval, lisame esimesel võimalusel';
 }
-.nav-languages__en::after {
-    content: 'English is unavailable for now, we will add it as soon as possible';
-}
-.nav-languages__et:hover::after,
-.nav-languages__en:hover::after {
+.nav-languages__et:hover::after {
     opacity: 1;
 }
