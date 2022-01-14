@@ -80,6 +80,9 @@ class Header {
         console.log('set lang ' + lang);
         this.cont.setAttribute('data-language', lang);
         isToggler && this.toggleLanguages();
+        if (this.localizator && this.localizator.locale !== lang) {
+            this.localizator.changeLanguage(lang);
+        }
     }
 
     changeLanguage(lang, isToggler = true) {

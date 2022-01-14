@@ -17,7 +17,7 @@ class Localizator {
         this.fillSelectorsToHide.apply(this);
         this.hideChangable.apply(this);
 
-        document.addEventListener('DOMContentLoaded', this.removeChangable.apply(this))
+        document.addEventListener('DOMContentLoaded', this.removeChangable.bind(this));
     }
 
     getPathParams() {
