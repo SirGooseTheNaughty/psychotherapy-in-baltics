@@ -227,9 +227,11 @@ const Post = {
         },
         date: function() {
             try {
-                const day = this.data.day[0] === '0' ? this.data.day[1] : this.data.day;
-                const month = localizator.getTranslation(['months', this.data.month]);
-                return month ? `${day} ${month}, ${this.data.year}` : this.data.date;
+                const { day, month, year } = this.data;
+                if (this.lang === 'en') {
+                    return `${month}.${day}.${year}`;
+                }
+                return `${day}.${month}.${year}`;
             } catch(e) {
                 console.warn(e);
                 return this.data.date;

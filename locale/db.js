@@ -3,19 +3,19 @@ const localeDb = {
         curators: {
             ru: 'Кураторы программ',
             en: 'Programs curators',
-            lv: '',
+            lv: 'Programmas kuratori',
         },
         experts: {
             ru: 'Эксперты-консультанты',
             en: 'Experts-consultants',
-            lv: '',
+            lv: 'Eksperti konsultanti',
         }
     },
     blog: {
         noPosts: {
             ru: 'По таким параметрам не найдено публикаций',
             en: "Couldn't find any posts by these parameters",
-            lv: '',
+            lv: 'Šiem parametriem nav atrasta neviena publikācija',
         }
     },
     news: {
@@ -33,27 +33,27 @@ const localeDb = {
     noPostsSearch: {
         ru: 'По данному запросу не найдено публикаций',
         en: "Couldn't find any posts by this query",
-        lv: '',
+        lv: 'Šim vaicājumam nav atrasta neviena publikācija',
     },
     startTyping: {
         ru: 'Начните печатать для поиска',
         en: "Start typing to search",
-        lv: '',
+        lv: 'Sāciet rakstīt, lai atrastu meklēto',
     },
     enterYourQuery: {
         ru: 'Введите свой запрос',
         en: "Enter your query",
-        lv: '',
+        lv: 'Ievadiet pieprasījumu',
     },
     more: {
         ru: 'Подробнее',
         en: 'See more',
-        lv: '',
+        lv: 'Vairāk',
     },
     seemore: {
         ru: 'смотреть еще',
         en: 'see more',
-        lv: '',
+        lv: 'redzēt vairāk',
     },
     nodata: {
         lang: {
