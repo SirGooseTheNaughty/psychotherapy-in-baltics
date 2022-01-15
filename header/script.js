@@ -38,6 +38,7 @@ class Header {
         this.menu.links = [...this.menu.desktop.querySelectorAll('a'), ...this.menu.mobile.querySelectorAll('a')];
 
         this.controls.togglers.languages.addEventListener('click', this.toggleLanguages);
+        this.controls.mobile.languages.addEventListener('change', (e) => this.changeLanguage(e.target.value));
         this.controls.togglers.menu.addEventListener('click', this.toggleMenu);
         for (let key in this.controls.languages) {
             this.controls.languages[key].addEventListener('click', () => this.changeLanguage(key));
