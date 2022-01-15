@@ -248,9 +248,6 @@
         font-size: 16px;
         margin-top: 12px;
     }
-    #curators .card__info-desc {
-        font-size: 16px;
-    }
     #curators .nodata {
         width: calc(2 * var(--cellWidth));
     }
