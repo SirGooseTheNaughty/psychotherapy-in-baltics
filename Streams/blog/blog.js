@@ -36,6 +36,16 @@ const Blog = {
                 en: ['methods and approaches', 'research', 'profession', 'family', 'children', 'clinique'],
                 lv: ['методы и подходы', 'исследования', 'профессия', 'семья', 'дети', 'клиника'],
             },
+            typeLocales: {
+                ru: 'все форматы',
+                en: 'all formats',
+                lv: 'visi formāti ',
+            },
+            filterLocales: {
+                ru: 'все темы',
+                en: 'all topics',
+                lv: 'visas tēmas ',
+            },
             filters: [],
             type: 'все форматы',
             filter: 'все темы',
@@ -58,6 +68,8 @@ const Blog = {
                 :set-property="setProperty"
                 :get-relevant-posts="getRelevantPosts"
                 :current-search="search"
+                :defaultType="defaultType"
+                :defaultFilter="defaultFilter"
             ></controls>
             <div class="content">
                 <post v-for="(post, index) in slicedItems" :data="post" key="index"></post>
@@ -76,8 +88,12 @@ const Blog = {
     },
     mounted() {
         this.$refs.container.classList.add('appear');
+        this.type = this.defaultType;
+        this.filter = this.defaultFilter;
     },
     computed: {
+        defaultType: function() { return this.typeLocales[this.lang] },
+        defaultFilter: function() { return this.filterLocales[this.lang] },
         noDataMsg: function() {
             return localizator.getTranslation(['nodata', 'lang']);
         },
@@ -92,7 +108,7 @@ const Blog = {
             }
             currentItems = currentItems.filter(item => {
                 for (let filter of filters) {
-                    if (filter !== 'все темы' && filter !== 'все форматы' && !item.categories.includes(filter)) {
+                    if (filter !== this.defaultFilter && filter !== this.defaultType && !item.categories.includes(filter)) {
                         return false;
                     }
                 }
@@ -218,7 +234,7 @@ const Post = {
 };
 
 const Controls = {
-    props: ['type', 'types', 'filter', 'filters', 'set-property', 'get-relevant-posts', 'current-search'],
+    props: ['type', 'types', 'filter', 'filters', 'set-property', 'get-relevant-posts', 'current-search', 'defaultType', 'defaultFilter'],
     data() {
         return {
             isSelectionOpened: false,
@@ -240,11 +256,11 @@ const Controls = {
                     </div>
                     <div class="selection__result" v-on:click="toggleSelection">{{ type }}</div>
                     <div class="selection__options">
-                        <div class="selection__option" v-if="type !== 'все форматы'" v-on:click="setType('все форматы')">все форматы</div>
+                        <div class="selection__option" v-if="type !== defaultType" v-on:click="setType(defaultType)">{{ defaultType }}</div>
                         <div class="selection__option" v-for="option in types" v-if="type !== option" v-on:click="setType(option)">{{ option }}</div>
                     </div>
                 </div>
-                <div class="tab tabs__all" :class="{ selected: filter === 'все темы' }" v-on:click="setFilter('все темы')">все темы</div>
+                <div class="tab tabs__all" :class="{ selected: filter === defaultFilter }" v-on:click="setFilter(defaultFilter)">{{ defaultFilter }}</div>
                 <div class="tabs">
                     <div class="tab" v-for="tab in filters" :class="{ selected: filter === tab }" v-on:click="setFilter(tab)" :style="shiftedStyle">{{ tab }}</div>
                     <div v-if="shift !== 0" v-on:click="shiftRight" class="tabs__shift-icon left">${shiftFiltersIcon}</div>
@@ -258,7 +274,7 @@ const Controls = {
                     </div>
                     <div class="selection__result" v-on:click="toggleFilters">{{ filter }}</div>
                     <div class="selection__options">
-                        <div class="selection__option" v-if="filter !== 'все темы'" v-on:click="setFilter('все темы')">все темы</div>
+                        <div class="selection__option" v-if="filter !== defaultFilter" v-on:click="setFilter(defaultFilter)">{{ defaultFilter }}</div>
                         <div class="selection__option" v-for="option in filters" v-if="filter !== option" v-on:click="setFilter(option)">{{ option }}</div>
                     </div>
                 </div>
