@@ -34,24 +34,24 @@ const Feed = {
                 <post v-for="post in slicedItems" :data="post" :key="post.data"></post>
             </div>
             <div v-if="!currentItems.length" class="nodata" v-html="noDataMsg"></div>
-            <div v-if="currentItems.length > limit" class="more" v-on:click="showMore">смотреть еще</div>
+            <div v-if="currentItems.length > limit" class="more" v-on:click="showMore">{{ localizator.getTranslation(['seemore']) }}</div>
             <div class="controls">
                 <div class="controls__tags">
                     <div
                         class="controls__tag"
                         :class="{ active: category === 'events' }"
                         v-on:click="() => setProperty('category', 'events')"
-                    >Ближайшие мероприятия</div>
+                    >{{ localizator.getTranslation(['news', 'news']) }}</div>
                     <div
                         class="controls__tag"
                         :class="{ active: category === 'news' }"
                         v-on:click="() => setProperty('category', 'news')"
-                    >События</div>
+                    >{{ localizator.getTranslation(['news', 'events']) }}</div>
                 </div>
             </div>
             <div class="search">
                 <input
-                    placeholder="Введите свой запрос, например, семинар"
+                    :placeholder="enterYourQuery"
                     v-model="search"
                     v-on:focus="focus"
                     v-on:blur="unfocus"
@@ -60,8 +60,8 @@ const Feed = {
                 <div v-if="!currentSearch" v-on:click="setSearch" class="search__icon">${searchIcon}</div>
                 <div v-if="currentSearch" v-on:click="clearSearch" class="search__icon">${deleteIcon}</div>
                 <div class="search__results" v-if="isFocused">
-                    <div class="search__result not-enough-letters" v-if="search.length < 3">Начните печатать для поиска</div>
-                    <div class="search__result not-found" v-if="search.length >= 3 && relevantPosts.length === 0">По данному запросу не найдено публикаций</div>
+                    <div class="search__result not-enough-letters" v-if="search.length < 3">{{ localizator.getTranslation(['startTyping']) }}</div>
+                    <div class="search__result not-found" v-if="search.length >= 3 && relevantPosts.length === 0">{{ localizator.getTranslation(['noPostsSearch']) }}</div>
                     <a v-for="(post, index) of relevantPosts" :href="post.link"><div class="search__result">{{ post.title }}</div></a>
                 </div>
             </div>
@@ -114,13 +114,12 @@ const Feed = {
         },
         fetchLink: function() {
             const rootId = this.ids[this.category].root;
-            // const langId = this.ids[this.category][this.lang];
-            // return `https://feeds.tildacdn.com/api/getfeed/?feeduid=${rootId}-${langId}&size=&slice=1&sort%5Bdate%5D=${this.order}`;
             return `https://feeds.tildacdn.com/api/getfeed/?feeduid=${rootId}&size=&slice=1&sort%5Bdate%5D=${this.order}`;
         },
         relevantPosts: function() {
             return this.getRelevantPosts(this.search);
         },
+        enterYourQuery: function() { return localizator.getTranslation(['enterYourQuery']); },
     },
     methods: {
         getRelevantPosts: function(search, items = this.items) {
@@ -216,7 +215,7 @@ const Post = {
                     <p class="description" v-html="data.description"></p>
                 </div>
                 <div class="post__seemore">
-                    <a :href="data.link">{{ seeMoreText }}</a>
+                    <a :href="data.link">{{ localizator.getTranslation(['more']) }}</a>
                     <svg width="23" height="12" viewBox="0 0 23 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M0 6L22 6" stroke="#F0EFEC"/>
                         <path d="M22 6C19.632 5.92361 14.8959 4.71667 14.8959 0.5" stroke="#F0EFEC"/>
@@ -237,9 +236,6 @@ const Post = {
                 return this.data.date;
             }
         },
-        seeMoreText: function() {
-            return localizator.getTranslation(['more']);
-        }
     }
 };
 

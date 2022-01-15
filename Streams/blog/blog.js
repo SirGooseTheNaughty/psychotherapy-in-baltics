@@ -62,8 +62,8 @@ const Blog = {
             <div class="content">
                 <post v-for="(post, index) in slicedItems" :data="post" key="index"></post>
             </div>
-            <div v-if="currentItems.length > limit" class="more" v-on:click="showMore">{{ seeMoreText }}</div>
-            <div v-if="currentItems.length === 0" class="posts-not-found">{{ noPostsText }}</div>
+            <div v-if="currentItems.length > limit" class="more" v-on:click="showMore">{{ localizator.getTranslation(['seemore']) }}</div>
+            <div v-if="currentItems.length === 0" class="posts-not-found">{{ localizator.getTranslation(['blog', 'noPosts']) }}</div>
         </div>
     `,
     watch: {
@@ -80,12 +80,6 @@ const Blog = {
     computed: {
         noDataMsg: function() {
             return localizator.getTranslation(['nodata', 'lang']);
-        },
-        seeMoreText: function() {
-            return localizator.getTranslation(['seemore']);
-        },
-        noPostsText: function() {
-            return localizator.getTranslation(['blog', 'noPosts']);
         },
         currentItems: function() {
             let currentItems = [...this.items];
@@ -280,8 +274,8 @@ const Controls = {
                 <div v-if="!currentSearch" v-on:click="setSearch" class="search__icon">${searchIcon}</div>
                 <div v-if="currentSearch" v-on:click="clearSearch" class="search__icon">${deleteIcon}</div>
                 <div class="search__results" v-if="isFocused">
-                    <div class="search__result not-enough-letters" v-if="search.length < 3">{{ startTyping }}</div>
-                    <div class="search__result not-found" v-if="search.length >= 3 && relevantPosts.length === 0">{{ noPostsSearchText }}</div>
+                    <div class="search__result not-enough-letters" v-if="search.length < 3">{{ localizator.getTranslation(['startTyping']) }}</div>
+                    <div class="search__result not-found" v-if="search.length >= 3 && relevantPosts.length === 0">{{ localizator.getTranslation(['noPostsSearch']) }}</div>
                     <a v-for="(post, index) of relevantPosts" :href="post.link"><div class="search__result">{{ post.title }}</div></a>
                 </div>
             </div>
@@ -294,9 +288,7 @@ const Controls = {
             return this.getRelevantPosts(this.search);
         },
         notFound: function() { return this.search.length >= 3 && this.relevantPosts.length === 0 },
-        noPostsSearchText: function() { return localizator.getTranslation(['blog', 'noPostsSearch']); },
-        startTyping: function() { return localizator.getTranslation(['blog', 'startTyping']); },
-        enterYourQuery: function() { return localizator.getTranslation(['blog', 'enterYourQuery']); },
+        enterYourQuery: function() { return localizator.getTranslation(['enterYourQuery']); },
     },
     methods: {
         toggleSelection: function() {

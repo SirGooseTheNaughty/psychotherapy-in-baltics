@@ -16,22 +16,34 @@ const localeDb = {
             ru: 'По таким параметрам не найдено публикаций',
             en: "Couldn't find any posts by these parameters",
             lv: '',
-        },
-        noPostsSearch: {
-            ru: 'По данному запросу не найдено публикаций',
-            en: "Couldn't find any posts by this query",
-            lv: '',
-        },
-        startTyping: {
-            ru: 'Начните печатать для поиска',
-            en: "Start typing to search",
-            lv: '',
-        },
-        enterYourQuery: {
-            ru: 'Введите свой запрос, например, гештальт',
-            en: "Enter your query, e.g. gestalt",
-            lv: '',
         }
+    },
+    news: {
+        news: {
+            ru: 'Ближайшие мероприятия',
+            en: 'Upcoming events',
+            lv: 'Gaidāmie notikumi',
+        },
+        events: {
+            ru: 'События',
+            en: 'Events',
+            lv: 'Pasākumi',
+        },
+    },
+    noPostsSearch: {
+        ru: 'По данному запросу не найдено публикаций',
+        en: "Couldn't find any posts by this query",
+        lv: '',
+    },
+    startTyping: {
+        ru: 'Начните печатать для поиска',
+        en: "Start typing to search",
+        lv: '',
+    },
+    enterYourQuery: {
+        ru: 'Введите свой запрос',
+        en: "Enter your query",
+        lv: '',
     },
     more: {
         ru: 'Подробнее',
