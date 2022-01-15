@@ -24,6 +24,7 @@ const Curators = {
             touchY: 0,
             order: 'asc',
             limit: 3,
+            screenWidth: document.documentElement.offsetWidth
         }
     },
     template: `
@@ -36,7 +37,7 @@ const Curators = {
                 v-on:touchend="removeListener"
                 v-on:touchcancel="removeListener"
             >
-                <person v-for="(person, index) in currentItems" :data="person" :shift="shift" :transition="transition" key="index"></person>
+                <person v-for="(person, index) in currentItems" :data="person" :shift="shift" :transition="transition" key="index" :isLimited="isShiftLimited"></person>
             </div>
             <div v-if="!currentItems.length" class="nodata" v-html="noDataMsg"></div>
             <div class="controls">
@@ -80,6 +81,9 @@ const Curators = {
         } catch(e) {};
     },
     computed: {
+        isShiftLimited: function() {
+            return this.screenWidth < 640 && this.screenWidth > 480 && this.shift === this.maxShift;
+        },
         limit: function() {
             const dw = document.documentElement.clientWidth;
             if (dw > 980) {
@@ -146,6 +150,7 @@ const Curators = {
             } else {
                 this.limit = 1;
             }
+            this.screenWidth = dw;
         },
         preformItems: function(items) {
             return items.posts.map(post => {
@@ -206,7 +211,7 @@ const Curators = {
 }
 
 const Curator = {
-    props: ['data', 'shift', 'transition'],
+    props: ['data', 'shift', 'transition', 'isLimited'],
     template: `
         <div class="card" :style="shiftStyle">
             <img :src="data.pic" alt="curator" class="person">
@@ -221,7 +226,8 @@ const Curator = {
     `,
     computed: {
         shiftStyle: function() {
-            return `transform: translateX(${-100 * this.shift}%)`;
+            const transform = this.isLimited ? `calc(${-100 * this.shift}% + var(--cellWidth))` : `${-100 * this.shift}%`;
+            return `transform: translateX(${transform})`;
         }
     }
 };

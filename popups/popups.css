@@ -67,7 +67,7 @@ body.popup-opened .balt-nav {
 
 @media screen and (max-width: 639px) {
   .popup[data-modules="opened"] .modules__mobile {
-    height: 320px !important;
+    height: 300px !important;
   }
 }
 
@@ -609,7 +609,7 @@ body.popup-opened .balt-nav {
     -ms-grid-column: 1;
     -ms-grid-column-span: 1;
     grid-column: 1/2;
-    margin-left: 120px;
+    margin-left: 125px;
   }
 }
 
@@ -631,9 +631,15 @@ body.popup-opened .balt-nav {
   }
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 980px) {
   .popup .container .desc .modules__mobile {
-    margin-bottom: 37px;
+    margin-bottom: 30px;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .popup .container .desc .modules__mobile {
+    margin-bottom: 25px;
   }
 }
 
@@ -1099,7 +1105,7 @@ body.popup-opened .balt-nav {
 }
 
 .popup.specialty[data-modules="opened"] .modules__mobile {
-  height: 70px !important;
+  height: 80px !important;
 }
 
 @media screen and (max-width: 980px) {
@@ -1268,16 +1274,11 @@ body.popup-opened .balt-nav {
 
 .popup.specialty .desc .modules__mobile {
   margin: 0;
-  margin: 25px 0;
-}
-
-@media screen and (max-width: 480px) {
-  .popup.specialty .desc .modules__mobile {
-    margin: 25px 0 20px 0;
-  }
+  margin-bottom: 10px;
 }
 
 .popup.specialty .desc .modules__mobile ol {
+  padding: 10px 0;
   -webkit-box-orient: horizontal !important;
   -webkit-box-direction: normal !important;
       -ms-flex-flow: row !important;
@@ -1308,7 +1309,7 @@ body.popup-opened .balt-nav {
 
 @media screen and (max-width: 639px) {
   .popup.specialty .desc .modules__mobile ol {
-    margin-left: 80px !important;
+    margin-left: 120px !important;
   }
 }
 
@@ -1362,19 +1363,19 @@ body.popup-opened .balt-nav {
 
 @media screen and (max-width: 1200px) {
   .popup.specialty#spouses[data-modules="opened"] .modules__mobile {
-    height: 105px !important;
+    height: 125px !important;
   }
 }
 
 @media screen and (max-width: 980px) {
   .popup.specialty#spouses[data-modules="opened"] .modules__mobile {
-    height: 120px !important;
+    height: 135px !important;
   }
 }
 
 @media screen and (max-width: 480px) {
   .popup.specialty#spouses[data-modules="opened"] .modules__mobile {
-    height: 130px !important;
+    height: 140px !important;
   }
 }
 
@@ -1392,7 +1393,7 @@ body.popup-opened .balt-nav {
 
 @media screen and (max-width: 980px) {
   .popup.specialty#children[data-modules="opened"] .modules__mobile {
-    height: 60px !important;
+    height: 75px !important;
   }
 }
 
