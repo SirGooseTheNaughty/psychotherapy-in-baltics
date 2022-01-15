@@ -32,19 +32,19 @@ const Blog = {
             items: [],
             limit: 6,
             prefilledFilters: {
-                ru: ['методы и подходы', 'исследования', 'профессия', 'семья', 'дети', 'клиника'],
-                en: ['methods and approaches', 'research', 'profession', 'family', 'children', 'clinique'],
-                lv: ['методы и подходы', 'исследования', 'профессия', 'семья', 'дети', 'клиника'],
+                ru: ['методы и подходы', 'исследования', 'профессия', 'семья', 'дети', 'клиника', 'пары'],
+                en: ['methods and approaches', 'research', 'profession', 'family', 'children', 'clinique', 'couples'],
+                lv: ['metodika un pieejas', 'pētījumi', 'profesija', 'ģimene', 'bērni', 'klīnika', 'pāri'],
             },
             typeLocales: {
                 ru: 'все форматы',
                 en: 'all formats',
-                lv: 'visi formāti ',
+                lv: 'visi formāti',
             },
             filterLocales: {
                 ru: 'все темы',
                 en: 'all topics',
-                lv: 'visas tēmas ',
+                lv: 'visas tēmas',
             },
             filters: [],
             type: 'все форматы',
@@ -54,7 +54,11 @@ const Blog = {
             lang: localizator.locale || 'ru',
             loc: '',
             ids: streamIds,
-            types: ['интервью', 'посты', 'видео', 'статьи', 'книги'],
+            typesLocales: {
+                ru: ['интервью', 'посты', 'видео', 'статьи', 'книги'],
+                en: ['interviews', 'posts', 'videos', 'articles', 'books'],
+                lv: ['intervijas', 'ziņas', 'video', 'raksti', 'grāmatas'],
+            },
             languages: ['ru', 'en', 'lv', 'lv'],
         }
     },
@@ -92,6 +96,7 @@ const Blog = {
         this.filter = this.defaultFilter;
     },
     computed: {
+        types: function()  {return this.typesLocales[this.lang] },
         defaultType: function() { return this.typeLocales[this.lang] },
         defaultFilter: function() { return this.filterLocales[this.lang] },
         noDataMsg: function() {

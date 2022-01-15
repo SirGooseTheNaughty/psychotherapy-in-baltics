@@ -182,6 +182,7 @@
 #blog .tab {
     display: grid;
     place-items: center;
+    text-align: center;
     height: 62px;
     min-width: var(--cellWidth);
     border: 1px solid transparent;
