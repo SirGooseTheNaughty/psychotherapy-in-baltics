@@ -58,8 +58,11 @@ const Curators = {
         </div>
     `,
     watch: {
-        filters: function() {
-            this.shift = 0;
+        filters: {
+            handler: function() {
+                this.shift = 0;
+            },
+            deep: true
         },
         lang: async function() {
             this.getItems();
