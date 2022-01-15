@@ -212,7 +212,7 @@ const Post = {
                     <p class="time">{{ data.time === '00:00' ? '' : data.time }}</p>
                 </div>
                 <div class="post__content">
-                    <h3 class="title">{{ data.title }}</h3>
+                    <h3 class="title" v-html="data.title"></h3>
                     <p class="description" v-html="data.description"></p>
                 </div>
                 <div class="post__seemore">
