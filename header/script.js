@@ -45,12 +45,12 @@ class Header {
         }
         this.menu.links.forEach(link => link.addEventListener('click', this.goToLink));
 
-        let lang = getLanguageCookie();
-        if (!lang) {
-            lang = window.navigator.language.split('-')[0] || 'ru';
-            setLanguageCookie(lang);
-        }
-
+        // let lang = getLanguageCookie();
+        // if (!lang) {
+        //     lang = window.navigator.language.split('-')[0] || 'ru';
+        //     setLanguageCookie(lang);
+        // }
+        const lang = window.navigator.language.split('-')[0] || 'ru';
         this.setLanguage(lang, false);
     }
 
