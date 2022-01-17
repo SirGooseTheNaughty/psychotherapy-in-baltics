@@ -22,7 +22,7 @@ body.popup-opened .balt-nav {
   color: var(--gray);
   font-family: 'Inter', sans-serif;
   font-size: 18px;
-  overflow: auto;
+  overflow: scroll;
   padding: calc(var(--cellWidth) / 2) 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;

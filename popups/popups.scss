@@ -22,7 +22,7 @@ body.popup-opened {
     color: var(--gray);
     font-family: 'Inter', sans-serif;
     font-size: 18px;
-    overflow: auto;
+    overflow: scroll;
     padding: calc(var(--cellWidth) / 2) 0;
     box-sizing: border-box;
     opacity: 0;
