@@ -190,7 +190,6 @@
 [data-language="et"] .nav-languages__et {
     font-weight: 600;
     pointer-events: none;
-    text-decoration: underline;
 }
 [data-language="ru"] .trl:not(.trl-ru),
 [data-language="en"] .trl:not(.trl-en),
