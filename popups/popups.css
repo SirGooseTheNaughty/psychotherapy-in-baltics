@@ -26,8 +26,6 @@ body.popup-opened .balt-nav {
   padding: calc(var(--cellWidth) / 2) 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  -webkit-transition: opacity var(--animTime) ease;
-  transition: opacity var(--animTime) ease;
   opacity: 0;
   pointer-events: none;
   -webkit-backdrop-filter: blur(10px);
@@ -39,6 +37,18 @@ body.popup-opened .balt-nav {
   .popup {
     background-color: rgba(147, 175, 217, 0.6);
   }
+}
+
+.popup.animated {
+  -webkit-transition: opacity var(--animTime) ease;
+  transition: opacity var(--animTime) ease;
+}
+
+.popup.animated .container {
+  -webkit-transition: -webkit-transform var(--animTime) ease;
+  transition: -webkit-transform var(--animTime) ease;
+  transition: transform var(--animTime) ease;
+  transition: transform var(--animTime) ease, -webkit-transform var(--animTime) ease;
 }
 
 .popup.opened {
@@ -205,10 +215,6 @@ body.popup-opened .balt-nav {
   position: relative;
   -webkit-transform: translateX(-100px);
           transform: translateX(-100px);
-  -webkit-transition: -webkit-transform var(--animTime) ease;
-  transition: -webkit-transform var(--animTime) ease;
-  transition: transform var(--animTime) ease;
-  transition: transform var(--animTime) ease, -webkit-transform var(--animTime) ease;
 }
 
 @media screen and (max-width: 980px) {

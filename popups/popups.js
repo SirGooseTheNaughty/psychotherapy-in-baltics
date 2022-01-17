@@ -35,6 +35,9 @@ class Popup {
                 this.togglePopup();
             }
         });
+        document.addEventListener('DOMContentLoaded', () => {
+            this.popup.classList.add('animated');
+        });
     }
 
     openOnResize() {
