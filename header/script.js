@@ -50,7 +50,7 @@ class Header {
         //     lang = window.navigator.language.split('-')[0] || 'ru';
         //     setLanguageCookie(lang);
         // }
-        const lang = window.navigator.language.split('-')[0] || 'ru';
+        const lang = this.localizator.locale || 'ru';
         this.setLanguage(lang, false);
     }
 
