@@ -8,9 +8,9 @@ class Header {
             },
             languages: {
                 ru: this.cont.querySelector('.nav-languages__ru'),
-                et: this.cont.querySelector('.nav-languages__et'),
+                en: this.cont.querySelector('.nav-languages__en'),
                 lv: this.cont.querySelector('.nav-languages__lv'),
-                // en: this.cont.querySelector('.nav-languages__en'),
+                // et: this.cont.querySelector('.nav-languages__et'),
             },
             mobile: {
                 languages: this.cont.querySelector('.mobile-select__languages select'),
