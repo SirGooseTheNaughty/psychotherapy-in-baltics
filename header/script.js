@@ -83,6 +83,7 @@ class Header {
     setLanguage(lang, isToggler = true) {
         console.log('set lang ' + lang);
         this.cont.setAttribute('data-language', lang);
+        this.controls.mobile.languages = lang;
         isToggler && this.toggleLanguages();
         // if (this.localizator && this.localizator.locale !== lang) {
         //     this.localizator.changeLanguage(lang);

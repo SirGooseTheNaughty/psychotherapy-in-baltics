@@ -25,7 +25,7 @@
 
             this.triggers.forEach((trigger, i) => {
                 trigger.addEventListener('click', () => this.changeActive(i));
-                trigger.classList.add('trigger');
+                trigger.classList.add('enroll-trigger');
             });
             this.select.addEventListener('change', (e) => this.changeActive(e.target.selectedIndex));
             this.triggers[0].classList.add('active');
@@ -83,11 +83,11 @@
     .enroll-block.hidden {
         display: none !important;
     }
-    .trigger {
+    .enroll-trigger {
         cursor: pointer;
         opacity: 0.55 !important;
     }
-    .trigger.active {
+    .enroll-trigger.active {
         pointer-events: none;
         opacity: 1 !important;
     }
