@@ -1142,6 +1142,7 @@ body.popup-opened .balt-nav {
 @media screen and (max-width: 480px) {
   .popup.specialty .desc .short .popup__title {
     font-size: 30px;
+    text-align: center;
   }
 }
 
