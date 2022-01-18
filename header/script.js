@@ -35,7 +35,7 @@ class Header {
             this.menu.desktop.classList.add('my-menu-transition');
             this.menu.mobile.classList.add('my-menu-transition');
         }, 10);
-        this.menu.links = [...this.menu.desktop.querySelectorAll('a'), ...this.menu.mobile.querySelectorAll('a')];
+        this.menu.links = [...this.menu.desktop.querySelectorAll('a'), ...this.menu.mobile.querySelectorAll('a'), this.cont.querySelector('.nav-logo a')];
 
         this.controls.togglers.languages.addEventListener('click', this.toggleLanguages);
         this.controls.mobile.languages.addEventListener('change', (e) => this.changeLanguage(e.target.value));
