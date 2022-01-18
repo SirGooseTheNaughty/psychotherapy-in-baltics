@@ -55,6 +55,9 @@ class Header {
     }
 
     goToLink(e) {
+        if (e.currentTarget.getAttribute('href').includes('#')) {
+            return;
+        }
         e.preventDefault();
         window.location = `${window.location.toString()}/..${e.currentTarget.getAttribute('href')}`;
     }
