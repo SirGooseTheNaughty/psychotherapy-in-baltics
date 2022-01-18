@@ -56,17 +56,7 @@ body.popup-opened {
             height: 200px !important;
         }
         .modules__mobile {
-            height: 245px !important;
-            
-            @media screen and (max-width: 980px) {
-                height: 300px !important;
-            }
-            @media screen and (max-width: 639px) {
-                height: 300px !important;
-            }
-            @media screen and (max-width: 480px) {
-                height: 300px !important;
-            }
+            height: var(--maxHeight) !important;
         }
         .module-trigger svg {
             transform: rotate(90deg);
@@ -331,12 +321,17 @@ body.popup-opened {
                     display: flex;
                     flex-flow: column;
                     flex-wrap: wrap;
-                    height: 240px;
+                    height: 250px;
                     counter-reset: list-counter;
                     list-style-type: none;
                     padding: 0;
                     padding-top: 20px;
                     margin: 0;
+                    box-sizing: border-box;
+
+                    @media screen and (max-width: 980px) {
+                        height: max-content;
+                    }
     
                     li {
                         max-width: 50%;
@@ -783,19 +778,6 @@ body.popup-opened {
             .modules__desktop {
                 height: 140px !important;
             }
-            .modules__mobile {
-                height: 80px !important;
-                
-                @media screen and (max-width: 980px) {
-                    height: 120px !important;
-                }
-                @media screen and (max-width: 639px) {
-                    height: 120px !important;
-                }
-                @media screen and (max-width: 480px) {
-                    height: 130px !important;
-                }
-            }
         }
 
         .desc {
@@ -897,9 +879,10 @@ body.popup-opened {
                 margin-bottom: 10px;
 
                 ol {
-                    padding: 10px 0;
+                    padding: 10px 0 20px 0;
                     flex-flow: row !important;
                     justify-content: space-between;
+                    height: 80px;
 
                     li {
                         p:first-child {
@@ -914,7 +897,7 @@ body.popup-opened {
                     @media screen and (max-width: 980px) {
                         flex-flow: column !important;
                         margin-left: 220px;
-                        height: 100px;
+                        height: max-content;
                     }
                     @media screen and (max-width: 639px) {
                         margin-left: 120px !important;
@@ -961,19 +944,6 @@ body.popup-opened {
     }
 
     &.specialty#spouses {
-        &[data-modules="opened"] {
-            .modules__mobile {
-                @media screen and (max-width: 1200px) {
-                    height: 125px !important;
-                }
-                @media screen and (max-width: 980px) {
-                    height: 135px !important;
-                }
-                @media screen and (max-width: 480px) {
-                    height: 140px !important;
-                }
-            }
-        }
         .desc {
             .short {
                 .popup__title {
@@ -988,18 +958,19 @@ body.popup-opened {
                     }
                 }
             }
+            .modules__mobile {
+                ol {
+                    height: 120px;
+                    
+                    @media screen and (max-width: 980px) {
+                        height: max-content;
+                    }
+                }
+            }
         }
     }
 
     &.specialty#children {
-        &[data-modules="opened"] {
-            .modules__mobile {
-                @media screen and (max-width: 980px) {
-                    height: 75px !important;
-                }
-            }
-        }
-
         .desc {
             .short {
                 .popup__title {
@@ -1028,10 +999,6 @@ body.popup-opened {
                 margin: 10px 0;
 
                 ol {
-                    @media screen and (max-width: 980px) {
-                        height: 40px;
-                    }
-
                     li:first-child {
                         @media screen and (max-width: 980px) {
                             margin-bottom: 8px !important;

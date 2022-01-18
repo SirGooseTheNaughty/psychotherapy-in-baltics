@@ -9,12 +9,14 @@ class Popup {
             desktop: this.popup.querySelector('.modules__desktop'),
             mobile: this.popup.querySelector('.modules__mobile'),
         };
+        this.mobileModulesList = this.modules.mobile.querySelector('ol');
         this.modulesTrigger = this.popup.querySelector('.module-trigger');
         this.blocksTriggers = {
             desktop: this.popup.querySelectorAll('.triggers.desktop .trigger'),
             mobile: this.popup.querySelectorAll('.trigger.mobile'),
         };
 
+        this.setModulesHeight = this.setModulesHeight.bind(this);
         this.changeBlocks = this.changeBlocks.bind(this);
         this.togglePopup = this.togglePopup.bind(this);
 
@@ -30,6 +32,7 @@ class Popup {
         this.openMobile && this.openMobile.addEventListener('click', this.togglePopup);
         this.close.addEventListener('click', this.togglePopup);
         window.addEventListener('resize', this.openOnResize.bind(this));
+        window.addEventListener('resize', this.setModulesHeight);
         this.popup.addEventListener('click', (e) => {
             if (e.target.classList.contains('popup')) {
                 this.togglePopup();
@@ -37,7 +40,13 @@ class Popup {
         });
         document.addEventListener('DOMContentLoaded', () => {
             this.popup.classList.add('animated');
+            this.setModulesHeight();
         });
+    }
+
+    setModulesHeight() {
+        const height = getComputedStyle(this.mobileModulesList).height;
+        this.modules.mobile.style = `--maxHeight: ${height}`;
     }
 
     openOnResize() {
