@@ -10,6 +10,7 @@ class Localizator {
         this.selectorsToHide = '';
         this.locale = null;
         this.page = null;
+        this.possibleLocales = ['ru', 'en', 'lv', 'et'];
 
         this.changeLanguage = this.changeLanguage.bind(this);
 
@@ -40,6 +41,9 @@ class Localizator {
             this.page = localeAndPage[0];
         } else {
             [this.locale, this.page] = localeAndPage;
+        }
+        if (!this.possibleLocales.includes(this.locale)) {
+            this.locale = 'ru';
         }
     }
 
