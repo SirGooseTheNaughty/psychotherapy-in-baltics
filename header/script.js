@@ -59,7 +59,11 @@ class Header {
             return;
         }
         e.preventDefault();
-        window.location = `${window.location.toString()}/..${e.currentTarget.getAttribute('href')}`;
+        let loc = window.location.toString()
+        if (loc.includes('?')) {
+            loc = loc.split('?')[0];
+        }
+        window.location = `${loc}/..${e.currentTarget.getAttribute('href')}`;
     }
 
     toggleMenu() {
