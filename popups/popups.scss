@@ -661,13 +661,17 @@ body.popup-opened {
                         line-height: 145%;
                     }
 
+                    img {
+                        max-width: 100%;
+                        aspect-ratio: 1/1;
+
+                        @media screen and (max-width: 1200px) {
+                            width: calc(1.5 * var(--cellWidth));
+                        }
+                    }
+
                     @media screen and (max-width: 1200px) {
                         padding-left: 40px;
-
-                        img {
-                            width: calc(1.5 * var(--cellWidth));
-                            aspect-ratio: 1/1;
-                        }
                     }
 
                     @media screen and (max-width: 980px) {

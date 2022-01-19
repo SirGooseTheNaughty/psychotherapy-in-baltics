@@ -962,13 +962,20 @@ body.popup-opened .balt-nav {
   line-height: 145%;
 }
 
+.popup .container .content .blocks .curator img {
+  max-width: 100%;
+  aspect-ratio: 1/1;
+}
+
+@media screen and (max-width: 1200px) {
+  .popup .container .content .blocks .curator img {
+    width: calc(1.5 * var(--cellWidth));
+  }
+}
+
 @media screen and (max-width: 1200px) {
   .popup .container .content .blocks .curator {
     padding-left: 40px;
-  }
-  .popup .container .content .blocks .curator img {
-    width: calc(1.5 * var(--cellWidth));
-    aspect-ratio: 1/1;
   }
 }
 
