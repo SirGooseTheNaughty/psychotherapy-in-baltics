@@ -26,7 +26,14 @@ class Localizator {
             this.page = '';
             return;
         }
-        this.path = window.location.toString().split('#')[0].split(this.root)[1];
+        let loc = window.location.toString();
+        if (loc.includes('#')) {
+            loc = loc.split('#')[0];
+        }
+        if (loc.includes('?')) {
+            loc = loc.split('?')[0];
+        }
+        this.path = loc.split(this.root)[1];
         const localeAndPage = this.path.split('/');
         if (localeAndPage.length === 1) {
             this.locale = 'ru';
