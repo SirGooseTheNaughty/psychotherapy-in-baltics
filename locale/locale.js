@@ -37,8 +37,14 @@ class Localizator {
         this.path = loc.split(this.root)[1];
         const localeAndPage = this.path.split('/');
         if (localeAndPage.length === 1) {
-            this.locale = 'ru';
-            this.page = localeAndPage[0];
+            const data = localeAndPage[0];
+            if (this.possibleLocales.includes(data)) {
+                this.locale = data;
+                this.page = '';
+            } else {
+                this.locale = 'ru';
+                this.page = data;
+            }
         } else {
             [this.locale, this.page] = localeAndPage;
         }
