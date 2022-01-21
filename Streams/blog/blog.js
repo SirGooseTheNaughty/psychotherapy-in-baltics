@@ -35,16 +35,19 @@ const Blog = {
                 ru: ['методы и подходы', 'исследования', 'профессия', 'семья', 'дети', 'клиника', 'пары'],
                 en: ['methods and approaches', 'research', 'profession', 'family', 'children', 'clinique', 'couples'],
                 lv: ['metodika un pieejas', 'pētījumi', 'profesija', 'ģimene', 'bērni', 'klīnika', 'pāri'],
+                et: ['meetodid ja lähenemisviisid', 'uuringud', 'elukutse', 'perekond', 'lapsed', 'kliinik', 'paarid'],
             },
             typeLocales: {
                 ru: 'все форматы',
                 en: 'all formats',
                 lv: 'visi formāti',
+                et: 'kõik vormingud',
             },
             filterLocales: {
                 ru: 'все темы',
                 en: 'all topics',
                 lv: 'visas tēmas',
+                et: 'kõik teemad',
             },
             filters: [],
             type: 'все форматы',
@@ -58,8 +61,9 @@ const Blog = {
                 ru: ['интервью', 'посты', 'видео', 'статьи', 'книги'],
                 en: ['interviews', 'posts', 'videos', 'articles', 'books'],
                 lv: ['intervijas', 'ziņas', 'video', 'raksti', 'grāmatas'],
+                lv: ['intervjuud', 'postitused', 'videod', 'artiklid', 'raamatud'],
             },
-            languages: ['ru', 'en', 'lv', 'lv'],
+            languages: ['ru', 'en', 'lv', 'et'],
         }
     },
     template: `
