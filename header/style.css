@@ -312,28 +312,3 @@
 .menu-opened #grid {
     opacity: 0;
 }
-
-.nav-languages__et {
-    position: relative;
-    cursor: default;
-}
-.nav-languages__et::after {
-    content: '';
-    width: max-content;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(0, -20px);
-    font-family: 'Inter', sans-serif;
-    color: var(--white);
-    font-size: 14px;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity .4s ease;
-}
-.nav-languages__et::after {
-    content: 'Eesti keel pole veel saadaval, lisame esimesel võimalusel';
-}
-.nav-languages__et:hover::after {
-    opacity: 1;
-}

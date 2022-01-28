@@ -61,7 +61,7 @@ const Blog = {
                 ru: ['интервью', 'посты', 'видео', 'статьи', 'книги'],
                 en: ['interviews', 'posts', 'videos', 'articles', 'books'],
                 lv: ['intervijas', 'ziņas', 'video', 'raksti', 'grāmatas'],
-                lv: ['intervjuud', 'postitused', 'videod', 'artiklid', 'raamatud'],
+                et: ['intervjuud', 'postitused', 'videod', 'artiklid', 'raamatud'],
             },
             languages: ['ru', 'en', 'lv', 'et'],
         }

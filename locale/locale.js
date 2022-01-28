@@ -5,6 +5,7 @@ class Localizator {
             ru: ['#rec393332220', '.trl-ru'],
             en: ['#rec400573573', '.trl-en'],
             lv: ['#rec399620798', '.trl-lv'],
+            et: ['#rec405827042', '.trl-et'],
         };
         this.db = localeDb || null;
         this.selectorsToHide = '';
