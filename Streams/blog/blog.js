@@ -32,10 +32,10 @@ const Blog = {
             items: [],
             limit: 6,
             prefilledFilters: {
-                ru: ['методы и подходы', 'исследования', 'профессия', 'семья', 'дети', 'клиника', 'пары'],
-                en: ['methods and approaches', 'research', 'profession', 'family', 'children', 'clinique', 'couples'],
-                lv: ['metodika un pieejas', 'pētījumi', 'profesija', 'ģimene', 'bērni', 'klīnika', 'pāri'],
-                et: ['meetodid ja lähenemisviisid', 'uuringud', 'elukutse', 'perekond', 'lapsed', 'kliinik', 'paarid'],
+                ru: ['методы и подходы', 'исследования', 'профессия', 'семья', 'дети', 'клиника', 'пары', 'на практике', 'студенты'],
+                en: ['methods and approaches', 'research', 'profession', 'family', 'children', 'clinique', 'couples', 'on practice', 'students'],
+                lv: ['metodika un pieejas', 'pētījumi', 'profesija', 'ģimene', 'bērni', 'klīnika', 'pāri', 'uz praksi', 'studenti'],
+                et: ['meetodid ja lähenemisviisid', 'uuringud', 'elukutse', 'perekond', 'lapsed', 'kliinik', 'paarid', 'praktikal', 'õpilased'],
             },
             typeLocales: {
                 ru: 'все форматы',
@@ -159,9 +159,9 @@ const Blog = {
                         if (!postCategory) {
                             postCategory = category;
                         }
-                        if (!filters.includes(category)) {
-                            filters.push(category);
-                        }
+                        // if (!filters.includes(category)) {   // иначе закидывает русские темы во все языки, можно покумекать и поправить
+                        //     filters.push(category);
+                        // }
                     }
                 });
                 const date = post.date.split(' ')[0];
