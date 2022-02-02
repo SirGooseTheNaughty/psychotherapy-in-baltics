@@ -32,10 +32,10 @@ const Blog = {
             items: [],
             limit: 6,
             prefilledFilters: {
-                ru: ['методы и подходы', 'исследования', 'профессия', 'семья', 'дети', 'клиника', 'пары', 'на практике', 'студенты'],
-                en: ['methods and approaches', 'research', 'profession', 'family', 'children', 'clinique', 'couples', 'on practice', 'students'],
-                lv: ['metodika un pieejas', 'pētījumi', 'profesija', 'ģimene', 'bērni', 'klīnika', 'pāri', 'uz praksi', 'studenti'],
-                et: ['meetodid ja lähenemisviisid', 'uuringud', 'elukutse', 'perekond', 'lapsed', 'kliinik', 'paarid', 'praktikal', 'õpilased'],
+                ru: ['методы и подходы', 'исследования', 'профессия', 'семья', 'дети', 'клиника', 'на практике', 'отзывы', 'истории успеха'],
+                en: ['methods and approaches', 'research', 'profession', 'family', 'children', 'clinique', 'on practice', 'feedback', 'success stories'],
+                lv: ['metodika un pieejas', 'pētījumi', 'profesija', 'ģimene', 'bērni', 'klīnika', 'uz praksi', 'atsauksmes', 'veiksmes stāsti'],
+                et: ['meetodid ja lähenemisviisid', 'uuringud', 'elukutse', 'perekond', 'lapsed', 'kliinik', 'praktikal', 'tagasisidet', 'edulood'],
             },
             typeLocales: {
                 ru: 'все форматы',
