@@ -13,7 +13,7 @@ class Header {
                 et: this.cont.querySelector('.nav-languages__et'),
             },
             mobile: {
-                languages: this.cont.querySelector('.mobile-select__languages select'),
+                languages: this.cont.querySelector('.mobile-select'),
             }
         };
         this.menu = {
@@ -62,6 +62,9 @@ class Header {
         let loc = window.location.toString()
         if (loc.includes('?')) {
             loc = loc.split('?')[0];
+        }
+        if (loc.includes('#')) {
+            loc = loc.split('#')[0];
         }
         window.location = `${loc}/..${e.currentTarget.getAttribute('href')}`;
     }
