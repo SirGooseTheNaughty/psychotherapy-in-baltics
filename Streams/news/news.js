@@ -9,7 +9,7 @@ const Feed = {
             lang: localizator.locale || 'ru',
             loc: '',
             ids: streamIds,
-            order: 'desc',
+            order: 'asc',
         }
     },
     template: `
