@@ -21,7 +21,6 @@ const Feed = {
             lang: localizator.locale || 'ru',
             loc: '',
             ids: streamIds,
-            order: 'asc',
             isFocused: false,
             unfocusTimeout: null,
             search: '',
@@ -79,6 +78,9 @@ const Feed = {
         this.$refs.container.classList.add('appear');
     },
     computed: {
+        order: function() {
+            return this.category === 'events' ? 'asc' : 'desc';
+        },
         noDataMsg: function() {
             return localizator.getTranslation(['nodata', 'lang']);
         },
