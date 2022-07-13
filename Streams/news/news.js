@@ -3,7 +3,7 @@ const Feed = {
     data() {
         return {
             items: [],
-            limit: 3,
+            limit: 5,
             filters: [],
             category: 'events',
             lang: localizator.locale || 'ru',
