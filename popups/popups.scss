@@ -63,7 +63,7 @@ body.popup-opened {
         }
     }
 
-    @for $i from 1 through 4 {
+    @for $i from 1 through 6 {
         &[data-block="#{$i}"] {
             .triggers .trigger:nth-child(#{$i}) {
                 color: var(--blue);
@@ -770,6 +770,10 @@ body.popup-opened {
                         @media screen and (max-width: 480px) {
                             max-width: calc(3 * var(--cellWidth) / 2);
                         }
+                    }
+
+                    &.additional .desc {
+                        margin-bottom: 10px;
                     }
 
                 }
