@@ -7,10 +7,10 @@ const localeDb = {
             et: 'Programmide kuraatorid',
         },
         experts: {
-            ru: 'Эксперты-консультанты',
-            en: 'Experts-consultants',
-            lv: 'Eksperti konsultanti',
-            et: 'Ekspertkonsultandid',
+            ru: 'Преподаватели',
+            en: 'Professors',
+            lv: 'Pasniedzēji',
+            et: 'õpetajad',
         }
     },
     blog: {
