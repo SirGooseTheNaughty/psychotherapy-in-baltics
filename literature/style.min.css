@@ -1,0 +1,1 @@
+[class*=literature-course-],[class*=literature-type-]{opacity:.6!important;transition:opacity .25s ease;cursor:pointer}[class*=literature-course-]:hover,[class*=literature-type-]:hover{opacity:.8!important}[class*=literature-course-].active,[class*=literature-type-].active{opacity:1!important;pointer-events:none}[class*=uc-lit-]{display:none}[class*=uc-lit-].shown{display:block}

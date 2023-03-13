@@ -1,0 +1,19 @@
+[class*=literature-course-] {
+  opacity: 0.6 !important;
+  transition: opacity 0.25s ease;
+  cursor: pointer;
+}
+[class*=literature-course-]:hover {
+  opacity: 0.8 !important;
+}
+[class*=literature-course-].active {
+  opacity: 1 !important;
+  pointer-events: none;
+}
+
+[class*=uc-lit-] {
+  display: none;
+}
+[class*=uc-lit-].shown {
+  display: block;
+}/*# sourceMappingURL=style.css.map */

@@ -217,9 +217,9 @@ const Curator = {
             <img :src="data.pic" alt="curator" class="person">
             <div class="card__info">
                 <h4 class="card__info-name">{{ data.name }}</h4>
-                <div class="card__info-desc" :class="{ changable: !!data.desc2 }">
+                <div class="card__info-desc" :class="{ changable: hasSecondData }">
                     <p v-html="data.desc1"></p>
-                    <p v-html="data.desc2 || ''"></p>
+                    <p v-html="hasSecondData ? data.desc2 : ''"></p>
                 </div>
             </div>
         </div>
@@ -228,6 +228,9 @@ const Curator = {
         shiftStyle: function() {
             const transform = this.isLimited ? `calc(${-100 * this.shift}% + var(--cellWidth))` : `${-100 * this.shift}%`;
             return `transform: translateX(${transform})`;
+        },
+        hasSecondData: function() {
+            return !!this.data.desc2 && !this.data.desc2.includes('<div class="t-redactor__tte-view"></div>')
         }
     }
 };
