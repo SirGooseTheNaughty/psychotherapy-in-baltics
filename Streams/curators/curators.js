@@ -128,7 +128,7 @@ const Curators = {
         },
         fetchLink: function() {
             const rootId = this.ids[this.category].root;
-            return `https://feeds.tildacdn.com/api/getfeed/?feeduid=${rootId}&size=&slice=1&sort%5Bdate%5D=${this.order}`;
+            return `https://feeds.tildacdn.com/api/getfeed/?feeduid=${rootId}&size=100&slice=1&sort%5Bdate%5D=${this.order}`;
         }
     },
     methods: {
