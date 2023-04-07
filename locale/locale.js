@@ -2,16 +2,17 @@ class Localizator {
     constructor() {
         this.root = 'https://psy-baltics.com/';
         this.changable = {
-            ru: ['#rec393332220', '.trl-ru'],
-            en: ['#rec400573573', '.trl-en'],
-            lv: ['#rec399620798', '.trl-lv'],
-            et: ['#rec405827042', '.trl-et'],
+            ru: ['.uc-footer-ru', '.trl-ru'],
+            en: ['.uc-footer-en', '.trl-en'],
+            lv: ['.uc-footer-lv', '.trl-lv'],
+            et: ['.uc-footer-et', '.trl-et'],
+            lt: ['.uc-footer-lt', '.trl-lt'],
         };
         this.db = localeDb || null;
         this.selectorsToHide = '';
         this.locale = null;
         this.page = null;
-        this.possibleLocales = ['ru', 'en', 'lv', 'et'];
+        this.possibleLocales = ['ru', 'en', 'lv', 'et', 'lt'];
 
         this.changeLanguage = this.changeLanguage.bind(this);
 
