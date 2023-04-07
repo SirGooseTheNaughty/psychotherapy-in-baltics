@@ -11,6 +11,7 @@ class Header {
                 en: this.cont.querySelector('.nav-languages__en'),
                 lv: this.cont.querySelector('.nav-languages__lv'),
                 et: this.cont.querySelector('.nav-languages__et'),
+                lt: this.cont.querySelector('.nav-languages__lt'),
             },
             mobile: {
                 languages: this.cont.querySelector('.mobile-select'),
