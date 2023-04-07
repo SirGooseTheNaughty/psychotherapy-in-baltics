@@ -263,6 +263,7 @@
     opacity: 0;
     pointer-events: none;
     transform: translateX(-10%);
+    z-index: 999;
 }
 .my-menu-transition {
     transition: .4s ease;
@@ -296,6 +297,7 @@
 }
 .menu-opened #allrecords > [id^=rec],
 .menu-opened #allrecords > #t-footer > div:first-child,
-.menu-opened #grid {
+.menu-opened #grid,
+.memu-opened .uc-contact-block {
     opacity: 0;
 }
