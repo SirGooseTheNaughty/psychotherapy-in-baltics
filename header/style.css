@@ -297,7 +297,7 @@
 }
 .menu-opened #allrecords > [id^=rec],
 .menu-opened #grid,
-.menu-opened .uc-contact-block
+.menu-opened .uc-contact-block,
 .menu-opened [class*="uc-footer-"] {
     opacity: 0;
 }
