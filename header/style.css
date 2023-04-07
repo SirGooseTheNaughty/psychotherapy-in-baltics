@@ -291,8 +291,9 @@
     }
 }
 #allrecords > [id^=rec],
-#allrecords > #t-footer > div:first-child,
-#grid {
+#grid,
+.uc-contact-block,
+[class*="uc-footer-"] {
     transition: opacity .4s ease;
 }
 .menu-opened #allrecords > [id^=rec],
