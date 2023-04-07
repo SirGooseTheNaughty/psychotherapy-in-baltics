@@ -296,8 +296,8 @@
     transition: opacity .4s ease;
 }
 .menu-opened #allrecords > [id^=rec],
-.menu-opened #allrecords > #t-footer > div:first-child,
 .menu-opened #grid,
-.memu-opened .uc-contact-block {
+.menu-opened .uc-contact-block
+.menu-opened [class*="uc-footer-"] {
     opacity: 0;
 }
