@@ -29,6 +29,7 @@ class Header {
         this.toggleMenu = this.toggleMenu.bind(this);
         this.setLanguage = this.setLanguage.bind(this);
         this.changeLanguage = this.changeLanguage.bind(this);
+        this.goToLink = this.goToLink.bind(this);
 
         this.menu.desktop.classList.add('my-menu');
         this.menu.mobile.classList.add('my-menu');
@@ -46,13 +47,18 @@ class Header {
         }
         this.menu.links.forEach(link => link.addEventListener('click', this.goToLink));
 
-        // let lang = getLanguageCookie();
-        // if (!lang) {
-        //     lang = window.navigator.language.split('-')[0] || 'ru';
-        //     setLanguageCookie(lang);
-        // }
         const lang = this.localizator.locale || 'ru';
         this.setLanguage(lang, false);
+    }
+
+    isLangPageWithoutSlash(loc) {
+        const locEndIndex = loc.length - 1;
+        if (loc[locEndIndex] === '/') {
+            return false;
+        }
+        const lang = loc.slice(locEndIndex - 1, locEndIndex);
+        const langs = ['en', 'lv', 'lt', 'et'];
+        return langs.includes(lang);
     }
 
     goToLink(e) {
@@ -66,6 +72,9 @@ class Header {
         }
         if (loc.includes('#')) {
             loc = loc.split('#')[0];
+        }
+        if (this.isLangPageWithoutSlash(loc)) {
+            loc += '/';
         }
         window.location = `${loc}/..${e.currentTarget.getAttribute('href')}`;
     }
