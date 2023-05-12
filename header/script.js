@@ -52,11 +52,11 @@ class Header {
     }
 
     isLangPageWithoutSlash(loc) {
-        const locEndIndex = loc.length - 1;
-        if (loc[locEndIndex] === '/') {
+        const locEndIndex = loc.length;
+        if (loc[locEndIndex - 1] === '/') {
             return false;
         }
-        const lang = loc.slice(locEndIndex - 1, locEndIndex);
+        const lang = loc.slice(locEndIndex - 2, locEndIndex);
         const langs = ['en', 'lv', 'lt', 'et'];
         return langs.includes(lang);
     }
