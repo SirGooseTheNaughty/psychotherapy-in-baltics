@@ -7,12 +7,19 @@ const localeDb = {
             et: 'Programmide kuraatorid',
             lt: 'Programos kuratoriai',
         },
-        experts: {
-            ru: 'Преподаватели',
-            en: 'Professors',
-            lv: 'Pasniedzēji',
-            et: 'õpetajad',
-            lt: 'Profesoriai',
+        trainers: {
+            ru: 'Тренеры',
+            en: 'Trainers',
+            lv: 'Treneri',
+            et: 'Treenerid',
+            lt: 'Treneriai',
+        },
+        supervisors: {
+            ru: 'Супервизоры',
+            en: 'Supervisors',
+            lv: 'Uzraugiem',
+            et: 'Juhendajad',
+            lt: 'Prižiūrėtojai',
         }
     },
     blog: {

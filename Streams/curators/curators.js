@@ -1,9 +1,9 @@
 const svgNextBtn = `
     <svg width="59" height="59" viewBox="0 0 59 59" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="29.5" cy="29.5" r="29" fill="white" fill-opacity="1"/>
-        <path d="M14 30.5L44 30.5" stroke="#FF8552"/>
-        <path d="M44 30.5C40.7708 30.3958 34.3125 28.75 34.3125 23" stroke="#FF8552"/>
-        <path d="M44 30.5C40.7708 30.6042 34.3125 32.25 34.3125 38" stroke="#FF8552"/>
+        <path d="M14 30.5L44 30.5" stroke="#3A74BD"/>
+        <path d="M44 30.5C40.7708 30.3958 34.3125 28.75 34.3125 23" stroke="#3A74BD"/>
+        <path d="M44 30.5C40.7708 30.6042 34.3125 32.25 34.3125 38" stroke="#3A74BD"/>
     </svg>
 `;
 
@@ -49,9 +49,14 @@ const Curators = {
                     >{{ curatorsText }}</div>
                     <div
                         class="controls__tag controls__experts"
-                        :class="{ active: filters.includes('experts') }"
-                        v-on:click="() => setFilter('experts')"
-                    >{{ expertsText }}</div>
+                        :class="{ active: filters.includes('trainers') }"
+                        v-on:click="() => setFilter('trainers')"
+                    >{{ trainersText }}</div>
+                    <div
+                        class="controls__tag controls__supervisors"
+                        :class="{ active: filters.includes('supervisors') }"
+                        v-on:click="() => setFilter('supervisors')"
+                    >{{ supervisorsText }}</div>
                 </div>
                 <div v-if="currentItems.length" :class="{ hidden: shift === 0 }" class="controls__btn controls__left" v-on:click="shiftLeft">${svgNextBtn}</div>
                 <div v-if="currentItems.length" :class="{ hidden: shift === maxShift }" class="controls__btn controls__right" v-on:click="shiftRight">${svgNextBtn}</div>
@@ -77,7 +82,11 @@ const Curators = {
         window.addEventListener('resize', this.setLimit);
         try {
             const selector = document.querySelector('.t395__select');
-            selector.addEventListener('change', (e) => this.setFilter(e.target.value == '0' ? 'curators' : 'experts'));
+            selector.addEventListener('change', (e) => {
+                const index = (!isNaN(e.target.value) ? parseInt(e.target.value) : 0) || 0;
+                const value = ['curators', 'trainers', 'supervisors'][index];
+                this.setFilter(value);
+            });
         } catch(e) {};
     },
     computed: {
@@ -96,8 +105,11 @@ const Curators = {
         curatorsText: function() {
             return localizator.getTranslation(['curators', 'curators']);
         },
-        expertsText: function() {
-            return localizator.getTranslation(['curators', 'experts']);
+        trainersText: function() {
+            return localizator.getTranslation(['curators', 'trainers']);
+        },
+        supervisorsText: function() {
+            return localizator.getTranslation(['curators', 'supervisors']);
         },
         noDataMsg: function() {
             return localizator.getTranslation(['nodata', 'lang']);

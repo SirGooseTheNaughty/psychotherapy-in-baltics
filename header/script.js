@@ -43,7 +43,9 @@ class Header {
         this.controls.mobile.languages.addEventListener('change', (e) => this.changeLanguage(e.target.value));
         this.controls.togglers.menu.addEventListener('click', this.toggleMenu);
         for (let key in this.controls.languages) {
-            this.controls.languages[key].addEventListener('click', () => this.changeLanguage(key));
+            if (this.controls.languages[key]) {
+                this.controls.languages[key].addEventListener('click', () => this.changeLanguage(key));
+            }
         }
         this.menu.links.forEach(link => link.addEventListener('click', this.goToLink));
 

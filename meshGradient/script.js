@@ -27,29 +27,6 @@ const meshData = {
   ]
 };
 
-// const meshData = {
-//   colors: {
-//       tl: '#91AED8',
-//       tr: '#9FB7DE',
-//       bl: '#AABEE1',
-//       br: '#AABEE1'
-//   },
-//   canvasId: 'mesh-canvas',
-//   dots: [
-//       [-1, -1],
-//       [-1, 1],
-//       [1, -1],
-//       [0, 0],
-//       [0.9, 0.8],
-//   ],
-//   moving: [
-//     { index: 4, revert: false },
-//   ],
-//   target: [
-//       [-1, 0.5],
-//   ]
-// };
-
 let warps,
   gradient,
   texture,

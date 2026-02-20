@@ -42,7 +42,7 @@
 }
 #curators .card__info-desc {
     line-height: 1.40em;
-    font-size: 16px;
+    font-size: 15px;
     height: calc(100% - 20px);
     overflow: hidden;
     position: relative;
@@ -87,19 +87,16 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    gap: 30px;
     position: relative;
     top: calc(-1 * var(--cellHeight) / 2.5);
 }
 #curators .controls__tag {
+    box-sizing: border-box;
     font-weight: 500;
     opacity: 60%;
     cursor: pointer;
     transition: opacity .25s ease;
-}
-#curators .controls__tag.controls__curators {
-    text-align: end;
-    padding-right: 30px;
-    box-sizing: border-box;
 }
 #curators .controls__tag.active {
     opacity: 100%;

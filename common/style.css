@@ -4,8 +4,8 @@
     --white: #fff;
     --dimmedWhite: rgba(255, 255, 255, 0.15);
     --beige: #F0EFEC;
-    --blue: #7F95D1;
-    --bgBlue: #93AEDA;
+    --blue: #3A74BD;
+    --bgBlue: #1653A5;
     --lightGray: #F2F2F2;
     --gray: #4f4f4f;
     --gray3: #828282;
@@ -13,6 +13,9 @@
     --orange: #FF8552;
 
     --animTime: .4s;
+}
+body {
+    background-color: var(--bgBlue);
 }
 a {
     text-decoration: none;
