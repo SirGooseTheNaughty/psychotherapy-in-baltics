@@ -80,6 +80,7 @@
     gap: 0.5rem;
 }
 .nav-signup {
+    box-sizing: border-box;
     display: flex;
     align-items: center;
     border: none;
@@ -87,6 +88,7 @@
     padding: 0 1rem;
     font-family: inherit;
     font-size: 1rem;
+    text-align: center;
     white-space: nowrap;
     cursor: pointer;
     transition: opacity 0.4s ease;
@@ -298,7 +300,7 @@ a.nav-signup {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100vh;
+    height: 100svh;
     overflow-y: auto;
     opacity: 0;
     pointer-events: none;
@@ -326,7 +328,6 @@ a.nav-signup {
 }
 @media screen and (max-width: 639px) {
     .my-menu {
-        height: calc(100vh - 100px);
         overflow-y: scroll;
     }
 }
