@@ -512,6 +512,7 @@ body.popup-opened {
                             ol {
                                 padding-left: 0 !important;
                                 margin: 0;
+                                margin-bottom: 30px;
                                 counter-reset: list-counter;
                             }
                             li {
@@ -528,8 +529,12 @@ body.popup-opened {
                                 font-weight: 500;
                                 line-height: 145%;
 
+                                &:last-child {
+                                    border-bottom: 1px solid var(--gray3);
+                                }
+
                                 @media screen and (min-width: 1200px) {
-                                    padding-left: 98px;
+                                    padding-left: 100px;
                                 }
                                 @media screen and (max-width: 1200px) {
                                     padding-left: 40px;
@@ -745,13 +750,8 @@ body.popup-opened {
                         margin-bottom: 30px;
                         line-height: 145%;
 
-                        &:first-child {
-                            @media screen and (max-width: 980px) {
-                                margin-bottom: 20px;
-                            }
-                        }
-                        &:nth-child(2) {
-                            margin-bottom: 40px;
+                        @media screen and (max-width: 980px) {
+                            margin-bottom: 20px;
                         }
                     }
 
