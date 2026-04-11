@@ -131,23 +131,34 @@ const Blog = {
         slicedItems: function () {
             return this.currentItems.slice(0, this.limit);
         },
-        fetchLink: function() {
-            const rootId = this.ids[this.category].root;
-            return `https://feeds.tildacdn.com/api/getfeed/?feeduid=${rootId}&size=100&slice=1&sort%5Bdate%5D=${this.order}`;
-        },
     },
     methods: {
+        fetchLink: function(slice = 1) {
+            const rootId = this.ids[this.category].root;
+            return `https://feeds.tildacdn.com/api/getfeed/?feeduid=${rootId}&size=100&slice=${slice}&sort%5Bdate%5D=${this.order}`;
+        },
         getItems: async function() {
             // this.items = mockedPosts.reverse();
             // return this.filters = mockedFilters;
-            await fetch(this.fetchLink)
-                .then(res => res.json())
-                .then(res => {
-                    const { posts, filters } = this.preformItems(res);
-                    this.items = posts;
-                    this.filters = filters;
-                })
-                .catch(console.log);
+            try {
+                let allPosts = [];
+                let filters = [];
+                let slice = 1;
+                let total = Infinity;
+                while (allPosts.length < total) {
+                    const res = await fetch(this.fetchLink(slice)).then(r => r.json());
+                    const { posts, filters: f } = this.preformItems(res);
+                    allPosts = allPosts.concat(posts);
+                    filters = f;
+                    total = res.total;
+                    if (!res.nextslice || allPosts.length >= total) break;
+                    slice = res.nextslice;
+                }
+                this.items = allPosts;
+                this.filters = filters;
+            } catch (e) {
+                console.log(e);
+            }
         },
         preformItems: function(data) {
             let posts = [], filters = [...this.prefilledFilters[this.lang]];

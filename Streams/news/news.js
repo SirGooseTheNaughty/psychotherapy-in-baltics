@@ -55,20 +55,29 @@ const Feed = {
             }
             return currentItems;
         },
-        fetchLink: function() {
-            const rootId = this.ids[this.category].root;
-            return `https://feeds.tildacdn.com/api/getfeed/?feeduid=${rootId}&size=100&slice=1&sort%5Bdate%5D=${this.order}`;
-        }
     },
     methods: {
+        fetchLink: function(slice = 1) {
+            const rootId = this.ids[this.category].root;
+            return `https://feeds.tildacdn.com/api/getfeed/?feeduid=${rootId}&size=100&slice=${slice}&sort%5Bdate%5D=${this.order}`;
+        },
         getItems: async function() {
             // this.items = mockedEvents;
-            await fetch(this.fetchLink)
-                .then(res => res.json())
-                .then(res => {
-                    this.items = this.preformItems(res);
-                })
-                .catch(console.log);
+            try {
+                let allPosts = [];
+                let slice = 1;
+                let total = Infinity;
+                while (allPosts.length < total) {
+                    const res = await fetch(this.fetchLink(slice)).then(r => r.json());
+                    allPosts = allPosts.concat(this.preformItems(res));
+                    total = res.total;
+                    if (!res.nextslice || allPosts.length >= total) break;
+                    slice = res.nextslice;
+                }
+                this.items = allPosts;
+            } catch (e) {
+                console.log(e);
+            }
         },
         preformItems: function(items) {
             return items.posts.map(post => {

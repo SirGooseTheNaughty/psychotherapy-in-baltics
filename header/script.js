@@ -64,7 +64,7 @@ class Header {
     }
 
     goToLink(e) {
-        if (e.currentTarget.getAttribute('href').includes('#')) {
+        if (e.currentTarget.getAttribute('href').startsWith('#')) {
             return;
         }
         e.preventDefault();
