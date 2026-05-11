@@ -163,6 +163,7 @@ body.popup-opened {
                     line-height: 100%;
                     margin: 0;
                     letter-spacing: -0.035em;
+                    word-break: normal;
 
                     @media screen and (max-width: 1200px) {
                         font-size: 48px;

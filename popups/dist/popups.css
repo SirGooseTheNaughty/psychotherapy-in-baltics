@@ -279,6 +279,7 @@ body.popup-opened .balt-nav {
   line-height: 100%;
   margin: 0;
   letter-spacing: -0.035em;
+  word-break: normal;
 }
 @media screen and (max-width: 1200px) {
   .popup .container .desc .short .popup__title {
